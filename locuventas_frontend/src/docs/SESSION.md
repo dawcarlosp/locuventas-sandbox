@@ -9,9 +9,9 @@
 
 | Campo | Valor |
 |-------|-------|
-| **Iteración** | 9 |
+| **Iteración** | 10 |
 | **Rama activa** | `master` (push directo, sin PRs) |
-| **Último commit** | (pendiente) — perf: añade lazy loading a todas las rutas |
+| **Último commit** | (pendiente) — feat: añade ErrorBoundary global con UI de recuperación |
 | **Remote** | `dawcarlosp/locuventas-sandbox.git` |
 | **Working tree** | `C:\Users\cpere\Documents\locuventas-sandbox` |
 | **Estado del build** | 🟢 Build exitoso |
@@ -19,6 +19,11 @@
 ---
 
 ## Qué se hizo
+
+### Iteración 10 — ErrorBoundary global
+
+- [x] `ErrorBoundary` con UI de recuperación (botón recargar)
+- [x] Envuelta en `App.tsx` para proteger toda la app
 
 ### Iteración 9 — Lazy loading en rutas
 

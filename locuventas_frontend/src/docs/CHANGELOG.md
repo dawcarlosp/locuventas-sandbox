@@ -6,6 +6,25 @@
 
 ---
 
+## #10 — ErrorBoundary global
+
+**Objetivo:** Evitar que errores no controlados tumben toda la app.
+
+### Cambios realizados
+
+| Archivo | Acción | Descripción |
+|---------|--------|-------------|
+| `src/components/common/ErrorBoundary.tsx` | ✨ Nuevo | Componente ErrorBoundary con UI de recuperación |
+| `src/app/App.tsx` | ♻️ Mejora | Envuelve `<AppRoutes>` en `<ErrorBoundary>` |
+
+### Commits
+
+```
+feat: añade ErrorBoundary global con UI de recuperación
+```
+
+---
+
 ## #9 — Lazy loading en rutas
 
 **Objetivo:** Reducir bundle inicial dividiendo páginas en chunks lazy.
