@@ -6,6 +6,32 @@
 
 ---
 
+## #4 — Fase 4: Integración Gemini AI
+
+**Objetivo:** Cliente Gemini, hook genérico y prompts para IA en el frontend.
+
+### Cambios realizados
+
+| Archivo | Acción | Descripción |
+|---------|--------|-------------|
+| `src/shared/ai/gemini.client.ts` | ✨ Nuevo | Cliente HTTP para Google Gemini API (`generateContent`, `generateJson`) |
+| `src/shared/ai/useGemini.ts` | ✨ Nuevo | Hooks `useGemini<T>` y `useGeminiJson<T>` con AbortController y estados |
+| `src/shared/ai/prompts/productos.prompts.ts` | ✨ Nuevo | Prompts para búsqueda semántica y sugerencia de categorías |
+| `src/shared/ai/prompts/ventas.prompts.ts` | ✨ Nuevo | Prompt para resumen de ventas en lenguaje natural |
+| `src/shared/ai/index.ts` | ✨ Nuevo | Barrel export |
+| `src/features/productos/hooks/useBusquedaSemantica.ts` | ✨ Nuevo | Hook: búsqueda semántica de productos con Gemini |
+| `src/features/productos/hooks/useSugerirCategorias.ts` | ✨ Nuevo | Hook: sugerencia de categorías al crear producto |
+| `src/features/ventas/hooks/useResumenVentas.ts` | ✨ Nuevo | Hook: resumen de ventas en lenguaje natural |
+| `.env` | ♻️ Mejora | Añadida `VITE_GEMINI_API_KEY` |
+
+### Commits
+
+```
+feat: implementa Fase 4 — integración Gemini AI
+```
+
+---
+
 ## #3 — Gestión de categorías
 
 **Objetivo:** CRUD completo de categorías con borrado condicional.

@@ -9,9 +9,9 @@
 
 | Campo | Valor |
 |-------|-------|
-| **Iteración** | 3 |
+| **Iteración** | 4 |
 | **Rama activa** | `master` (push directo, sin PRs) |
-| **Último commit** | `dcdfc9e` — Revert "chore: sandbox activo" |
+| **Último commit** | (pendiente) — feat: implementa Fase 4 — integración Gemini AI |
 | **Remote** | `dawcarlosp/locuventas-sandbox.git` |
 | **Working tree** | `C:\Users\cpere\Documents\locuventas-sandbox` |
 | **Estado del build** | 🟢 Build exitoso |
@@ -19,6 +19,17 @@
 ---
 
 ## Qué se hizo
+
+### Iteración 4 — Fase 4: Integración Gemini AI
+
+- [x] `shared/ai/gemini.client.ts` — Cliente HTTP para Google Gemini API
+- [x] `shared/ai/useGemini.ts` — Hooks `useGemini<T>` y `useGeminiJson<T>`
+- [x] `shared/ai/prompts/productos.prompts.ts` — Prompts búsqueda semántica y categorización
+- [x] `shared/ai/prompts/ventas.prompts.ts` — Prompt resumen de ventas
+- [x] `features/productos/hooks/useBusquedaSemantica.ts` — Búsqueda semántica con IA
+- [x] `features/productos/hooks/useSugerirCategorias.ts` — Sugerencia de categorías
+- [x] `features/ventas/hooks/useResumenVentas.ts` — Resumen de ventas con IA
+- [x] `.env` — Añadida `VITE_GEMINI_API_KEY`
 
 ### Iteración 3 — Gestión de categorías
 

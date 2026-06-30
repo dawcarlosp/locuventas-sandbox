@@ -25,15 +25,15 @@
 | B.3 | Eliminar `ComponentType<any>` en `PANEL_MAP` de `RecursiveMenu` | `baja` | `pending` | Pendiente de encontrar alternativa limpia |
 | B.4 | Unificar skeletons en un solo `Skeleton` con `variant` | `baja` | `pending` | Propuesto: `variant="card\|row\|circle"` |
 
-## Fase 4 — Integración Gemini AI
+## Fase 4 — Integración Gemini AI ✅
 
 | # | Tarea | Prioridad | Estado | Notas |
 |---|-------|-----------|--------|-------|
-| 4.1 | Crear `shared/ai/gemini.client.ts` | `media` | `pending` | Cliente Gemini con API key |
-| 4.2 | Crear `shared/ai/useGemini.ts` | `media` | `pending` | Hook genérico para llamadas a Gemini |
-| 4.3 | Implementar búsqueda semántica de productos | `media` | `pending` | Vendedor describe producto en lenguaje natural |
-| 4.4 | Implementar resumen de ventas con IA | `media` | `pending` | Admin pide resumen del día/semana |
-| 4.5 | Implementar sugerencias de categorización | `media` | `pending` | Al crear producto, Gemini sugiere categorías |
+| 4.1 | Crear `shared/ai/gemini.client.ts` | `media` | `done` | Cliente Gemini con API key |
+| 4.2 | Crear `shared/ai/useGemini.ts` | `media` | `done` | Hook genérico para llamadas a Gemini |
+| 4.3 | Implementar búsqueda semántica de productos | `media` | `done` | `useBusquedaSemantica` en productos feature |
+| 4.4 | Implementar resumen de ventas con IA | `media` | `done` | `useResumenVentas` en ventas feature |
+| 4.5 | Implementar sugerencias de categorización | `media` | `done` | `useSugerirCategorias` en productos feature |
 
 ## Tests
 
