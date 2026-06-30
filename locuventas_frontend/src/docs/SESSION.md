@@ -9,9 +9,9 @@
 
 | Campo | Valor |
 |-------|-------|
-| **Iteración** | 11 |
+| **Iteración** | 12 |
 | **Rama activa** | `master` (push directo, sin PRs) |
-| **Último commit** | (pendiente) — feat: integra búsqueda semántica con Gemini en el catálogo |
+| **Último commit** | (pendiente) — feat: integra resumen de ventas con IA en el historial |
 | **Remote** | `dawcarlosp/locuventas-sandbox.git` |
 | **Working tree** | `C:\Users\cpere\Documents\locuventas-sandbox` |
 | **Estado del build** | 🟢 Build exitoso |
@@ -19,6 +19,12 @@
 ---
 
 ## Qué se hizo
+
+### Iteración 12 — Resumen de ventas con IA
+
+- [x] Botón "Resumen IA" en VentasPagina
+- [x] Card con spinner y texto del resumen generado por Gemini
+- [x] Integración real con Gemini via `useResumenVentas`
 
 ### Iteración 11 — Búsqueda semántica en catálogo
 

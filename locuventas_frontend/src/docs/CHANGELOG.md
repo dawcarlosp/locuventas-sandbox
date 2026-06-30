@@ -6,6 +6,25 @@
 
 ---
 
+## #12 — Resumen de ventas con IA en historial
+
+**Objetivo:** Conectar el hook `useResumenVentas` con la UI del historial.
+
+### Cambios realizados
+
+| Archivo | Acción | Descripción |
+|---------|--------|-------------|
+| `VentasPagina.tsx` | ♻️ Mejora | Botón "Resumen IA" que genera resumen de ventas con Gemini |
+| `VentasPagina.tsx` | ♻️ Mejora | Card con spinner de carga y texto del resumen |
+
+### Commits
+
+```
+feat: integra resumen de ventas con IA en el historial
+```
+
+---
+
 ## #11 — Búsqueda semántica integrada en el catálogo
 
 **Objetivo:** Conectar la Fase 4 de Gemini AI con la UI del catálogo.
