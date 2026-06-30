@@ -6,6 +6,25 @@
 
 ---
 
+## #8 — Tests de integración y test-utils
+
+**Objetivo:** Añadir tests de integración con test-utils compartidos.
+
+### Cambios realizados
+
+| Archivo | Acción | Descripción |
+|---------|--------|-------------|
+| `src/test/test-utils.tsx` | ✨ Nuevo | Custom render con BrowserRouter + AuthProvider + HeaderProvider |
+| `src/features/auth/pages/__tests__/LoginPage.test.tsx` | ✨ Nuevo | 3 tests: renderizado formulario, botón login, enlace registro |
+
+### Commits
+
+```
+test: añade test-utils y test de integración para LoginPage
+```
+
+---
+
 ## #7 — Tests unitarios con Vitest
 
 **Objetivo:** Configurar Vitest y añadir tests a hooks principales.

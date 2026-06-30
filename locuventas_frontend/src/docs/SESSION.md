@@ -9,9 +9,9 @@
 
 | Campo | Valor |
 |-------|-------|
-| **Iteración** | 7 |
+| **Iteración** | 8 |
 | **Rama activa** | `master` (push directo, sin PRs) |
-| **Último commit** | (pendiente) — test: configura Vitest y añade tests a useCarrito y useBuscador |
+| **Último commit** | (pendiente) — test: añade test-utils y test de integración para LoginPage |
 | **Remote** | `dawcarlosp/locuventas-sandbox.git` |
 | **Working tree** | `C:\Users\cpere\Documents\locuventas-sandbox` |
 | **Estado del build** | 🟢 Build exitoso |
@@ -19,6 +19,11 @@
 ---
 
 ## Qué se hizo
+
+### Iteración 8 — Tests de integración
+
+- [x] `test-utils.tsx` con providers (BrowserRouter + Auth + Header)
+- [x] 3 tests para `LoginPage` (renderizado, botones, enlaces)
 
 ### Iteración 7 — Tests unitarios con Vitest
 
