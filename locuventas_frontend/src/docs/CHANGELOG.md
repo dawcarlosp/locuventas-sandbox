@@ -6,6 +6,27 @@
 
 ---
 
+## #9 — Lazy loading en rutas
+
+**Objetivo:** Reducir bundle inicial dividiendo páginas en chunks lazy.
+
+### Cambios realizados
+
+| Archivo | Acción | Descripción |
+|---------|--------|-------------|
+| `src/app/routes.tsx` | ♻️ Refactor | 7 rutas migradas a `React.lazy` + `Suspense` con fallback |
+| `src/app/routes.tsx` | ✨ Nuevo | Componente `SuspenseWrapper` con spinner de carga |
+
+**Resultado:** Bundle principal reducido de 472KB → 292KB. Cada página es un chunk independiente.
+
+### Commits
+
+```
+perf: añade lazy loading a todas las rutas
+```
+
+---
+
 ## #8 — Tests de integración y test-utils
 
 **Objetivo:** Añadir tests de integración con test-utils compartidos.

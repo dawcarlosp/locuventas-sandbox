@@ -1,13 +1,27 @@
+import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import LoginPage from "@/features/auth/pages/LoginPage";
-import Dashboard from "@features/ventas/pages/Dashboard";
-import VentasPagina from "@features/ventas/pages/VentasPagina";
-import VentasPendientesPagina from "@features/ventas/pages/VentasPendientesPagina";
-import VendedoresPendientesPagina from "@/features/auth/pages/VendedoresPendientesPagina";
-import GestionProductosPagina from "@features/productos/pages/GestionProductosPagina";
-import GestionCategoriasPagina from "@features/categorias/pages/GestionCategoriasPagina";
-import SobreMiPage from "@features/dev/pages/SobreMiPage";
 import PrivateRoute from "@/app/PrivateRoute";
+
+const Dashboard = lazy(() => import("@features/ventas/pages/Dashboard"));
+const VentasPagina = lazy(() => import("@features/ventas/pages/VentasPagina"));
+const VentasPendientesPagina = lazy(() => import("@features/ventas/pages/VentasPendientesPagina"));
+const VendedoresPendientesPagina = lazy(() => import("@features/auth/pages/VendedoresPendientesPagina"));
+const GestionProductosPagina = lazy(() => import("@features/productos/pages/GestionProductosPagina"));
+const GestionCategoriasPagina = lazy(() => import("@features/categorias/pages/GestionCategoriasPagina"));
+const SobreMiPage = lazy(() => import("@features/dev/pages/SobreMiPage"));
+
+function SuspenseWrapper({ children }: { children: React.ReactNode }) {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-zinc-900">
+        <div className="animate-pulse text-zinc-500 text-sm">Cargando...</div>
+      </div>
+    }>
+      {children}
+    </Suspense>
+  );
+}
 
 interface AppRoutesProps {
   setIsOpen: (v: boolean) => void;
@@ -18,13 +32,13 @@ export function AppRoutes({ setIsOpen }: AppRoutesProps) {
     <Routes>
       <Route path="/" element={<LoginPage setIsOpen={setIsOpen} />} />
       <Route path="/login" element={<LoginPage setIsOpen={setIsOpen} />} />
-      <Route path="/aboutme" element={<SobreMiPage />} />
+      <Route path="/aboutme" element={<SuspenseWrapper><SobreMiPage /></SuspenseWrapper>} />
 
       <Route
         path="/dashboard"
         element={
           <PrivateRoute>
-            <Dashboard />
+            <SuspenseWrapper><Dashboard /></SuspenseWrapper>
           </PrivateRoute>
         }
       />
@@ -32,7 +46,7 @@ export function AppRoutes({ setIsOpen }: AppRoutesProps) {
         path="/ventas"
         element={
           <PrivateRoute>
-            <VentasPagina />
+            <SuspenseWrapper><VentasPagina /></SuspenseWrapper>
           </PrivateRoute>
         }
       />
@@ -40,7 +54,7 @@ export function AppRoutes({ setIsOpen }: AppRoutesProps) {
         path="/ventas/pendientes"
         element={
           <PrivateRoute>
-            <VentasPendientesPagina />
+            <SuspenseWrapper><VentasPendientesPagina /></SuspenseWrapper>
           </PrivateRoute>
         }
       />
@@ -48,7 +62,7 @@ export function AppRoutes({ setIsOpen }: AppRoutesProps) {
         path="/vendedores/pendientes"
         element={
           <PrivateRoute>
-            <VendedoresPendientesPagina />
+            <SuspenseWrapper><VendedoresPendientesPagina /></SuspenseWrapper>
           </PrivateRoute>
         }
       />
@@ -56,7 +70,7 @@ export function AppRoutes({ setIsOpen }: AppRoutesProps) {
         path="/productos/gestion"
         element={
           <PrivateRoute>
-            <GestionProductosPagina />
+            <SuspenseWrapper><GestionProductosPagina /></SuspenseWrapper>
           </PrivateRoute>
         }
       />
@@ -64,7 +78,7 @@ export function AppRoutes({ setIsOpen }: AppRoutesProps) {
         path="/categorias/gestion"
         element={
           <PrivateRoute>
-            <GestionCategoriasPagina />
+            <SuspenseWrapper><GestionCategoriasPagina /></SuspenseWrapper>
           </PrivateRoute>
         }
       />

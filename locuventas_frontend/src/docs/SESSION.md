@@ -9,9 +9,9 @@
 
 | Campo | Valor |
 |-------|-------|
-| **Iteración** | 8 |
+| **Iteración** | 9 |
 | **Rama activa** | `master` (push directo, sin PRs) |
-| **Último commit** | (pendiente) — test: añade test-utils y test de integración para LoginPage |
+| **Último commit** | (pendiente) — perf: añade lazy loading a todas las rutas |
 | **Remote** | `dawcarlosp/locuventas-sandbox.git` |
 | **Working tree** | `C:\Users\cpere\Documents\locuventas-sandbox` |
 | **Estado del build** | 🟢 Build exitoso |
@@ -19,6 +19,11 @@
 ---
 
 ## Qué se hizo
+
+### Iteración 9 — Lazy loading en rutas
+
+- [x] 7 páginas migradas a `React.lazy()` con `Suspense`
+- [x] Bundle principal reducido 472KB → 292KB (-38%)
 
 ### Iteración 8 — Tests de integración
 
