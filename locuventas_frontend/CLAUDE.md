@@ -101,8 +101,7 @@ src/
 │   │   ├── SelectBase.tsx
 │   │   ├── SelectForm.tsx
 │   │   ├── SelectFilter.tsx
-│   │   ├── SkeletonProductoCard.tsx
-│   │   └── SkeletonTarjetaVendedor.tsx
+│   │   ├── Skeleton.tsx
 ├── constants/
 │   ├── breakpoints.ts
 │   ├── states.ts

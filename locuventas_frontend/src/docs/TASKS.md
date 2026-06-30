@@ -23,7 +23,7 @@
 | # | Tarea | Prioridad | Estado | Notas |
 |---|-------|-----------|--------|-------|
 | B.3 | Eliminar `ComponentType<any>` en `PANEL_MAP` de `RecursiveMenu` | `baja` | `pending` | Pendiente de encontrar alternativa limpia |
-| B.4 | Unificar skeletons en un solo `Skeleton` con `variant` | `baja` | `pending` | Propuesto: `variant="card\|row\|circle"` |
+| B.4 | Unificar skeletons en un solo `Skeleton` con `variant` | `baja` | `done` | Unificado en `Skeleton` con 4 variants |
 
 ## Fase 4 — Integración Gemini AI ✅
 

@@ -5,7 +5,7 @@ import useVendedoresPendientes from "@hooks/useVendedoresPendientes";
 import TarjetaVendedor from "@/features/auth/components/TarjetaVendedor";
 import Paginacion from "@components/common/Paginacion";
 import BuscadorInput from "@components/common/BuscadorInput";
-import SkeletonTarjetaVendedor from "@/features/auth/components/SkeletonTarjetaVendedor";
+import Skeleton from "@components/common/Skeleton";
 
 const SKELETON_COUNT = 3;
 
@@ -69,7 +69,7 @@ export default function PendientesList({
         {loading ? (
           <ul className="space-y-3">
             {Array.from({ length: SKELETON_COUNT }).map((_, i) => (
-              <SkeletonTarjetaVendedor key={i} />
+              <Skeleton key={i} variant="tarjeta-vendedor" />
             ))}
           </ul>
         ) : pendientes.length === 0 ? (

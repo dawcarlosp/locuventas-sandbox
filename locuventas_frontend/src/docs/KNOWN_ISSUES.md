@@ -10,7 +10,7 @@
 | # | Issue | Prioridad | Notas |
 |---|-------|-----------|-------|
 | 1 | `ComponentType<any>` en `PANEL_MAP` de `RecursiveMenu` | `baja` | No se encontró alternativa limpia; los componentes del mapa tienen firmas de props distintas |
-| 2 | Skeletons no unificados | `baja` | `SkeletonProductoCard`, `SkeletonTarjetaVendedor`, `SkeletonVentaCard` son casi idénticos. Pendiente unificar en un solo `Skeleton` con `variant` |
+| 2 | Skeletons no unificados | `baja` | ✅ Resuelto en #5 — `Skeleton` con `variant` |
 
 ---
 

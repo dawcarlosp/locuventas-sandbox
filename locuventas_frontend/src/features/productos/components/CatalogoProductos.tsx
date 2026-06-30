@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import type { Producto } from "../domain/producto.types";
 import type { CarritoItem } from "@features/ventas/hooks/useCarrito";
 import ProductoCard from "./ProductoCard";
-import SkeletonProductoCard from "@components/common/SkeletonProductoCard";
+import Skeleton from "@components/common/Skeleton";
 import Paginacion from "@components/common/Paginacion";
 import BuscadorInput from "@components/common/BuscadorInput";
 import SelectFilter from "@components/common/SelectFilter";
@@ -107,7 +107,7 @@ export default function CatalogoProductos({
       <div className="grid w-full justify-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 2xl:grid-cols-6 gap-6">
         {loading
           ? Array.from({ length: SKELETON_COUNT }).map((_, i) => (
-            <SkeletonProductoCard key={i} />
+            <Skeleton key={i} variant="producto-card" />
           ))
           : productos.length === 0
             ? (

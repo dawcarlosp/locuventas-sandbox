@@ -6,6 +6,32 @@
 
 ---
 
+## #5 — Unificar skeletons en Skeleton con variant
+
+**Objetivo:** Reemplazar 4 skeletons individuales por un solo `Skeleton` con `variant`.
+
+### Cambios realizados
+
+| Archivo | Acción | Descripción |
+|---------|--------|-------------|
+| `src/components/common/Skeleton.tsx` | ✨ Nuevo | Componente unificado con `variant="producto-card\|tarjeta-vendedor\|venta-card\|producto-gestion-card"` |
+| `src/components/common/SkeletonProductoCard.tsx` | 🗑️ Eliminado | Reemplazado por `Skeleton variant="producto-card"` |
+| `src/features/auth/components/SkeletonTarjetaVendedor.tsx` | 🗑️ Eliminado | Reemplazado por `Skeleton variant="tarjeta-vendedor"` |
+| `src/features/ventas/components/SkeletonVentaCard.tsx` | 🗑️ Eliminado | Reemplazado por `Skeleton variant="venta-card"` |
+| `src/features/productos/components/SkeletonProductoGestionCard.tsx` | 🗑️ Eliminado | Reemplazado por `Skeleton variant="producto-gestion-card"` |
+| `src/features/productos/components/CatalogoProductos.tsx` | ♻️ Refactor | Importa `Skeleton` en lugar de `SkeletonProductoCard` |
+| `src/features/auth/components/PendientesList.tsx` | ♻️ Refactor | Importa `Skeleton` en lugar de `SkeletonTarjetaVendedor` |
+| `src/features/ventas/components/ContenedorVentas.tsx` | ♻️ Refactor | Importa `Skeleton` en lugar de `SkeletonVentaCard` |
+| `src/features/productos/components/GestionProductos.tsx` | ♻️ Refactor | Importa `Skeleton` en lugar de `SkeletonProductoGestionCard` |
+
+### Commits
+
+```
+refactor: unifica skeletons en Skeleton con variant
+```
+
+---
+
 ## #4 — Fase 4: Integración Gemini AI
 
 **Objetivo:** Cliente Gemini, hook genérico y prompts para IA en el frontend.

@@ -9,9 +9,9 @@
 
 | Campo | Valor |
 |-------|-------|
-| **Iteración** | 4 |
+| **Iteración** | 5 |
 | **Rama activa** | `master` (push directo, sin PRs) |
-| **Último commit** | `82e34f0` — feat: implementa Fase 4 — integración Gemini AI |
+| **Último commit** | (pendiente) — refactor: unifica skeletons en Skeleton con variant |
 | **Remote** | `dawcarlosp/locuventas-sandbox.git` |
 | **Working tree** | `C:\Users\cpere\Documents\locuventas-sandbox` |
 | **Estado del build** | 🟢 Build exitoso |
@@ -19,6 +19,12 @@
 ---
 
 ## Qué se hizo
+
+### Iteración 5 — Unificar skeletons
+
+- [x] `Skeleton.tsx` con `variant="producto-card|tarjeta-vendedor|venta-card|producto-gestion-card"`
+- [x] Eliminados 4 skeletons individuales
+- [x] 4 consumidores actualizados para usar `Skeleton`
 
 ### Iteración 4 — Fase 4: Integración Gemini AI
 
