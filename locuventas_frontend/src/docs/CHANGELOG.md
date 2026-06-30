@@ -6,6 +6,25 @@
 
 ---
 
+## #11 — Búsqueda semántica integrada en el catálogo
+
+**Objetivo:** Conectar la Fase 4 de Gemini AI con la UI del catálogo.
+
+### Cambios realizados
+
+| Archivo | Acción | Descripción |
+|---------|--------|-------------|
+| `CatalogoProductos.tsx` | ♻️ Mejora | Botón "Búsqueda IA" que activa búsqueda semántica con Gemini |
+| `CatalogoProductos.tsx` | ♻️ Mejora | Alterna entre búsqueda normal (filtros) e inteligente (lenguaje natural) |
+
+### Commits
+
+```
+feat: integra búsqueda semántica con Gemini en el catálogo de productos
+```
+
+---
+
 ## #10 — ErrorBoundary global
 
 **Objetivo:** Evitar que errores no controlados tumben toda la app.

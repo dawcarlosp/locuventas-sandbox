@@ -9,9 +9,9 @@
 
 | Campo | Valor |
 |-------|-------|
-| **Iteración** | 10 |
+| **Iteración** | 11 |
 | **Rama activa** | `master` (push directo, sin PRs) |
-| **Último commit** | (pendiente) — feat: añade ErrorBoundary global con UI de recuperación |
+| **Último commit** | (pendiente) — feat: integra búsqueda semántica con Gemini en el catálogo |
 | **Remote** | `dawcarlosp/locuventas-sandbox.git` |
 | **Working tree** | `C:\Users\cpere\Documents\locuventas-sandbox` |
 | **Estado del build** | 🟢 Build exitoso |
@@ -19,6 +19,12 @@
 ---
 
 ## Qué se hizo
+
+### Iteración 11 — Búsqueda semántica en catálogo
+
+- [x] Botón "Búsqueda IA" en CatalogoProductos
+- [x] Alterna entre filtros clásicos y búsqueda por lenguaje natural
+- [x] Integración real con Gemini via `useBusquedaSemantica`
 
 ### Iteración 10 — ErrorBoundary global
 

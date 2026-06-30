@@ -135,6 +135,26 @@ eran casi idénticos.
 
 ---
 
+## ADR-009: Lazy loading con React.lazy + Suspense
+
+**Fecha:** Julio 2026
+
+**Contexto:** El bundle de producción incluía todas las páginas en un solo
+archivo JS de 472KB, afectando el tiempo de carga inicial.
+
+**Opciones consideradas:**
+- React.lazy (nativo, sin dependencias)
+- @loadable/component (dependencia externa)
+- Mantener todo en un bundle (sin cambios)
+
+**Decisión:** React.lazy con Suspense. Cada página se carga bajo demanda.
+Solo LoginPage se importa estáticamente por estar en la ruta crítica.
+
+**Consecuencia:** Bundle principal reducido a 292KB (-38%). Cada página
+es un chunk independiente. Se añadió `SuspenseWrapper` con spinner de carga.
+
+---
+
 ## ADR-008: Sistema de documentación para bucle infinito de IA
 
 **Fecha:** Junio 2026
