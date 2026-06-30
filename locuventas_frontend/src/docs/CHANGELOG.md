@@ -6,6 +6,25 @@
 
 ---
 
+## #6 — Eliminar ComponentType<any> de PANEL_MAP
+
+**Objetivo:** Reemplazar `React.ComponentType<any>` por factory functions tipadas.
+
+### Cambios realizados
+
+| Archivo | Acción | Descripción |
+|---------|--------|-------------|
+| `RecursiveMenu.tsx` | ♻️ Refactor | `PANEL_MAP` usa `(props: Record<string, unknown>) => React.ReactNode` en lugar de `ComponentType<any>` |
+| `RecursiveMenu.tsx` | 🧹 Limpieza | Eliminados comentarios `SOLUCIÓN` del workaround anterior |
+
+### Commits
+
+```
+refactor: elimina ComponentType<any> de PANEL_MAP en RecursiveMenu
+```
+
+---
+
 ## #5 — Unificar skeletons en Skeleton con variant
 
 **Objetivo:** Reemplazar 4 skeletons individuales por un solo `Skeleton` con `variant`.

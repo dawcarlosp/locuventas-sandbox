@@ -9,7 +9,7 @@
 
 | # | Issue | Prioridad | Notas |
 |---|-------|-----------|-------|
-| 1 | `ComponentType<any>` en `PANEL_MAP` de `RecursiveMenu` | `baja` | No se encontró alternativa limpia; los componentes del mapa tienen firmas de props distintas |
+| 1 | `ComponentType<any>` en `PANEL_MAP` de `RecursiveMenu` | `baja` | ✅ Resuelto en #6 — factory functions con `Record<string, unknown>` |
 | 2 | Skeletons no unificados | `baja` | ✅ Resuelto en #5 — `Skeleton` con `variant` |
 
 ---
@@ -18,7 +18,7 @@
 
 | # | Issue | Archivo | Estado | Notas |
 |---|-------|---------|--------|-------|
-| 1 | `ComponentType<any>` en `PANEL_MAP` | `RecursiveMenu.tsx` | `aceptado` | Documentado en DONT_DO.md como caso especial pendiente de resolver |
+| 1 | ~~`ComponentType<any>` en `PANEL_MAP`~~ | `RecursiveMenu.tsx` | `resuelto` | ✅ Resuelto en #6 |
 
 ---
 

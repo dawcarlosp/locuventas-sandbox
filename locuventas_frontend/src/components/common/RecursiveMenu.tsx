@@ -18,10 +18,9 @@ interface RecursiveMenuProps {
   h:         UseHeaderManagerReturn;
 }
 
-// SOLUCIÓN 1: Usar 'any' temporalmente en las props del mapa dinámico 
-// para que acepte componentes con distintas firmas de props obligatorias.
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const PANEL_MAP: Record<string, React.ComponentType<any>> = { PendientesList };
+const PANEL_MAP: Record<string, (props: Record<string, unknown>) => React.ReactNode> = {
+  PendientesList: (props) => <PendientesList {...props as React.ComponentProps<typeof PendientesList>} />,
+};
 
 export default function RecursiveMenu({
   items,
@@ -70,7 +69,7 @@ export default function RecursiveMenu({
                 variant="secondary"
                 key={item.label}
                 className="!h-9 !text-[10px] !justify-start whitespace-nowrap"
-                // SOLUCIÓN 2: Uso seguro de la función mediante encadenamiento opcional (?.)
+                // Uso seguro mediante encadenamiento opcional
                 onClick={() => { onClose(); item.action?.(); }}
               >
                 {item.label}
@@ -108,51 +107,50 @@ export default function RecursiveMenu({
           );
         }
 
-        // SOLUCIÓN 3: Validar que item.panel exista antes de usarlo como índice del objeto
-        const PanelComponent = item.panel ? PANEL_MAP[item.panel] : null;
+const panelRenderer = item.panel ? PANEL_MAP[item.panel] : null;
 
-        return (
-          <Fragment key={item.label}>
-            <Button
-              variant="secondary"
-              ref={(el) => { (triggerRefs.current[i] as { current: HTMLButtonElement | null }).current = el; }}
-              onClick={(e) => { e.stopPropagation(); toggle(i); }}
-              className={`!h-9 !text-[10px] w-full flex justify-evenly whitespace-nowrap ${
-                isOpen ? "bg-orange-500/10 text-orange-400" : ""
-              }`}
-            >
-              <div className="flex items-center gap-2">
-                {isOpen
-                  ? <CircleArrowRight className="opacity-50" size={14} />
-                  : <CircleArrowLeft  className="text-purple-500" size={14} />
-                }
-                {item.label}
-              </div>
-            </Button>
+return (
+  <Fragment key={item.label}>
+    <Button
+      variant="secondary"
+      ref={(el) => { (triggerRefs.current[i] as { current: HTMLButtonElement | null }).current = el; }}
+      onClick={(e) => { e.stopPropagation(); toggle(i); }}
+      className={`!h-9 !text-[10px] w-full flex justify-evenly whitespace-nowrap ${
+        isOpen ? "bg-orange-500/10 text-orange-400" : ""
+      }`}
+    >
+      <div className="flex items-center gap-2">
+        {isOpen
+          ? <CircleArrowRight className="opacity-50" size={14} />
+          : <CircleArrowLeft  className="text-purple-500" size={14} />
+        }
+        {item.label}
+      </div>
+    </Button>
 
-            <DropdownContainer
-              isOpen={isOpen}
-              triggerRef={triggerRefs.current[i]}
-              side="right"
-              width={item.panelWidth ?? "w-56"}
-              className="right-[calc(100%+20px)] top-0 z-[60]"
-            >
-              {PanelComponent
-                ? <PanelComponent {...(item.panelProps ?? {})} />
-                : (
-                  <RecursiveMenu
-                    items={item.children ?? []}
-                    depth={depth + 1}
-                    onClose={onClose}
-                    isSmall={isSmall}
-                    isMedium={isMedium}
-                    h={h}
-                  />
-                )
-              }
-            </DropdownContainer>
-          </Fragment>
-        );
+    <DropdownContainer
+      isOpen={isOpen}
+      triggerRef={triggerRefs.current[i]}
+      side="right"
+      width={item.panelWidth ?? "w-56"}
+      className="right-[calc(100%+20px)] top-0 z-[60]"
+    >
+      {panelRenderer
+        ? panelRenderer(item.panelProps ?? {})
+        : (
+          <RecursiveMenu
+            items={item.children ?? []}
+            depth={depth + 1}
+            onClose={onClose}
+            isSmall={isSmall}
+            isMedium={isMedium}
+            h={h}
+          />
+        )
+      }
+    </DropdownContainer>
+  </Fragment>
+);
       })}
     </div>
   );

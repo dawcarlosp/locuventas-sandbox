@@ -9,9 +9,9 @@
 
 | Campo | Valor |
 |-------|-------|
-| **Iteración** | 5 |
+| **Iteración** | 6 |
 | **Rama activa** | `master` (push directo, sin PRs) |
-| **Último commit** | (pendiente) — refactor: unifica skeletons en Skeleton con variant |
+| **Último commit** | (pendiente) — refactor: elimina ComponentType<any> de PANEL_MAP |
 | **Remote** | `dawcarlosp/locuventas-sandbox.git` |
 | **Working tree** | `C:\Users\cpere\Documents\locuventas-sandbox` |
 | **Estado del build** | 🟢 Build exitoso |
@@ -19,6 +19,11 @@
 ---
 
 ## Qué se hizo
+
+### Iteración 6 — Eliminar ComponentType<any> de PANEL_MAP
+
+- [x] `PANEL_MAP` migrado a factory functions tipadas
+- [x] Eliminado el último `any` del componente
 
 ### Iteración 5 — Unificar skeletons
 
