@@ -6,6 +6,25 @@
 
 ---
 
+## #13 — Sugerencia IA de categorías al crear producto
+
+**Objetivo:** Conectar `useSugerirCategorias` con el formulario de producto.
+
+### Cambios realizados
+
+| Archivo | Acción | Descripción |
+|---------|--------|-------------|
+| `ModalProductoForm.tsx` | ♻️ Mejora | Botón "Sugerir IA" junto a selector de categorías |
+| `ModalProductoForm.tsx` | ♻️ Mejora | Llama a Gemini con el nombre del producto para sugerir categorías |
+
+### Commits
+
+```
+feat: integra sugerencia IA de categorías en formulario de producto
+```
+
+---
+
 ## #12 — Resumen de ventas con IA en historial
 
 **Objetivo:** Conectar el hook `useResumenVentas` con la UI del historial.

@@ -9,9 +9,9 @@
 
 | Campo | Valor |
 |-------|-------|
-| **Iteración** | 12 |
+| **Iteración** | 13 |
 | **Rama activa** | `master` (push directo, sin PRs) |
-| **Último commit** | (pendiente) — feat: integra resumen de ventas con IA en el historial |
+| **Último commit** | (pendiente) — feat: integra sugerencia IA de categorías en formulario de producto |
 | **Remote** | `dawcarlosp/locuventas-sandbox.git` |
 | **Working tree** | `C:\Users\cpere\Documents\locuventas-sandbox` |
 | **Estado del build** | 🟢 Build exitoso |
@@ -19,6 +19,12 @@
 ---
 
 ## Qué se hizo
+
+### Iteración 13 — Sugerencia IA de categorías
+
+- [x] Botón "Sugerir IA" en formulario de producto
+- [x] Selecciona automáticamente categorías sugeridas por Gemini
+- [x] Solo visible al crear producto (no al editar)
 
 ### Iteración 12 — Resumen de ventas con IA
 
