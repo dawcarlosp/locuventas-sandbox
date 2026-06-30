@@ -39,5 +39,5 @@
 
 | # | Tarea | Prioridad | Estado | Notas |
 |---|-------|-----------|--------|-------|
-| T.1 | Añadir tests unitarios a hooks principales | `baja` | `pending` | useCarrito, useProductos, useGestionProductos |
+| T.1 | Añadir tests unitarios a hooks principales | `baja` | `done` | useCarrito, useBuscador — 9 tests pasando |
 | T.2 | Añadir tests de integración a páginas críticas | `baja` | `pending` | LoginPage, VentasPagina, GestionProductosPagina |

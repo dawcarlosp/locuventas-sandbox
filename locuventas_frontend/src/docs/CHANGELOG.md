@@ -6,6 +6,28 @@
 
 ---
 
+## #7 — Tests unitarios con Vitest
+
+**Objetivo:** Configurar Vitest y añadir tests a hooks principales.
+
+### Cambios realizados
+
+| Archivo | Acción | Descripción |
+|---------|--------|-------------|
+| `vitest.config.ts` | ✨ Nuevo | Configuración de Vitest con jsdom y setup |
+| `src/test/setup.ts` | ✨ Nuevo | Setup con `@testing-library/jest-dom` |
+| `src/hooks/__tests__/useBuscador.test.ts` | ✨ Nuevo | 5 tests: estado inicial, cambio, clear, debounce, cancelación |
+| `src/features/ventas/hooks/__tests__/useCarrito.test.ts` | ✨ Nuevo | 4 tests: vacío, único, múltiple, IVA cero |
+| `package.json` | ♻️ Mejora | Scripts `test` y `test:watch` |
+
+### Commits
+
+```
+test: configura Vitest y añade tests a useCarrito y useBuscador
+```
+
+---
+
 ## #6 — Eliminar ComponentType<any> de PANEL_MAP
 
 **Objetivo:** Reemplazar `React.ComponentType<any>` por factory functions tipadas.

@@ -9,9 +9,9 @@
 
 | Campo | Valor |
 |-------|-------|
-| **Iteración** | 6 |
+| **Iteración** | 7 |
 | **Rama activa** | `master` (push directo, sin PRs) |
-| **Último commit** | (pendiente) — refactor: elimina ComponentType<any> de PANEL_MAP |
+| **Último commit** | (pendiente) — test: configura Vitest y añade tests a useCarrito y useBuscador |
 | **Remote** | `dawcarlosp/locuventas-sandbox.git` |
 | **Working tree** | `C:\Users\cpere\Documents\locuventas-sandbox` |
 | **Estado del build** | 🟢 Build exitoso |
@@ -19,6 +19,12 @@
 ---
 
 ## Qué se hizo
+
+### Iteración 7 — Tests unitarios con Vitest
+
+- [x] Instalado y configurado Vitest + Testing Library + jsdom
+- [x] 5 tests para `useBuscador` (debounce, estado, limpieza)
+- [x] 4 tests para `useCarrito` (totales, IVA, múltiples productos)
 
 ### Iteración 6 — Eliminar ComponentType<any> de PANEL_MAP
 
