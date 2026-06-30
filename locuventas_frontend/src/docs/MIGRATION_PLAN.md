@@ -12,6 +12,7 @@
 ✅ Reorganización feature-based (completada)
 ✅ Fase 2 — Unificar componentes duplicados
 ✅ Fase 3 — Refactor arquitectura
+✅ Gestión de categorías (CRUD completo)
 ⬜ Fase 4 — Integración Gemini AI
 ```
 
@@ -52,6 +53,11 @@ src/features/
 │   ├── domain/         # auth.types.ts, vendedor.types.ts
 │   ├── hooks/          # useLogin, useRegister, useEditarPerfil
 │   └── pages/          # LoginPage, VendedoresPendientesPagina
+├── categorias/         # Gestión de categorías CRUD
+│   ├── components/     # GestionCategorias.tsx
+│   ├── domain/         # categoria.types.ts
+│   ├── hooks/          # useGestionCategorias.ts
+│   └── pages/          # GestionCategoriasPagina.tsx
 ├── dev/                # Perfil del desarrollador
 │   ├── components/     # SobreMi.tsx
 │   └── pages/          # SobreMiPage.tsx

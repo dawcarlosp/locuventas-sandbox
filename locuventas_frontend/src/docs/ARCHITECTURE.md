@@ -89,6 +89,12 @@ src/
 │   │   ├── components/         # SobreMi.tsx
 │   │   └── pages/              # SobreMiPage.tsx
 │   │
+│   ├── categorias/             # Gestión de categorías CRUD
+│   │   ├── components/         # GestionCategorias.tsx
+│   │   ├── domain/             # categoria.types.ts
+│   │   ├── hooks/              # useGestionCategorias.ts
+│   │   └── pages/              # GestionCategoriasPagina.tsx
+│   │
 │   ├── productos/              # Catálogo y gestión de productos
 │   │   ├── components/         # CatalogoProductos, GestionProductos, ...
 │   │   ├── domain/             # producto.types.ts

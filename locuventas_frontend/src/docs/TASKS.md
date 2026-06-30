@@ -1,45 +1,43 @@
 # Tasks
 
-> Cola de tareas priorizada. Cada tarea tiene un estado y una iteración asignada.
-> La IA debe consultar este archivo al inicio de cada sesión para saber qué hacer.
+> Cola de tareas priorizada. La IA consulta este archivo al inicio de cada sesión.
+> Cuando se vacía, la IA escanea KNOWN_ISSUES.md y el código en busca de mejoras.
 >
 > Estados: `pending` | `in_progress` | `done` | `cancelled` | `blocked`
 
 ---
 
-## Fase 3 — Refactor arquitectura ✅
+## Gestión de categorías ✅
 
-| # | Tarea | Estado | Iteración | Notas |
-|---|-------|--------|-----------|-------|
-| 3.1 | Crear `usePaginatedFetch<T>` hook genérico | `done` | 1 | En `src/hooks/usePaginatedFetch.ts`. Soporta extractData personalizado, AbortController, refresh() |
-| 3.2 | Refactorizar `useProductos` para usar `usePaginatedFetch` | `done` | 1 | Misma interfaz externa. Build verificado |
-| 3.3 | Refactorizar `useVentasManager` para usar `usePaginatedFetch` | `done` | 1 | Misma interfaz externa. Usa `refresh()` tras pago/cancelación |
-| 3.4 | Refactorizar `useVendedoresPendientes` para usar `usePaginatedFetch` | `done` | 1 | Misma interfaz externa. Eliminado `useEffect` redundante |
-| 3.5 | Mover `PrivateRoute` → `app/` | `done` | 1 | Ahora en `src/app/PrivateRoute.tsx` |
-| 3.6 | Mover `FooterLogin` → `components/common/` | `done` | 1 | Ahora en `src/components/common/FooterLogin.tsx` |
-
-## Fase 4 — Integración Gemini AI
-
-| # | Tarea | Estado | Iteración | Notas |
-|---|-------|--------|-----------|-------|
-| 4.1 | Crear `shared/ai/gemini.client.ts` | `pending` | — | Cliente Gemini con API key |
-| 4.2 | Crear `shared/ai/useGemini.ts` | `pending` | — | Hook genérico para llamadas a Gemini |
-| 4.3 | Implementar búsqueda semántica de productos | `pending` | — | Vendedor describe producto en lenguaje natural |
-| 4.4 | Implementar resumen de ventas con IA | `pending` | — | Admin pide resumen del día/semana |
-| 4.5 | Implementar sugerencias de categorización | `pending` | — | Al crear producto, Gemini sugiere categorías |
+| # | Tarea | Estado | Notas |
+|---|-------|--------|-------|
+| C.1 | Backend: CategoriaCreateDTO | `done` | DTO con `@NotBlank` |
+| C.2 | Backend: CategoriaService CRUD | `done` | create, update, delete, deleteWithProducts |
+| C.3 | Backend: CategoriaController endpoints | `done` | POST, PUT, DELETE, DELETE /force |
+| C.4 | Frontend: types + hook + component + page | `done` | features/categorias/ completo |
+| C.5 | Ruta y menú admin | `done` | /categorias/gestion + enlace funcional |
+| C.6 | Fix editando reference error | `done` | Faltaba en destructuring |
 
 ## Bugs y mejoras
 
-| # | Tarea | Estado | Iteración | Notas |
-|---|-------|--------|-----------|-------|
-| B.1 | Eliminar `AlertSimple` (redundante con `ModalConfirmacion`) | `done` | 2 | Eliminado. `ModalConfirmacion` ahora soporta single-button. Build verificado |
-| B.2 | Eliminar `breakpoint` duplicado de `useHeaderManager` | `done` | 2 | Eliminado `getBreakpoint()` y estado. Ningún consumidor lo usaba |
-| B.3 | Eliminar `ComponentType<any>` en `PANEL_MAP` de `RecursiveMenu` | `pending` | — | Pendiente de encontrar alternativa limpia |
-| B.4 | Unificar skeletons en un solo `Skeleton` con `variant` | `pending` | — | Propuesto: `variant="card\|row\|circle"` |
+| # | Tarea | Prioridad | Estado | Notas |
+|---|-------|-----------|--------|-------|
+| B.3 | Eliminar `ComponentType<any>` en `PANEL_MAP` de `RecursiveMenu` | `baja` | `pending` | Pendiente de encontrar alternativa limpia |
+| B.4 | Unificar skeletons en un solo `Skeleton` con `variant` | `baja` | `pending` | Propuesto: `variant="card\|row\|circle"` |
+
+## Fase 4 — Integración Gemini AI
+
+| # | Tarea | Prioridad | Estado | Notas |
+|---|-------|-----------|--------|-------|
+| 4.1 | Crear `shared/ai/gemini.client.ts` | `media` | `pending` | Cliente Gemini con API key |
+| 4.2 | Crear `shared/ai/useGemini.ts` | `media` | `pending` | Hook genérico para llamadas a Gemini |
+| 4.3 | Implementar búsqueda semántica de productos | `media` | `pending` | Vendedor describe producto en lenguaje natural |
+| 4.4 | Implementar resumen de ventas con IA | `media` | `pending` | Admin pide resumen del día/semana |
+| 4.5 | Implementar sugerencias de categorización | `media` | `pending` | Al crear producto, Gemini sugiere categorías |
 
 ## Tests
 
-| # | Tarea | Estado | Iteración | Notas |
-|---|-------|--------|-----------|-------|
-| T.1 | Añadir tests unitarios a hooks principales | `pending` | — | useCarrito, useProductos, useGestionProductos |
-| T.2 | Añadir tests de integración a páginas críticas | `pending` | — | LoginPage, VentasPagina, GestionProductosPagina |
+| # | Tarea | Prioridad | Estado | Notas |
+|---|-------|-----------|--------|-------|
+| T.1 | Añadir tests unitarios a hooks principales | `baja` | `pending` | useCarrito, useProductos, useGestionProductos |
+| T.2 | Añadir tests de integración a páginas críticas | `baja` | `pending` | LoginPage, VentasPagina, GestionProductosPagina |

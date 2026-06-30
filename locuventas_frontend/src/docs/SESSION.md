@@ -1,8 +1,7 @@
 # Session State
 
 > ⚠️ **LEER PRIMERO.** Este archivo es la fuente única de verdad del estado actual.
-> Contiene dónde estamos, qué se hizo y qué toca ahora.
-> La IA debe leerlo al inicio de cada sesión y actualizarlo al final.
+> La IA debe leerlo al inicio de cada sesión y actualizarlo al final (paso 1 y 8 del bucle).
 
 ---
 
@@ -10,32 +9,33 @@
 
 | Campo | Valor |
 |-------|-------|
-| **Iteración** | 2 |
-| **Rama activa** | `docs/infinite-loop` |
-| **Último commit** | `9331970` — feat: implementa usePaginatedFetch<T> hook genérico y completa Fase 3 |
-| **Branch base** | `develop` |
+| **Iteración** | 3 |
+| **Rama activa** | `master` (push directo, sin PRs) |
+| **Último commit** | `dcdfc9e` — Revert "chore: sandbox activo" |
+| **Remote** | `dawcarlosp/locuventas-sandbox.git` |
+| **Working tree** | `C:\Users\cpere\Documents\locuventas-sandbox` |
 | **Estado del build** | 🟢 Build exitoso |
-| **PR abierto** | `docs/infinite-loop` → `develop` |
 
 ---
 
-## Qué se hizo en la iteración anterior
+## Qué se hizo
 
-**Iteración 2 — Bugs y mejoras**
+### Iteración 3 — Gestión de categorías
 
-- [x] B.1: Eliminar `AlertSimple` (redundante con `ModalConfirmacion`)
-- [x] B.2: Eliminar `breakpoint` duplicado de `useHeaderManager` (usaba su propio `getBreakpoint` en vez de `useBreakpoint`)
-- [x] Eliminar `AlertSimple.tsx` y actualizar `FormVendedorLogin.tsx` para usar `ModalConfirmacion`
-- [x] Simplificar `ModalConfirmacion`: el botón cancelar es opcional (modo single-button)
-- [x] Build verificado: `npm run build` exitoso
+- [x] Backend: `CategoriaCreateDTO`, `ProductoCategoriaRepository`
+- [x] Backend: `CategoriaService.create/update/delete/deleteWithProducts`
+- [x] Backend: `CategoriaController` + Swagger docs
+- [x] Frontend: `features/categorias/` — types, hook, component, page
+- [x] Ruta `/categorias/gestion` en routes.tsx
+- [x] Menú admin actualizado (Categorías funcional)
+- [x] Remoto cambiado de `repositorioPereira` → `locuventas-sandbox`
+- [x] Worktree movido a `C:\Users\cpere\Documents\locuventas-sandbox`
 
 ---
 
 ## Siguientes tareas
 
-1. **Fase 4 — Integración Gemini AI** (ver `TASKS.md`)
-2. **Bugs y mejoras**: B.3 `ComponentType<any>` en `PANEL_MAP`, B.4 Unificar skeletons
-3. **Tests**: T.1 Tests unitarios a hooks, T.2 Tests de integración
+Ver `TASKS.md` para la cola priorizada.
 
 ---
 
@@ -47,12 +47,11 @@
 
 ## Notas para la próxima IA
 
-- Leer `CLAUDE.md` para convenciones, stack, comandos
-- Leer `ARCHITECTURE.md` para entender la estructura
-- Leer `PATTERNS.md` para conocer los patrones del proyecto
-- Leer `DONT_DO.md` para evitar errores ya corregidos
-- Leer `DECISIONS.md` para no re-debatir decisiones tomadas
-- **Nunca usar `any`** — usar `unknown` con cast explícito
-- **No renombrar español → inglés** en archivos existentes (solo en nuevos)
-- **Branch desde `develop`**, PR a `develop`, merge a `master` solo en hitos
-- Actualizar `SESSION.md` al final de cada sesión
+- Leer `RULES.md` primero para entender las reglas del bucle infinito.
+- Leer `CLAUDE.md` para convenciones, stack, comandos.
+- Leer `ARCHITECTURE.md` para entender la estructura.
+- Leer `TASKS.md` para saber qué toca ahora.
+- **Trabajar siempre en master, push directo, sin preguntar.**
+- **Ejecutar `npm run build` antes de cada commit.**
+- **Actualizar SESSION.md, CHANGELOG.md, TASKS.md, KNOWN_ISSUES.md en cada iteración.**
+- Si se queda sin tareas, escanear KNOWN_ISSUES.md, luego el código, luego proponer mejoras.
