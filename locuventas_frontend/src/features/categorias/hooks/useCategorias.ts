@@ -17,6 +17,18 @@ interface UseCategoriasReturn {
   refresh:    () => void;
 }
 
+type CategoriaResponse = ApiResponse<PageDTO<Categoria> | Categoria[]>;
+
+function extractFromResponse(res: CategoriaResponse): { content: Categoria[]; totalPages: number } {
+  if (Array.isArray(res.data)) {
+    return { content: res.data, totalPages: 1 };
+  }
+  return {
+    content: res.data?.content ?? [],
+    totalPages: res.data?.totalPages ?? 0,
+  };
+}
+
 export default function useCategorias({
   page = 0,
   size = 10,
@@ -28,12 +40,9 @@ export default function useCategorias({
     return `categorias?${params}`;
   }, [page, size, search]);
 
-  const { data, loading, totalPages, refresh } = usePaginatedFetch<Categoria, ApiResponse<PageDTO<Categoria>>>({
+  const { data, loading, totalPages, refresh } = usePaginatedFetch<Categoria, CategoriaResponse>({
     url,
-    extractData: (res) => ({
-      content: res.data?.content ?? [],
-      totalPages: res.data?.totalPages ?? 0,
-    }),
+    extractData: extractFromResponse,
     onError: () => toast.error("Error al cargar categorías"),
   });
 
