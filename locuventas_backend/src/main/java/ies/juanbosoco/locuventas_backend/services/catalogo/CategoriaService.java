@@ -2,6 +2,7 @@ package ies.juanbosoco.locuventas_backend.services.catalogo;
 
 import ies.juanbosoco.locuventas_backend.DTO.catalogo.CategoriaCreateDTO;
 import ies.juanbosoco.locuventas_backend.DTO.catalogo.CategoriaResponseDTO;
+import ies.juanbosoco.locuventas_backend.DTO.common.PageDTO;
 import ies.juanbosoco.locuventas_backend.entities.catalogo.Categoria;
 import ies.juanbosoco.locuventas_backend.errors.BusinessException;
 import ies.juanbosoco.locuventas_backend.repositories.catalogo.CategoriaRepository;
@@ -9,7 +10,7 @@ import ies.juanbosoco.locuventas_backend.repositories.catalogo.ProductoCategoria
 import ies.juanbosoco.locuventas_backend.repositories.catalogo.ProductoRepository;
 import ies.juanbosoco.locuventas_backend.repositories.venta.VentaProductoRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,6 +32,21 @@ public class CategoriaService {
                 .stream()
                 .map(c -> new CategoriaResponseDTO(c.getId(), c.getNombre()))
                 .toList();
+    }
+
+    @Transactional(readOnly = true)
+    public PageDTO<CategoriaResponseDTO> findAllPaginated(int page, int size, String search) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by("nombre").ascending());
+        Page<Categoria> categoriaPage = categoriaRepository.findAllWithSearch(
+                search == null ? "" : search.trim(), pageable
+        );
+        List<CategoriaResponseDTO> content = categoriaPage.getContent().stream()
+                .map(c -> new CategoriaResponseDTO(c.getId(), c.getNombre()))
+                .toList();
+        return new PageDTO<>(
+                content, categoriaPage.getNumber(),
+                categoriaPage.getTotalPages(), categoriaPage.getTotalElements()
+        );
     }
 
     @Transactional

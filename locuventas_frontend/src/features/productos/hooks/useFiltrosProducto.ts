@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { apiRequest } from "@services/api";
 import { toast } from "react-toastify";
 import type { SelectOption } from "@domain/ui.types";
-import type { ApiResponse } from "@domain/api.types";
+import type { ApiResponse, PageDTO } from "@domain/api.types";
 
 interface PaisRaw {
   id:          number;
@@ -35,7 +35,7 @@ export default function useFiltrosProducto(): FiltrosProductoReturn {
       try {
         const [resPaises, resCategorias] = await Promise.all([
           apiRequest<ApiResponse<PaisRaw[]>>("paises", null, { method: "GET" }),
-          apiRequest<ApiResponse<CategoriaRaw[]>>("categorias", null, { method: "GET" }),
+          apiRequest<ApiResponse<PageDTO<CategoriaRaw>>>("categorias?size=100", null, { method: "GET" }),
         ]);
 
         setPaises(
@@ -48,7 +48,7 @@ export default function useFiltrosProducto(): FiltrosProductoReturn {
         );
 
         setCategorias(
-          (resCategorias.data ?? []).map((c) => ({
+          (resCategorias.data?.content ?? []).map((c) => ({
             value: c.id,
             label: c.nombre,
           }))

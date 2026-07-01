@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import useCategorias from "../hooks/useCategorias";
 import useGestionCategorias from "../hooks/useGestionCategorias";
 import useBreakpoint from "@hooks/useBreakpoint";
@@ -21,14 +21,9 @@ export default function GestionCategorias() {
   const [size, setSize] = useState(10);
   const [search, setSearch] = useState("");
 
-  const { categorias, loading, totalElements, refresh } = useCategorias({ search });
-
-  const totalPages = Math.ceil(totalElements / size);
-
-  const categoriasPagina = useMemo(
-    () => categorias.slice(page * size, (page + 1) * size),
-    [categorias, page, size],
-  );
+  const { categorias, loading, totalPages, refresh } = useCategorias({
+    page, size, search,
+  });
 
   const {
     formNombre,
@@ -80,43 +75,41 @@ export default function GestionCategorias() {
         )}
       </div>
 
-      <div className="flex flex-col gap-4">
-        {!isMobile ? (
-          <>
-            <TablaCategorias
-              categorias={categoriasPagina}
-              loading={loading}
-              size={size}
-              onEditar={abrirEditar}
-              onEliminar={pedirConfirmacionEliminar}
-            />
-            {paginacion}
-          </>
-        ) : (
-          <div className="flex flex-col gap-4 pb-16">
-            {loading
-              ? Array.from({ length: 5 }).map((_, i) => (
-                  <Skeleton key={i} variant="categoria-card" />
+      {!isMobile ? (
+        <div className="flex flex-col gap-4">
+          <TablaCategorias
+            categorias={categorias}
+            loading={loading}
+            size={size}
+            onEditar={abrirEditar}
+            onEliminar={pedirConfirmacionEliminar}
+          />
+          {paginacion}
+        </div>
+      ) : (
+        <div className="flex flex-col gap-4 pb-16">
+          {loading
+            ? Array.from({ length: size }).map((_, i) => (
+                <Skeleton key={i} variant="categoria-card" />
+              ))
+            : categorias.length === 0
+              ? (
+                <div className="py-12 text-center text-zinc-400 bg-zinc-800/50 rounded-2xl border border-zinc-700">
+                  {search ? "Sin resultados para la búsqueda." : "No hay categorías registradas."}
+                </div>
+              )
+              : categorias.map((c) => (
+                  <CategoriaCard
+                    key={c.id}
+                    categoria={c}
+                    onEditar={abrirEditar}
+                    onEliminar={pedirConfirmacionEliminar}
+                  />
                 ))
-              : categoriasPagina.length === 0
-                ? (
-                  <div className="py-12 text-center text-zinc-400 bg-zinc-800/50 rounded-2xl border border-zinc-700">
-                    {search ? "Sin resultados para la búsqueda." : "No hay categorías registradas."}
-                  </div>
-                )
-                : categoriasPagina.map((c) => (
-                    <CategoriaCard
-                      key={c.id}
-                      categoria={c}
-                      onEditar={abrirEditar}
-                      onEliminar={pedirConfirmacionEliminar}
-                    />
-                  ))
-            }
-            {paginacion}
-          </div>
-        )}
-      </div>
+          }
+          {paginacion}
+        </div>
+      )}
 
       {showForm && (
         <BaseModal

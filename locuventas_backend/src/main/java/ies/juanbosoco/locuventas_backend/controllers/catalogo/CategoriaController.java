@@ -3,17 +3,18 @@ package ies.juanbosoco.locuventas_backend.controllers.catalogo;
 import ies.juanbosoco.locuventas_backend.DTO.catalogo.CategoriaCreateDTO;
 import ies.juanbosoco.locuventas_backend.DTO.catalogo.CategoriaResponseDTO;
 import ies.juanbosoco.locuventas_backend.DTO.common.ApiResponseDTO;
+import ies.juanbosoco.locuventas_backend.DTO.common.PageDTO;
 import ies.juanbosoco.locuventas_backend.controllers.docs.CategoriaApi;
 import ies.juanbosoco.locuventas_backend.services.catalogo.CategoriaService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @RestController
 @RequestMapping("/categorias")
@@ -24,8 +25,10 @@ public class CategoriaController implements CategoriaApi {
 
     @Override
     @PreAuthorize("hasAnyRole('ADMIN', 'VENDEDOR')")
-    public ResponseEntity<ApiResponseDTO<List<CategoriaResponseDTO>>> getAllCategorias() {
-        List<CategoriaResponseDTO> data = categoriaService.findAll();
+    public ResponseEntity<ApiResponseDTO<PageDTO<CategoriaResponseDTO>>> getAllCategorias(
+            int page, int size, String search
+    ) {
+        PageDTO<CategoriaResponseDTO> data = categoriaService.findAllPaginated(page, size, search);
         return ApiResponseDTO.success("Categorías recuperadas correctamente", data, HttpStatus.OK);
     }
 
