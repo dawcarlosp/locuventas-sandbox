@@ -9,10 +9,12 @@ interface UseCategoriasOptions {
 }
 
 interface UseCategoriasReturn {
-  categorias:  Categoria[];
-  allCategorias: Categoria[];
-  loading:     boolean;
-  refresh:     () => void;
+  categorias:      Categoria[];
+  allCategorias:   Categoria[];
+  loading:         boolean;
+  totalPages:      number;
+  totalElements:   number;
+  refresh:         () => void;
 }
 
 export default function useCategorias({
@@ -37,11 +39,12 @@ export default function useCategorias({
     cargar();
   }, [cargar]);
 
-  const categorias = useMemo(() => {
-    if (!search.trim()) return allCategorias;
-    const q = search.toLowerCase();
-    return allCategorias.filter((c) => c.nombre.toLowerCase().includes(q));
+  const { categorias, totalElements } = useMemo(() => {
+    const filtered = !search.trim()
+      ? allCategorias
+      : allCategorias.filter((c) => c.nombre.toLowerCase().includes(search.toLowerCase()));
+    return { categorias: filtered, totalElements: filtered.length };
   }, [allCategorias, search]);
 
-  return { categorias, allCategorias, loading, refresh: cargar };
+  return { categorias, allCategorias, loading, totalElements, refresh: cargar };
 }
