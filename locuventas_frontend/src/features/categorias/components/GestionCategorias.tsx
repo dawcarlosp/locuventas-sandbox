@@ -99,6 +99,7 @@ export default function GestionCategorias() {
           title={editando ? "Editar categoría" : "Nueva categoría"}
           onClose={cerrarForm}
           className="w-full"
+          contentClassName="flex-1"
           footer={
             <div className="flex gap-3">
               <Button
