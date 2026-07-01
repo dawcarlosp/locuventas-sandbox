@@ -134,7 +134,7 @@ export default function GestionCategorias() {
                 value={formNombre}
                 onChange={(e) => handleNombreChange(e.target.value)}
                 placeholder="Nombre de la categoría"
-                className="w-full px-4 py-2.5 rounded-xl bg-zinc-800 border border-zinc-600 text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                className="w-full px-4 py-2.5 rounded-xl bg-zinc-800 border border-zinc-600 text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-purple-500"
                 autoFocus
                 disabled={submitting}
               />
