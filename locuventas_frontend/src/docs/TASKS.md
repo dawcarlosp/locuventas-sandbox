@@ -29,11 +29,12 @@
 
 | # | Tarea | Prioridad | Estado | Notas |
 |---|-------|-----------|--------|-------|
-| 4.1 | Crear `shared/ai/gemini.client.ts` | `media` | `done` | Cliente Gemini con API key |
-| 4.2 | Crear `shared/ai/useGemini.ts` | `media` | `done` | Hook genérico para llamadas a Gemini |
+| 4.1 | Crear `shared/ai/gemini.client.ts` | `media` | `done` | Cliente con API remota → migrado a LanguageModel local |
+| 4.2 | Crear `shared/ai/useGemini.ts` | `media` | `done` | Hook genérico para llamadas a IA |
 | 4.3 | Implementar búsqueda semántica de productos | `media` | `done` | `useBusquedaSemantica` en productos feature |
 | 4.4 | Implementar resumen de ventas con IA | `media` | `done` | `useResumenVentas` en ventas feature |
 | 4.5 | Implementar sugerencias de categorización | `media` | `done` | `useSugerirCategorias` en productos feature |
+| 4.6 | Migrar de API remota a IA local (Gemini Nano) | `media` | `done` | LanguageModel API, sin backend proxy ni API key |
 
 ## Tests
 

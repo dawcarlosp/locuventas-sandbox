@@ -9,9 +9,9 @@
 
 | Campo | Valor |
 |-------|-------|
-| **Iteración** | 13 |
+| **Iteración** | 14 |
 | **Rama activa** | `master` (push directo, sin PRs) |
-| **Último commit** | (pendiente) — feat: integra sugerencia IA de categorías en formulario de producto |
+| **Último commit** | `3901bf2` — feat: integra sugerencia IA de categorías en formulario de producto |
 | **Remote** | `dawcarlosp/locuventas-sandbox.git` |
 | **Working tree** | `C:\Users\cpere\Documents\locuventas-sandbox` |
 | **Estado del build** | 🟢 Build exitoso |
@@ -19,6 +19,14 @@
 ---
 
 ## Qué se hizo
+
+### Iteración 14 — Migración de Gemini API remota a IA local (Gemini Nano)
+
+- [x] `gemini.client.ts` ahora usa `LanguageModel.create()` + `session.prompt()` en lugar de fetch a API remota
+- [x] Eliminado backend proxy (`AiController`, `AiService`) que ya no se necesita
+- [x] Eliminado `VITE_GEMINI_API_KEY` de `.env`
+- [x] Añadida declaración TypeScript para `LanguageModel` global
+- [x] La IA funciona 100% local en el navegador (Chrome + Gemini Nano)
 
 ### Iteración 13 — Sugerencia IA de categorías
 

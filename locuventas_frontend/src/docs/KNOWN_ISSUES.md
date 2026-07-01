@@ -22,6 +22,14 @@
 
 ---
 
+## Requisitos de la IA local
+
+| # | Issue | Prioridad | Notas |
+|---|-------|-----------|-------|
+| 1 | `LanguageModel` API solo disponible en Chrome con flag `#optimization-guide-on-device-model` | `media` | El resto de navegadores no soportan Gemini Nano. Considerar fallback a API remota en el futuro. |
+
+---
+
 ## Mejoras pendientes (sin priorizar)
 
 - Backend: migrar de MySQL a PostgreSQL o similar

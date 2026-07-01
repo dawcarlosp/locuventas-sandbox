@@ -1,68 +1,33 @@
-const GEMINI_API_BASE = "https://generativelanguage.googleapis.com/v1beta";
+interface GeminiRequestOptions {
+  signal?: AbortSignal;
+}
 
-function getApiKey(): string {
-  const key = import.meta.env.VITE_GEMINI_API_KEY as string | undefined;
-  if (!key) {
+function checkAvailability(): void {
+  if (typeof LanguageModel === "undefined") {
     throw new Error(
-      "VITE_GEMINI_API_KEY no configurada. " +
-        "Añádela al archivo .env para usar funciones de IA."
+      "IA local no disponible. Usa Chrome y habilita " +
+        "chrome://flags/#optimization-guide-on-device-model"
     );
   }
-  return key;
-}
-
-interface GeminiPart {
-  text: string;
-}
-
-interface GeminiContent {
-  parts: GeminiPart[];
-}
-
-interface GeminiCandidate {
-  content: GeminiContent;
-}
-
-interface GeminiResponse {
-  candidates?: GeminiCandidate[];
-}
-
-interface GeminiRequestOptions {
-  model?: string;
-  signal?: AbortSignal;
 }
 
 export async function generateContent(
   prompt: string,
   options: GeminiRequestOptions = {}
 ): Promise<string> {
-  const { model = "gemini-2.0-flash", signal } = options;
-  const apiKey = getApiKey();
+  checkAvailability();
 
-  const url = `${GEMINI_API_BASE}/models/${model}:generateContent?key=${apiKey}`;
-
-  const response = await fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    signal,
-    body: JSON.stringify({
-      contents: [{ parts: [{ text: prompt }] }],
-    }),
+  const session = await LanguageModel.create({
+    expectedOutputLanguage: "es",
+    temperature: 0.7,
+    signal: options.signal,
   });
 
-  if (!response.ok) {
-    const errorText = await response.text().catch(() => "Unknown error");
-    throw new Error(`Gemini API error (${response.status}): ${errorText}`);
+  try {
+    return await session.prompt(prompt);
+  } finally {
+    session.destroy();
   }
-
-  const data = (await response.json()) as GeminiResponse;
-
-  const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-  if (text == null) {
-    throw new Error("Gemini: respuesta vacía o inesperada");
-  }
-
-  return text;
 }
 
 export async function generateJson<T>(

@@ -6,6 +6,30 @@
 
 ---
 
+## #14 — Migración a IA local (Gemini Nano / LanguageModel API)
+
+**Objetivo:** Reemplazar la API remota de Gemini por la IA local del navegador.
+
+### Cambios realizados
+
+| Archivo | Acción | Descripción |
+|---------|--------|-------------|
+| `src/shared/ai/gemini.client.ts` | ♻️ Reescrito | Usa `LanguageModel.create()` + `session.prompt()` en lugar de fetch a API remota |
+| `src/vite-env.d.ts` | ✨ Nuevo | Declaración TypeScript para `LanguageModel` global |
+| `.env` | 🧹 Limpieza | Eliminada `VITE_GEMINI_API_KEY` — ya no es necesaria |
+| `locuventas_backend/.../AiController.java` | 🗑️ Eliminado | Ya no se necesita proxy backend |
+| `locuventas_backend/.../AiService.java` | 🗑️ Eliminado | Ya no se necesita proxy backend |
+| `locuventas_backend/.../SecurityConfig.java` | ♻️ Revertido | Eliminada ruta pública `/ai/**` |
+| `locuventas_backend/application.properties` | ♻️ Revertido | Eliminada propiedad `gemini.api.key` |
+
+### Commits
+
+```
+feat: migra Gemini de API remota a IA local (LanguageModel API)
+```
+
+---
+
 ## #13 — Sugerencia IA de categorías al crear producto
 
 **Objetivo:** Conectar `useSugerirCategorias` con el formulario de producto.
