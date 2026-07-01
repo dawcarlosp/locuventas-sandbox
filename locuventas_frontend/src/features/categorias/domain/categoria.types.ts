@@ -7,6 +7,10 @@ export interface CategoriaCreateDTO {
   nombre: string;
 }
 
+export interface CategoriaUpdateDTO {
+  nombre: string;
+}
+
 export interface CategoriaConProductos extends Categoria {
   productCount: number;
 }
