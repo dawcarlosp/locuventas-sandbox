@@ -8,6 +8,7 @@ import CategoriaCard from "./CategoriaCard";
 import Skeleton from "@components/common/Skeleton";
 import BaseModal from "@components/common/BaseModal";
 import ModalConfirmacion from "@components/common/ModalConfirmacion";
+import Paginacion from "@components/common/Paginacion";
 import BuscadorInput from "@components/common/BuscadorInput";
 import FAB from "@components/common/FAB";
 import Button from "@buttons/Button";
@@ -16,9 +17,13 @@ export default function GestionCategorias() {
   const bp = useBreakpoint();
   const isMobile = isBreakpoint(bp, "MOBILE");
 
+  const [page, setPage] = useState(0);
+  const [size, setSize] = useState(10);
   const [search, setSearch] = useState("");
 
-  const { categorias, loading, refresh } = useCategorias({ search });
+  const { categorias, loading, totalPages, refresh } = useCategorias({
+    page, size, search,
+  });
 
   const {
     formNombre,
@@ -34,10 +39,20 @@ export default function GestionCategorias() {
     modalProps,
     cerrarModal,
   } = useGestionCategorias({
-    onSuccess: refresh,
+    onSuccess: () => { setPage(0); refresh(); },
   });
 
-  const handleSearch = (v: string) => setSearch(v);
+  const handleSearch = (v: string) => { setSearch(v); setPage(0); };
+
+  const paginacion = !loading && totalPages > 1 && (
+    <Paginacion
+      page={page}
+      totalPages={totalPages}
+      onPageChange={setPage}
+      size={size}
+      onSizeChange={(s: number) => { setSize(s); setPage(0); }}
+    />
+  );
 
   return (
     <>
@@ -60,39 +75,41 @@ export default function GestionCategorias() {
         )}
       </div>
 
-      <div className="flex flex-col gap-4">
-        {!isMobile ? (
+      {!isMobile ? (
+        <div className="flex flex-col gap-4">
           <TablaCategorias
             categorias={categorias}
             loading={loading}
-            size={10}
+            size={size}
             onEditar={abrirEditar}
             onEliminar={pedirConfirmacionEliminar}
           />
-        ) : (
-          <div className="flex flex-col gap-4 pb-16">
-            {loading
-              ? Array.from({ length: 5 }).map((_, i) => (
-                  <Skeleton key={i} variant="categoria-card" />
+          {paginacion}
+        </div>
+      ) : (
+        <div className="flex flex-col gap-4 pb-16">
+          {loading
+            ? Array.from({ length: size }).map((_, i) => (
+                <Skeleton key={i} variant="categoria-card" />
+              ))
+            : categorias.length === 0
+              ? (
+                <div className="py-12 text-center text-zinc-400 bg-zinc-800/50 rounded-2xl border border-zinc-700">
+                  {search ? "Sin resultados para la búsqueda." : "No hay categorías registradas."}
+                </div>
+              )
+              : categorias.map((c) => (
+                  <CategoriaCard
+                    key={c.id}
+                    categoria={c}
+                    onEditar={abrirEditar}
+                    onEliminar={pedirConfirmacionEliminar}
+                  />
                 ))
-              : categorias.length === 0
-                ? (
-                  <div className="py-12 text-center text-zinc-400 bg-zinc-800/50 rounded-2xl border border-zinc-700">
-                    {search ? "Sin resultados para la búsqueda." : "No hay categorías registradas."}
-                  </div>
-                )
-                : categorias.map((c) => (
-                    <CategoriaCard
-                      key={c.id}
-                      categoria={c}
-                      onEditar={abrirEditar}
-                      onEliminar={pedirConfirmacionEliminar}
-                    />
-                  ))
-            }
-          </div>
-        )}
-      </div>
+          }
+          {paginacion}
+        </div>
+      )}
 
       {showForm && (
         <BaseModal

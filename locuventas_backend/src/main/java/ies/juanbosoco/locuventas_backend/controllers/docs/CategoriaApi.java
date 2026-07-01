@@ -3,7 +3,9 @@ package ies.juanbosoco.locuventas_backend.controllers.docs;
 import ies.juanbosoco.locuventas_backend.DTO.catalogo.CategoriaCreateDTO;
 import ies.juanbosoco.locuventas_backend.DTO.catalogo.CategoriaResponseDTO;
 import ies.juanbosoco.locuventas_backend.DTO.common.ApiResponseDTO;
+import ies.juanbosoco.locuventas_backend.DTO.common.PageDTO;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -11,23 +13,25 @@ import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @Tag(name = "Categorías", description = "Endpoints para la gestión y consulta de categorías de productos")
 public interface CategoriaApi {
 
     @Operation(
-            summary = "Obtener todas las categorías",
-            description = "Devuelve una lista completa de las categorías. Acceso permitido para ADMIN y VENDEDOR.",
+            summary = "Listar categorías de forma paginada",
+            description = "Devuelve una página de categorías con filtro por nombre. Acceso permitido para ADMIN y VENDEDOR.",
             security = @SecurityRequirement(name = "bearerAuth"),
             responses = {
-                    @ApiResponse(responseCode = "200", description = "Lista recuperada con éxito"),
+                    @ApiResponse(responseCode = "200", description = "Lista paginada recuperada con éxito"),
                     @ApiResponse(responseCode = "401", description = "No autorizado"),
                     @ApiResponse(responseCode = "403", description = "Prohibido - Roles insuficientes")
             }
     )
     @GetMapping
-    ResponseEntity<ApiResponseDTO<List<CategoriaResponseDTO>>> getAllCategorias();
+    ResponseEntity<ApiResponseDTO<PageDTO<CategoriaResponseDTO>>> getAllCategorias(
+            @Parameter(description = "Número de página", example = "0") @RequestParam(defaultValue = "0") int page,
+            @Parameter(description = "Elementos por página", example = "10") @RequestParam(defaultValue = "10") int size,
+            @Parameter(description = "Búsqueda por nombre", example = "bebidas") @RequestParam(defaultValue = "") String search
+    );
 
     @Operation(
             summary = "Crear una categoría",
