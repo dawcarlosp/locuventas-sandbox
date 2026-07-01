@@ -36,7 +36,7 @@ export function useGemini<T = string>(): UseGeminiReturn<T> {
       if (e?.name === "AbortError") return null;
       const msg = e?.message ?? "Error al llamar a Gemini";
       setError(msg);
-      return null;
+      throw err;
     } finally {
       setLoading(false);
     }
@@ -78,7 +78,7 @@ export function useGeminiJson<T = unknown>(): UseGeminiReturn<T> {
       if (e?.name === "AbortError") return null;
       const msg = e?.message ?? "Error al llamar a Gemini";
       setError(msg);
-      return null;
+      throw err;
     } finally {
       setLoading(false);
     }

@@ -134,6 +134,13 @@ src/
 ├── services/
 │   ├── api.ts                  # apiRequest<T>() — cliente HTTP centralizado
 │   └── venta.service.ts        # descargarTicketPDF
+├── shared/                     # Código compartido entre features
+│   └── ai/                     # Cliente IA local (LanguageModel API)
+│       ├── gemini.client.ts    # generateContent / generateJson
+│       ├── useGemini.ts        # Hooks useGemini<T> / useGeminiJson<T>
+│       └── prompts/
+│           ├── productos.prompts.ts
+│           └── ventas.prompts.ts
 │
 └── utils/
     ├── imageUtils.ts           # resolveProductImage, resolveCountryImage

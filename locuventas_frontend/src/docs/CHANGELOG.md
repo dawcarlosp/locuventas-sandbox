@@ -6,7 +6,9 @@
 
 ---
 
-## #14 — Migración a IA local (Gemini Nano / LanguageModel API)
+## #14 — Migración a IA local + fix errores silenciosos
+
+**Objetivo:** Reemplazar la API remota de Gemini por la IA local del navegador y arreglar errores silenciosos.
 
 **Objetivo:** Reemplazar la API remota de Gemini por la IA local del navegador.
 
@@ -21,11 +23,13 @@
 | `locuventas_backend/.../AiService.java` | 🗑️ Eliminado | Ya no se necesita proxy backend |
 | `locuventas_backend/.../SecurityConfig.java` | ♻️ Revertido | Eliminada ruta pública `/ai/**` |
 | `locuventas_backend/application.properties` | ♻️ Revertido | Eliminada propiedad `gemini.api.key` |
+| `src/shared/ai/useGemini.ts` | 🐛 Fix | Propaga errores al caller en lugar de tragar silenciosamente — ahora el usuario ve toasts cuando falla la IA |
 
 ### Commits
 
 ```
 feat: migra Gemini de API remota a IA local (LanguageModel API)
+fix: propaga errores de useGemini al caller para evitar fallos silenciosos
 ```
 
 ---

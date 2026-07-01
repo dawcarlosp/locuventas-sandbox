@@ -136,11 +136,8 @@ vivir dentro del feature correspondiente.
 
 ```env
 VITE_API_URL=http://localhost:8080
-VITE_GEMINI_API_KEY=...         # NUEVO en Fase 3
+# Ya no se necesita API key remota — la IA funciona local con LanguageModel API (Gemini Nano).
 ```
-
-> ⚠️ La API key de Gemini no debe exponerse en el cliente en producción.
-> Considerar proxy a través del backend en Spring Boot.
 
 ---
 
