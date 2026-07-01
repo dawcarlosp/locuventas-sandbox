@@ -61,8 +61,7 @@ src/
 │   │   ├── SelectBase.tsx
 │   │   ├── SelectForm.tsx
 │   │   ├── SelectFilter.tsx
-│   │   ├── SkeletonProductoCard.tsx
-│   │   └── SkeletonTarjetaVendedor.tsx
+│   │   ├── Skeleton.tsx
 │
 ├── constants/
 │   ├── breakpoints.ts          # Breakpoint helpers
@@ -88,6 +87,12 @@ src/
 │   ├── dev/                    # Perfil del desarrollador
 │   │   ├── components/         # SobreMi.tsx
 │   │   └── pages/              # SobreMiPage.tsx
+│   │
+│   ├── categorias/             # Gestión de categorías CRUD
+│   │   ├── components/         # GestionCategorias.tsx
+│   │   ├── domain/             # categoria.types.ts
+│   │   ├── hooks/              # useGestionCategorias.ts
+│   │   └── pages/              # GestionCategoriasPagina.tsx
 │   │
 │   ├── productos/              # Catálogo y gestión de productos
 │   │   ├── components/         # CatalogoProductos, GestionProductos, ...
@@ -129,6 +134,13 @@ src/
 ├── services/
 │   ├── api.ts                  # apiRequest<T>() — cliente HTTP centralizado
 │   └── venta.service.ts        # descargarTicketPDF
+├── shared/                     # Código compartido entre features
+│   └── ai/                     # Cliente IA local (LanguageModel API)
+│       ├── gemini.client.ts    # generateContent / generateJson
+│       ├── useGemini.ts        # Hooks useGemini<T> / useGeminiJson<T>
+│       └── prompts/
+│           ├── productos.prompts.ts
+│           └── ventas.prompts.ts
 │
 └── utils/
     ├── imageUtils.ts           # resolveProductImage, resolveCountryImage
@@ -216,14 +228,15 @@ El menú de administración usa un árbol de datos renderizado por
 ```
 
 ### Skeleton Loading Pattern
-Cada listado tiene un skeleton que replica la forma del item real para
-evitar saltos visuales durante la carga.
+Componente unificado `Skeleton` con prop `variant` que replica la forma
+del item real para evitar saltos visuales durante la carga.
 
-| Skeleton                  | Item real                                |
-|---------------------------|------------------------------------------|
-| `SkeletonProductoCard`    | `ProductoCard` (features/productos/)     |
-| `SkeletonTarjetaVendedor` | `TarjetaVendedor` (features/auth/)       |
-| `SkeletonVentaCard`       | `VentaCard` (`features/ventas/components/SkeletonVentaCard.tsx`) |
+| Variant                  | Item real                           |
+|--------------------------|-------------------------------------|
+| `producto-card`          | `ProductoCard` (features/productos/)|
+| `tarjeta-vendedor`       | `TarjetaVendedor` (features/auth/)  |
+| `venta-card`             | `VentaCard` (features/ventas/)      |
+| `producto-gestion-card`  | `ProductoGestionCard`               |
 
 ---
 

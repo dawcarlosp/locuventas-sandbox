@@ -82,17 +82,15 @@ const abrirEditar = (prod: Producto, ...) => { ... };
 
 ### `React.ComponentType<any>` en mapas dinámicos
 
-No se encontró una alternativa limpia — el `any` sigue siendo necesario mientras
-los componentes del mapa tengan firmas de props distintas. Pendiente de resolver
-en un refactor futuro.
+✅ **Resuelto en #6.** Se reemplazó por factory functions con tipado seguro:
 
 ```tsx
-// ⚠️ CASO ESPECIAL — workaround documentado
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const PANEL_MAP: Record<string, React.ComponentType<any>> = { PendientesList };
+const PANEL_MAP: Record<string, (props: Record<string, unknown>) => React.ReactNode> = {
+  PendientesList: (props) => <PendientesList {...props as React.ComponentProps<typeof PendientesList>} />,
+};
 ```
 
-**Archivo:**
+**Archivo resuelto:**
 - `src/components/common/RecursiveMenu.tsx`
 
 ---
@@ -104,4 +102,4 @@ const PANEL_MAP: Record<string, React.ComponentType<any>> = { PendientesList };
 | `FormEvent` → `React.SubmitEvent` | ✅ Corregido |
 | `catch (err: any)` → `unknown` + cast | ✅ Corregido |
 | `useState<any>` → tipo concreto (`Producto`) | ✅ Corregido |
-| `ComponentType<any>` en `PANEL_MAP` | ⏳ Pendiente |
+| `ComponentType<any>` en `PANEL_MAP` | ✅ Resuelto (#6) |

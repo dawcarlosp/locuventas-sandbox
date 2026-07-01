@@ -7,7 +7,7 @@ import useBreakpoint from "@hooks/useBreakpoint";
 import { isBreakpoint } from "@constants/breakpoints";
 import TablaProductos from "./TablaProductos";
 import ProductoGestionCard from "./ProductoGestionCard";
-import SkeletonProductoGestionCard from "./SkeletonProductoGestionCard";
+import Skeleton from "@components/common/Skeleton";
 import ModalProductoForm from "./ModalProductoForm";
 import ModalConfirmacion from "@components/common/ModalConfirmacion";
 import Paginacion from "@components/common/Paginacion";
@@ -126,7 +126,7 @@ export default function GestionProductos() {
         <div className="flex flex-col gap-4 pb-16">
           {loading
             ? Array.from({ length: size }).map((_, i) => (
-                <SkeletonProductoGestionCard key={i} />
+                <Skeleton key={i} variant="producto-gestion-card" />
               ))
             : productos.length === 0
               ? (

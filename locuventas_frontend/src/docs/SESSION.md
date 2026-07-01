@@ -1,8 +1,7 @@
 # Session State
 
 > ⚠️ **LEER PRIMERO.** Este archivo es la fuente única de verdad del estado actual.
-> Contiene dónde estamos, qué se hizo y qué toca ahora.
-> La IA debe leerlo al inicio de cada sesión y actualizarlo al final.
+> La IA debe leerlo al inicio de cada sesión y actualizarlo al final (paso 1 y 8 del bucle).
 
 ---
 
@@ -10,32 +9,104 @@
 
 | Campo | Valor |
 |-------|-------|
-| **Iteración** | 2 |
-| **Rama activa** | `docs/infinite-loop` |
-| **Último commit** | `9331970` — feat: implementa usePaginatedFetch<T> hook genérico y completa Fase 3 |
-| **Branch base** | `develop` |
+| **Iteración** | 14 |
+| **Rama activa** | `master` (push directo, sin PRs) |
+| **Último commit** | `c8a179b` — feat: migra Gemini de API remota a IA local (LanguageModel API) |
+| **Remote** | `dawcarlosp/locuventas-sandbox.git` |
+| **Working tree** | `C:\Users\cpere\Documents\locuventas-sandbox` |
 | **Estado del build** | 🟢 Build exitoso |
-| **PR abierto** | `docs/infinite-loop` → `develop` |
 
 ---
 
-## Qué se hizo en la iteración anterior
+## Qué se hizo
 
-**Iteración 2 — Bugs y mejoras**
+### Iteración 14 — Migración a IA local + fix errores silenciosos
 
-- [x] B.1: Eliminar `AlertSimple` (redundante con `ModalConfirmacion`)
-- [x] B.2: Eliminar `breakpoint` duplicado de `useHeaderManager` (usaba su propio `getBreakpoint` en vez de `useBreakpoint`)
-- [x] Eliminar `AlertSimple.tsx` y actualizar `FormVendedorLogin.tsx` para usar `ModalConfirmacion`
-- [x] Simplificar `ModalConfirmacion`: el botón cancelar es opcional (modo single-button)
-- [x] Build verificado: `npm run build` exitoso
+- [x] `gemini.client.ts` ahora usa `LanguageModel.create()` + `session.prompt()` en lugar de fetch a API remota
+- [x] Eliminado backend proxy (`AiController`, `AiService`) que ya no se necesita
+- [x] Eliminado `VITE_GEMINI_API_KEY` de `.env`
+- [x] Añadida declaración TypeScript para `LanguageModel` global
+- [x] La IA funciona 100% local en el navegador (Chrome + Gemini Nano)
+- [x] Fix: `useGemini.ts` ahora propaga errores al caller — los usuarios ven toasts cuando falla la IA
+- [x] Backend: añadido `Cache-Control: public, max-age=30d` en ImagenController para evitar recargar imágenes al navegar entre páginas
+
+### Iteración 13 — Sugerencia IA de categorías
+
+- [x] Botón "Sugerir IA" en formulario de producto
+- [x] Selecciona automáticamente categorías sugeridas por Gemini
+- [x] Solo visible al crear producto (no al editar)
+
+### Iteración 12 — Resumen de ventas con IA
+
+- [x] Botón "Resumen IA" en VentasPagina
+- [x] Card con spinner y texto del resumen generado por Gemini
+- [x] Integración real con Gemini via `useResumenVentas`
+
+### Iteración 11 — Búsqueda semántica en catálogo
+
+- [x] Botón "Búsqueda IA" en CatalogoProductos
+- [x] Alterna entre filtros clásicos y búsqueda por lenguaje natural
+- [x] Integración real con Gemini via `useBusquedaSemantica`
+
+### Iteración 10 — ErrorBoundary global
+
+- [x] `ErrorBoundary` con UI de recuperación (botón recargar)
+- [x] Envuelta en `App.tsx` para proteger toda la app
+
+### Iteración 9 — Lazy loading en rutas
+
+- [x] 7 páginas migradas a `React.lazy()` con `Suspense`
+- [x] Bundle principal reducido 472KB → 292KB (-38%)
+
+### Iteración 8 — Tests de integración
+
+- [x] `test-utils.tsx` con providers (BrowserRouter + Auth + Header)
+- [x] 3 tests para `LoginPage` (renderizado, botones, enlaces)
+
+### Iteración 7 — Tests unitarios con Vitest
+
+- [x] Instalado y configurado Vitest + Testing Library + jsdom
+- [x] 5 tests para `useBuscador` (debounce, estado, limpieza)
+- [x] 4 tests para `useCarrito` (totales, IVA, múltiples productos)
+
+### Iteración 6 — Eliminar ComponentType<any> de PANEL_MAP
+
+- [x] `PANEL_MAP` migrado a factory functions tipadas
+- [x] Eliminado el último `any` del componente
+
+### Iteración 5 — Unificar skeletons
+
+- [x] `Skeleton.tsx` con `variant="producto-card|tarjeta-vendedor|venta-card|producto-gestion-card"`
+- [x] Eliminados 4 skeletons individuales
+- [x] 4 consumidores actualizados para usar `Skeleton`
+
+### Iteración 4 — Fase 4: Integración Gemini AI
+
+- [x] `shared/ai/gemini.client.ts` — Cliente HTTP para Google Gemini API
+- [x] `shared/ai/useGemini.ts` — Hooks `useGemini<T>` y `useGeminiJson<T>`
+- [x] `shared/ai/prompts/productos.prompts.ts` — Prompts búsqueda semántica y categorización
+- [x] `shared/ai/prompts/ventas.prompts.ts` — Prompt resumen de ventas
+- [x] `features/productos/hooks/useBusquedaSemantica.ts` — Búsqueda semántica con IA
+- [x] `features/productos/hooks/useSugerirCategorias.ts` — Sugerencia de categorías
+- [x] `features/ventas/hooks/useResumenVentas.ts` — Resumen de ventas con IA
+- [x] `.env` — Añadida `VITE_GEMINI_API_KEY`
+
+### Iteración 3 — Gestión de categorías
+
+- [x] Backend: `CategoriaCreateDTO`, `ProductoCategoriaRepository`
+- [x] Backend: `CategoriaService.create/update/delete/deleteWithProducts`
+- [x] Backend: `CategoriaController` + Swagger docs
+- [x] Frontend: `features/categorias/` — types, hook, component, page
+- [x] Ruta `/categorias/gestion` en routes.tsx
+- [x] Menú admin actualizado (Categorías funcional)
+- [x] Remoto cambiado de `repositorioPereira` → `locuventas-sandbox`
+- [x] Worktree movido a `C:\Users\cpere\Documents\locuventas-sandbox`
 
 ---
 
 ## Siguientes tareas
 
-1. **Fase 4 — Integración Gemini AI** (ver `TASKS.md`)
-2. **Bugs y mejoras**: B.3 `ComponentType<any>` en `PANEL_MAP`, B.4 Unificar skeletons
-3. **Tests**: T.1 Tests unitarios a hooks, T.2 Tests de integración
+Ver `TASKS.md` para la cola priorizada.
 
 ---
 
@@ -47,12 +118,11 @@
 
 ## Notas para la próxima IA
 
-- Leer `CLAUDE.md` para convenciones, stack, comandos
-- Leer `ARCHITECTURE.md` para entender la estructura
-- Leer `PATTERNS.md` para conocer los patrones del proyecto
-- Leer `DONT_DO.md` para evitar errores ya corregidos
-- Leer `DECISIONS.md` para no re-debatir decisiones tomadas
-- **Nunca usar `any`** — usar `unknown` con cast explícito
-- **No renombrar español → inglés** en archivos existentes (solo en nuevos)
-- **Branch desde `develop`**, PR a `develop`, merge a `master` solo en hitos
-- Actualizar `SESSION.md` al final de cada sesión
+- Leer `RULES.md` primero para entender las reglas del bucle infinito.
+- Leer `CLAUDE.md` para convenciones, stack, comandos.
+- Leer `ARCHITECTURE.md` para entender la estructura.
+- Leer `TASKS.md` para saber qué toca ahora.
+- **Trabajar siempre en master, push directo, sin preguntar.**
+- **Ejecutar `npm run build` antes de cada commit.**
+- **Actualizar SESSION.md, CHANGELOG.md, TASKS.md, KNOWN_ISSUES.md en cada iteración.**
+- Si se queda sin tareas, escanear KNOWN_ISSUES.md, luego el código, luego proponer mejoras.

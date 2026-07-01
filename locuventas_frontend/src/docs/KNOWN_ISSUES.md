@@ -1,16 +1,16 @@
 # Known Issues
 
 > Bugs activos, deuda técnica, warnings y cosas pendientes.
-> Revisar antes de empezar a trabajar para no ignorar problemas existentes.
+> Cuando TASKS.md se vacía, escanear este archivo para la siguiente tarea.
 
 ---
 
 ## Deuda técnica
 
-| # | Issue | Prioridad | Iteración | Notas |
-|---|-------|-----------|-----------|-------|
-| 1 | `ComponentType<any>` en `PANEL_MAP` de `RecursiveMenu` | `baja` | — | No se encontró alternativa limpia; los componentes del mapa tienen firmas de props distintas |
-| 2 | Skeletons no unificados | `baja` | — | `SkeletonProductoCard`, `SkeletonTarjetaVendedor`, `SkeletonVentaCard` son casi idénticos. Pendiente unificar en un solo `Skeleton` con `variant` |
+| # | Issue | Prioridad | Notas |
+|---|-------|-----------|-------|
+| 1 | `ComponentType<any>` en `PANEL_MAP` de `RecursiveMenu` | `baja` | ✅ Resuelto en #6 — factory functions con `Record<string, unknown>` |
+| 2 | Skeletons no unificados | `baja` | ✅ Resuelto en #5 — `Skeleton` con `variant` |
 
 ---
 
@@ -18,4 +18,23 @@
 
 | # | Issue | Archivo | Estado | Notas |
 |---|-------|---------|--------|-------|
-| 1 | `ComponentType<any>` en `PANEL_MAP` | `RecursiveMenu.tsx` | `aceptado` | Documentado en DONT_DO.md como caso especial pendiente de resolver |
+| 1 | ~~`ComponentType<any>` en `PANEL_MAP`~~ | `RecursiveMenu.tsx` | `resuelto` | ✅ Resuelto en #6 |
+
+---
+
+## Requisitos de la IA local
+
+| # | Issue | Prioridad | Notas |
+|---|-------|-----------|-------|
+| 1 | `LanguageModel` API solo disponible en Chrome con flag `#optimization-guide-on-device-model` | `media` | El resto de navegadores no soportan Gemini Nano. Considerar fallback a API remota en el futuro. |
+
+---
+
+## Mejoras pendientes (sin priorizar)
+
+- Backend: migrar de MySQL a PostgreSQL o similar
+- Backend: Dockerizar la aplicación
+- Frontend: añadir lazy loading a rutas pesadas
+- Frontend: tests unitarios y de integración
+- ~~Caché de imágenes de productos~~ → ✅ Resuelto: `Cache-Control: public, max-age=2592000` en ImagenController
+- Paginación virtual para tablas grandes

@@ -1,7 +1,7 @@
 import type { Venta } from "../domain/venta.types";
 import TablaVentas from "./TablaVentas";
 import VentaCard from "./VentaCard";
-import SkeletonVentaCard from "./SkeletonVentaCard";
+import Skeleton from "@components/common/Skeleton";
 import Paginacion from "@components/common/Paginacion";
 import useBreakpoint from "@hooks/useBreakpoint";
 import { isBreakpoint } from "@constants/breakpoints";
@@ -49,7 +49,7 @@ export default function ContenedorVentas({
       <div className="flex flex-col gap-3">
         {loading
           ? Array.from({ length: size ?? 5 }).map((_, i) => (
-              <SkeletonVentaCard key={i} />
+              <Skeleton key={i} variant="venta-card" />
             ))
           : ventas.length === 0
             ? (

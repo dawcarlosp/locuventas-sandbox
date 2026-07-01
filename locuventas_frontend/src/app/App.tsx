@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useBreakpoint from "@/hooks/useBreakpoint";
 import FormVendedorRegister from "@/features/auth/components/Form/FormVendedorRegister";
+import ErrorBoundary from "@components/common/ErrorBoundary";
 import { AppProviders } from "./providers";
 import { AppRoutes } from "./routes";
 import "@/app/App.css";
@@ -17,7 +18,9 @@ export default function App() {
   return (
     <AppProviders>
       <BrowserRouter>
-        <AppRoutes setIsOpen={setIsOpen} />
+        <ErrorBoundary>
+          <AppRoutes setIsOpen={setIsOpen} />
+        </ErrorBoundary>
         <FormVendedorRegister isOpen={isOpen} setIsOpen={setIsOpen} />
         <ToastContainer
           position={toastPosition}

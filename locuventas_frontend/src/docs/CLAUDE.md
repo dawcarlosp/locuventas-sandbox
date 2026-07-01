@@ -49,8 +49,7 @@ src/
 │   │   ├── SelectBase.tsx
 │   │   ├── SelectForm.tsx
 │   │   ├── SelectFilter.tsx
-│   │   ├── SkeletonProductoCard.tsx
-│   │   ├── SkeletonTarjetaVendedor.tsx
+│   │   ├── Skeleton.tsx
 │   │   └── ImageUpload.tsx
 │   └── FooterLogin.tsx
 ├── constants/
@@ -126,12 +125,14 @@ Todos los listados paginados siguen el mismo patrón:
 - Al buscar o filtrar, siempre se resetea a `page = 0`
 
 ### Skeleton loading
-Cada listado tiene su skeleton que replica la forma visual del item real:
-- `SkeletonProductoCard` → `ProductoCard`
-- `SkeletonTarjetaVendedor` → `TarjetaVendedor`
-- `SkeletonVentaCard` → `VentaCard` (`features/ventas/components/SkeletonVentaCard.tsx`)
+Componente unificado `Skeleton` con prop `variant`:
 
-**PENDIENTE:** Unificar en un solo `Skeleton` con `variant="card|row|circle"`.
+```tsx
+<Skeleton variant="producto-card" />
+<Skeleton variant="tarjeta-vendedor" />
+<Skeleton variant="venta-card" />
+<Skeleton variant="producto-gestion-card" />
+```
 
 ### DropdownContainer
 Componente genérico que calcula automáticamente la posición de la flecha

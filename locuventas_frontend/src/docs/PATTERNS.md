@@ -449,55 +449,37 @@ del contenido que va a aparecer, en lugar de un spinner o texto.
 
 ### Dónde está implementado
 ```
-src/components/common/SkeletonProductoCard.tsx
-src/components/common/SkeletonTarjetaVendedor.tsx
-src/features/ventas/components/SkeletonVentaCard.tsx
+src/components/common/Skeleton.tsx
 ```
 
 ### Cómo funciona
 
-Cada skeleton replica la **forma exacta** del componente real usando
-`animate-pulse` de Tailwind y bloques `bg-zinc-700/50`:
+Componente unificado `Skeleton` con prop `variant` que replica la
+**forma exacta** del componente real usando `animate-pulse` de Tailwind
+y bloques `bg-zinc-700/50`:
 
 ```tsx
-// SkeletonTarjetaVendedor — replica TarjetaVendedor
-export default function SkeletonTarjetaVendedor() {
-  return (
-    <li className="flex items-center gap-3 p-3 rounded-xl bg-zinc-800/50 animate-pulse">
-      <div className="w-10 h-10 rounded-full bg-zinc-700 flex-shrink-0" />
-      <div className="flex-1 flex flex-col gap-2">
-        <div className="h-3 w-32 rounded-md bg-zinc-700" />
-        <div className="h-2 w-48 rounded-md bg-zinc-700/70" />
-      </div>
-      <div className="flex flex-col gap-2 flex-shrink-0">
-        <div className="h-7 w-20 rounded-xl bg-zinc-700" />
-        <div className="h-7 w-20 rounded-xl bg-zinc-700/70" />
-      </div>
-    </li>
-  );
-}
-```
-
-```tsx
-// Uso en el componente padre
+// Uso
 {loading
   ? Array.from({ length: size }).map((_, i) => (
-      <SkeletonTarjetaVendedor key={i} />
+      <Skeleton key={i} variant="tarjeta-vendedor" />
     ))
   : pendientes.map(u => <TarjetaVendedor key={u.id} usuario={u} />)
 }
 ```
 
-### Regla de nomenclatura
-```
-Skeleton{NombreDelComponenteReal}
-SkeletonProductoCard   → ProductoCard
-SkeletonTarjetaVendedor → TarjetaVendedor
-```
+### Variants disponibles
 
-### Cuándo crear un nuevo skeleton
-Siempre que haya un listado o grid que haga fetch. Si el componente
-tiene altura fija conocida, el skeleton evita el layout shift (CLS).
+| Variant                  | Replica                          |
+|--------------------------|----------------------------------|
+| `producto-card`          | `ProductoCard`                   |
+| `tarjeta-vendedor`       | `TarjetaVendedor`                |
+| `venta-card`             | `VentaCard`                      |
+| `producto-gestion-card`  | `ProductoGestionCard`            |
+
+### Cuándo añadir una nueva variant
+Cuando se cree un nuevo listado con fetch, añadir un nuevo case al switch
+de `Skeleton.tsx` con la silueta que replica la forma del componente real.
 
 ---
 

@@ -5,6 +5,8 @@ import SelectForm from "@components/common/SelectForm";
 import ImageUpload from "@components/common/ImageUpload";
 import useBreakpoint from "@hooks/useBreakpoint";
 import { isMobile as checkIsMobile } from "@constants/breakpoints";
+import useSugerirCategorias from "../hooks/useSugerirCategorias";
+import { Sparkles } from "lucide-react";
 import type { SelectOption } from "@domain/ui.types";
 
 interface Props {
@@ -44,6 +46,7 @@ export default function ModalProductoForm({
   const bp       = useBreakpoint();
   const isMobile = checkIsMobile(bp);
   const sinPaises = paises.length === 0;
+  const { sugiriendo, sugerir } = useSugerirCategorias();
 
   const toggleCategoria = (id: number, checked: boolean) =>
 
@@ -52,6 +55,14 @@ export default function ModalProductoForm({
         ? [...categoriaIds, id]
         : categoriaIds.filter((c) => c !== id)
     );
+
+  const handleSugerir = async () => {
+    if (!nombre.trim()) return;
+    const ids = await sugerir(nombre, categorias);
+    if (ids.length > 0) {
+      setCategoriaIds(ids);
+    }
+  };
 
 
   return (
@@ -114,7 +125,20 @@ export default function ModalProductoForm({
       </div>
 
       <div className="w-full max-w-xs flex-shrink-0">
-        <p className="text-white font-semibold text-xs mb-1">Selecciona categorías *</p>
+        <div className="flex items-center justify-between mb-1">
+          <p className="text-white font-semibold text-xs">Selecciona categorías *</p>
+          {!editando && nombre.trim() && categorias.length > 0 && (
+            <button
+              type="button"
+              onClick={handleSugerir}
+              disabled={sugiriendo}
+              className="flex items-center gap-1 text-[10px] text-purple-400 hover:text-purple-300 transition-colors disabled:opacity-50"
+            >
+              <Sparkles size={12} />
+              {sugiriendo ? "Sugiriendo..." : "Sugerir IA"}
+            </button>
+          )}
+        </div>
 
         {!isMobile ? (
           <SelectForm

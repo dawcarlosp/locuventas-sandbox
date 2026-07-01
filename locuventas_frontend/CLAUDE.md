@@ -29,13 +29,24 @@ stack, estructura y comandos que NO cambian entre iteraciones.
 ```
 1. Leer SESSION.md  → saber estado exacto
 2. Leer TASKS.md    → saber qué toca ahora
-3. Leer CLAUDE.md   → convenciones y stack
-4. Leer docs necesarios según la tarea
-5. TRABAJAR: hacer cambios en código
-6. ACTUALIZAR: CHANGELOG.md, TASKS.md, SESSION.md, KNOWN_ISSUES.md
-7. git add, git commit, git push
-8. FIN → SESSION.md queda como handoff
+3. Leer RULES.md    → reglas del bucle infinito
+4. Leer CLAUDE.md   → convenciones y stack
+5. Leer docs necesarios según la tarea
+6. TRABAJAR: hacer cambios en código
+7. npm run build    → verificar que compila
+8. ACTUALIZAR: CHANGELOG.md, TASKS.md, SESSION.md, KNOWN_ISSUES.md
+9. git add -A, git commit -m "tipo: descripción clara"
+10. git push origin master
+11. VOLVER AL PASO 1 — hasta que el usuario diga "para"
 ```
+
+**Reglas de oro:**
+- No pedir permiso. No preguntar. Decidir y ejecutar.
+- Cada commit debe dejar la app funcional (npm run build antes de commitear).
+- Si un cambio rompe algo, arreglarlo antes del siguiente commit.
+- Si TASKS.md se vacía, escanear KNOWN_ISSUES.md, luego escanear el código en busca de mejoras, luego proponer features nuevas.
+- Trabajar siempre en master, push directo, sin PRs ni ramas.
+- Commits con conventional commits: feat:, fix:, refactor:, chore:, test:, docs:.
 
 ---
 
@@ -90,8 +101,7 @@ src/
 │   │   ├── SelectBase.tsx
 │   │   ├── SelectForm.tsx
 │   │   ├── SelectFilter.tsx
-│   │   ├── SkeletonProductoCard.tsx
-│   │   └── SkeletonTarjetaVendedor.tsx
+│   │   ├── Skeleton.tsx
 ├── constants/
 │   ├── breakpoints.ts
 │   ├── states.ts
@@ -109,6 +119,11 @@ src/
 │   │   ├── domain/             # auth.types.ts, vendedor.types.ts
 │   │   ├── hooks/              # useLogin, useRegister, useEditarPerfil
 │   │   └── pages/              # LoginPage, VendedoresPendientesPagina
+│   ├── categorias/             # Gestión de categorías CRUD
+│   │   ├── components/         # GestionCategorias.tsx
+│   │   ├── domain/             # categoria.types.ts
+│   │   ├── hooks/              # useGestionCategorias.ts
+│   │   └── pages/              # GestionCategoriasPagina.tsx
 │   ├── dev/                    # Perfil del desarrollador
 │   │   ├── components/         # SobreMi.tsx
 │   │   └── pages/              # SobreMiPage.tsx
@@ -126,6 +141,7 @@ src/
 │   ├── useBuscador.ts
 │   ├── useBreakpoint.ts
 │   ├── useHeaderManager.ts
+│   ├── usePaginatedFetch.ts    # Hook genérico para listas paginadas
 │   ├── useResponsiveLayout.ts
 │   └── useVendedoresPendientes.ts
 ├── layout/
@@ -249,23 +265,17 @@ VITE_GEMINI_API_KEY=...         # Fase 4
 ## Convención de nombres de ramas
 
 ```
-{tipo}/{descripcion-corta-con-guiones}
+No se usan ramas. Todo el trabajo se hace sobre master.
 ```
 
-| Tipo | Uso | Ejemplos |
-|------|-----|----------|
-| `refactor` | Refactor | `refactor/phase2-button` |
-| `feature` | Nueva funcionalidad | `feature-gemini-search` |
-| `fix` | Bugfix | `fix/react19-deprecations` |
-| `docs` | Documentación | `docs/infinite-loop` |
-| `hotfix` | Parche urgente | `hotfix-frontend` |
-
 ### Flujo de trabajo
-1. Crear rama desde `develop` con el nombre adecuado
-2. Trabajar, commit, push
-3. Crear PR a `develop`
-4. Mergear PR en GitHub, borrar rama remota
-5. `develop` se mergea a `master` solo al completar un hito
+
+```
+1. Trabajar directamente en master
+2. Commit con conventional commits
+3. Push directo a origin master
+4. Repetir
+```
 
 ---
 
