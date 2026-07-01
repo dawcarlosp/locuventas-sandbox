@@ -28,6 +28,7 @@
 - [x] Añadida declaración TypeScript para `LanguageModel` global
 - [x] La IA funciona 100% local en el navegador (Chrome + Gemini Nano)
 - [x] Fix: `useGemini.ts` ahora propaga errores al caller — los usuarios ven toasts cuando falla la IA
+- [x] Backend: añadido `Cache-Control: public, max-age=30d` en ImagenController para evitar recargar imágenes al navegar entre páginas
 
 ### Iteración 13 — Sugerencia IA de categorías
 

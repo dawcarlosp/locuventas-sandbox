@@ -28,6 +28,7 @@ public class ImagenController implements ImagenApi {
 
             return ResponseEntity.ok()
                     .contentType(MediaType.parseMediaType(contentType))
+                    .cacheControl(org.springframework.http.CacheControl.maxAge(java.time.Duration.ofDays(30)).cachePublic())
                     .body(resource);
 
         } catch (IOException e) {

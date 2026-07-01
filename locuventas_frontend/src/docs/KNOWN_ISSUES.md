@@ -36,5 +36,5 @@
 - Backend: Dockerizar la aplicación
 - Frontend: añadir lazy loading a rutas pesadas
 - Frontend: tests unitarios y de integración
-- Caché de imágenes de productos
+- ~~Caché de imágenes de productos~~ → ✅ Resuelto: `Cache-Control: public, max-age=2592000` en ImagenController
 - Paginación virtual para tablas grandes
