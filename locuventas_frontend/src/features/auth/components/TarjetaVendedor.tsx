@@ -3,6 +3,7 @@ import defaultAvatar from "@/assets/default-avatar.png";
 import Button from "@buttons/Button";
 import { formatDistanceToNow } from "date-fns";
 import { es } from "date-fns/locale";
+import { resolveVendorImage } from "@utils/imageUtils";
 
 interface Props {
   usuario:   UsuarioPendiente;
@@ -11,9 +12,7 @@ interface Props {
 }
 
 export default function TarjetaVendedor({ usuario, onAprobar, onDenegar }: Props) {
-  const fotoUrl = usuario.foto
-    ? `${import.meta.env.VITE_API_URL}/imagenes/${usuario.foto}`
-    : defaultAvatar;
+  const fotoUrl = resolveVendorImage(usuario.foto) ?? defaultAvatar;
 
   return (
     <li className="flex items-center justify-between bg-zinc-800/60 backdrop-blur-sm rounded-xl px-3 py-4 space-x-4 border border-white/5">

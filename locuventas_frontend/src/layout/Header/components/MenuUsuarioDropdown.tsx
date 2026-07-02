@@ -7,6 +7,7 @@ import Button from "@buttons/Button";
 import DropdownContainer from "@components/common/DropdownContainer";
 import useResponsiveLayout from "@hooks/useResponsiveLayout";
 import { userMenuConfig } from "@layout/Header/config/userMenuConfig";
+import { resolveVendorImage } from "@utils/imageUtils";
 
 interface Props {
   h:                UseHeaderManagerReturn;
@@ -26,9 +27,7 @@ export default function MenuUsuarioDropdown({
   const avatarRef = useRef<HTMLButtonElement>(null);
   const { isSmall } = useResponsiveLayout();
 
-  const fotoUrl = usuario.foto
-    ? `${import.meta.env.VITE_API_URL}/imagenes/${usuario.foto}`
-    : null;
+  const fotoUrl = resolveVendorImage(usuario.foto);
 
   const items = userMenuConfig(h);
 
