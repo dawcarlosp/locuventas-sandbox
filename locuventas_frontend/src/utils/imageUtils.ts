@@ -23,6 +23,16 @@ export const resolveCountryImage = (enlaceFoto: string | null | undefined): stri
 };
 
 /**
+ * Resuelve la URL completa de la imagen de un vendedor.
+ * Si `foto` ya contiene "/", se usa tal cual como ruta relativa.
+ */
+export const resolveVendorImage = (foto: string | null | undefined): string | null => {
+  if (!foto) return null;
+  const path = foto.includes("/") ? foto : `vendedores/${foto}`;
+  return `${API_URL}/imagenes/${path}`;
+};
+
+/**
  * Devuelve la URL de imagen del producto o un fallback si no existe.
  */
 export const resolveProductImageWithFallback = (
