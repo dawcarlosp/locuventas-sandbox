@@ -16,6 +16,7 @@ interface UseProductosReturn {
   productos:   Producto[];
   loading:     boolean;
   totalPages:  number;
+  refresh:     () => void;
 }
 
 export default function useProductos({
@@ -33,7 +34,7 @@ export default function useProductos({
     return `productos?${params}`;
   }, [page, size, search, paisId, categoriaId]);
 
-  const { data, loading, totalPages } = usePaginatedFetch<Producto, ApiResponse<PageDTO<Producto>>>({
+  const { data, loading, totalPages, refresh } = usePaginatedFetch<Producto, ApiResponse<PageDTO<Producto>>>({
     url,
     extractData: (res) => ({
       content: res.data?.content ?? [],
@@ -42,5 +43,5 @@ export default function useProductos({
     onError: () => toast.error("Error cargando el catálogo"),
   });
 
-  return { productos: data, loading, totalPages };
+  return { productos: data, loading, totalPages, refresh };
 }

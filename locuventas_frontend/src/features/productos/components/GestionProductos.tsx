@@ -28,7 +28,7 @@ export default function GestionProductos() {
 
   const { paises, categorias } = useFiltrosProducto();
 
-  const { productos, loading, totalPages } = useProductos({
+  const { productos, loading, totalPages, refresh } = useProductos({
     page, size, search,
     paisId:      paisId      ? Number(paisId)      : null,
     categoriaId: categoriaId ? Number(categoriaId) : null,
@@ -41,7 +41,10 @@ export default function GestionProductos() {
     abrirNuevo, abrirEditar, cerrarForm,
     handleSubmit, pedirConfirmacionEliminar,
   } = useGestionProductos({
-    onSuccess: () => setPage(0),
+    onSuccess: () => {
+      setPage(0);
+      refresh();
+    },
   });
 
   const handleSearch    = (v: string)   => { setSearch(v);            setPage(0); };
@@ -116,7 +119,10 @@ export default function GestionProductos() {
             loading={loading}
             size={size}
             onEditar={(p) => abrirEditar(p, paises, categorias)}
-            onEliminar={(id) => pedirConfirmacionEliminar(id, () => setPage(0))}
+            onEliminar={(id) => pedirConfirmacionEliminar(id, () => {
+              setPage(0);
+              refresh();
+            })}
           />
           {paginacion}
         </div>
@@ -139,7 +145,10 @@ export default function GestionProductos() {
                     key={p.id}
                     producto={p}
                     onEditar={() => abrirEditar(p, paises, categorias)}
-                    onEliminar={() => pedirConfirmacionEliminar(p.id, () => setPage(0))}
+                    onEliminar={() => pedirConfirmacionEliminar(p.id, () => {
+                      setPage(0);
+                      refresh();
+                    })}
                   />
                 ))
           }
