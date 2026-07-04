@@ -61,10 +61,19 @@ export default function useGestionProductos({ onSuccess }: UseGestionProductosOp
     setEditando(prod);
     const rutaFoto = prod.foto?.includes("/") ? prod.foto : `productos/${prod.foto}`;
 
-    // categoriaIds siempre como number[]
+    const categoriasProducto = (prod.categorias ?? []).map((cat) => {
+      if (typeof cat === "string") return cat;
+      if (typeof cat === "number") return String(cat);
+      return String(cat?.nombre ?? cat?.label ?? "");
+    });
+
     const categoriaIds: number[] = categorias
-      .filter((c) => (prod.categorias ?? []).includes(c.label))
-      .map((c) => c.value);
+      .flatMap((c) => {
+        const coincidePorLabel = categoriasProducto.some((cat) => cat === c.label);
+        const coincidePorValor = categoriasProducto.some((cat) => cat === String(c.value));
+        return coincidePorLabel || coincidePorValor ? [c.value] : [];
+      })
+      .filter((value, index, self) => self.indexOf(value) === index);
 
     setForm({
       nombre:         prod.nombre,
