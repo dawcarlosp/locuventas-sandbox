@@ -4,6 +4,7 @@ import FormDialog from "@components/common/FormDialog";
 import InputFieldsetValidaciones from "@components/common/InputFieldsetValidaciones";
 import ImageUpload from "@components/common/ImageUpload";
 import { validateUser } from "@/utils/user.validator";
+import { resolveVendorImage } from "@utils/imageUtils";
 import { toast } from "react-toastify";
 import { useAuth } from "@context/useAuth";
 
@@ -59,17 +60,26 @@ function FormEditarPerfil({ isOpen, setIsOpen, usuario }: Props) {
     if (foto) formData.append("foto", foto);
 
     try {
-      const result = await apiRequest<{ foto?: string }>("usuarios/editar-perfil", formData, {
-        isFormData: true,
-        method: "PUT",
-      });
+      const result = await apiRequest<{ data?: { foto?: string }; foto?: string }>(
+        "usuarios/editar-perfil",
+        formData,
+        {
+          isFormData: true,
+          method: "PUT",
+        }
+      );
 
-      toast.success("Perfil actualizado");
-      setAuth({
+      const newFoto = result.data?.foto ?? result.foto;
+      const authUpdate: Record<string, string | null> = {
         nombre,
         email,
-        foto: result.foto ?? null,
-      });
+      };
+      if (typeof newFoto === "string") {
+        authUpdate.foto = newFoto;
+      }
+
+      toast.success("Perfil actualizado");
+      setAuth(authUpdate);
       setIsOpen(false);
     } catch (err) {
       const errorObj = err as Record<string, string>;
@@ -94,11 +104,7 @@ function FormEditarPerfil({ isOpen, setIsOpen, usuario }: Props) {
       <ImageUpload
         setFile={setFoto}
         file={foto}
-        fotoActualUrl={
-          usuario?.foto
-            ? `${import.meta.env.VITE_API_URL}/imagenes/vendedores/${usuario.foto}`
-            : null
-        }
+        fotoActualUrl={resolveVendorImage(usuario?.foto ?? null)}
         shape="circle"
       />
 
