@@ -119,4 +119,4 @@ docker compose down -v
 
 --- 
 
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/dawcarlosp/repositorioPereira)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/dawcarlosp/locuventas-sandbox)
