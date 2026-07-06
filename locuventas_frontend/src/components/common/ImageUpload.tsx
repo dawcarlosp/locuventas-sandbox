@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import plusIcon from "@assets/plus.png";
 import avatarDefault from "@assets/default-avatar.png";
 
@@ -29,12 +29,19 @@ export default function ImageUpload({
   const inputRef = useRef<HTMLInputElement>(null);
   const [justChanged, setJustChanged] = useState(false);
   const defaultImage = shape === "circle" ? avatarDefault : plusIcon;
+  const [previewUrl, setPreviewUrl] = useState<string>(fotoActualUrl ?? defaultImage);
 
-  const imgSrc = (() => {
-    if (file) return URL.createObjectURL(file);
-    if (fotoActualUrl) return fotoActualUrl;
-    return defaultImage;
-  })();
+  useEffect(() => {
+    if (file) {
+      const objectUrl = URL.createObjectURL(file);
+      setPreviewUrl(objectUrl);
+      return () => URL.revokeObjectURL(objectUrl);
+    }
+
+    setPreviewUrl(fotoActualUrl ?? defaultImage);
+  }, [file, fotoActualUrl, defaultImage]);
+
+  const imgSrc = previewUrl;
 
   const shapeClass = SHAPE_STYLES[shape];
 
