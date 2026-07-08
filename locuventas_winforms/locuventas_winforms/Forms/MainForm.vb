@@ -32,8 +32,7 @@ Public Class MainForm
     End Sub
 
     Private Sub btnAdmin_Click(sender As Object, e As EventArgs) Handles btnAdmin.Click
-        MessageBox.Show("Módulo de Administración disponible en próxima actualización.",
-                        "En desarrollo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        LoadUserControl(New UsuariosControl())
     End Sub
 
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click

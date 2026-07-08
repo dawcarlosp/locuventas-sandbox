@@ -5,7 +5,7 @@
 ## Fase 3 — Productos CRUD                              [X]
 ## Fase 4 — Ventas + Pagos + PDF                        [X]
 ## Fase 5 — Categorías + Países                         [X]
-## Fase 6 — Admin (Usuarios + roles)                    [ ]
+## Fase 6 — Admin (Usuarios + roles)                    [X]
 ## Fase 7 — Polish (errores, UX, iconos, .gitignore)    [ ]
 
 ### Último commit: afc77cc — Fase 1
