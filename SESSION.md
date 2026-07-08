@@ -4,7 +4,7 @@
 ## Fase 2 — MainForm + Navegación + Dashboard           [X]
 ## Fase 3 — Productos CRUD                              [X]
 ## Fase 4 — Ventas + Pagos + PDF                        [X]
-## Fase 5 — Categorías + Países                         [ ]
+## Fase 5 — Categorías + Países                         [X]
 ## Fase 6 — Admin (Usuarios + roles)                    [ ]
 ## Fase 7 — Polish (errores, UX, iconos, .gitignore)    [ ]
 

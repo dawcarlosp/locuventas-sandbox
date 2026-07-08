@@ -28,8 +28,7 @@ Public Class MainForm
     End Sub
 
     Private Sub btnCategorias_Click(sender As Object, e As EventArgs) Handles btnCategorias.Click
-        MessageBox.Show("Módulo de Categorías disponible en próxima actualización.",
-                        "En desarrollo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        LoadUserControl(New CategoriasControl())
     End Sub
 
     Private Sub btnAdmin_Click(sender As Object, e As EventArgs) Handles btnAdmin.Click
