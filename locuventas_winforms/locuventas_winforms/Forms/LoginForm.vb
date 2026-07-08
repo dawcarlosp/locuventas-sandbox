@@ -41,11 +41,9 @@ Public Class LoginForm
     End Sub
 
     Private Sub lnkRegister_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkRegister.LinkClicked
-        ' TODO: Open RegisterForm in future phase
-        MessageBox.Show("Funcionalidad de registro disponible en próxima actualización.",
-                        "Información",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information)
+        Using registerForm = New RegisterForm()
+            registerForm.ShowDialog()
+        End Using
     End Sub
 
     Private Sub txtPassword_KeyDown(sender As Object, e As KeyEventArgs) Handles txtPassword.KeyDown
