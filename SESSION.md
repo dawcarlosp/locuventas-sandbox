@@ -2,7 +2,7 @@
 
 ## Fase 1 — Foundation (Modelos + ApiClient + Login)     [X]
 ## Fase 2 — MainForm + Navegación + Dashboard           [X]
-## Fase 3 — Productos CRUD                              [ ]
+## Fase 3 — Productos CRUD                              [X]
 ## Fase 4 — Ventas + Pagos + PDF                        [ ]
 ## Fase 5 — Categorías + Países                         [ ]
 ## Fase 6 — Admin (Usuarios + roles)                    [ ]

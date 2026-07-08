@@ -20,8 +20,7 @@ Public Class MainForm
     End Sub
 
     Private Sub btnProductos_Click(sender As Object, e As EventArgs) Handles btnProductos.Click
-        MessageBox.Show("Módulo de Productos disponible en próxima actualización.",
-                        "En desarrollo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        LoadUserControl(New ProductosControl())
     End Sub
 
     Private Sub btnVentas_Click(sender As Object, e As EventArgs) Handles btnVentas.Click
