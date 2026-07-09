@@ -7,11 +7,33 @@ Public Class VentaDetailForm
     End Sub
 
     Private Sub VentaDetailForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        StyleBtnSuccess(btnPago)
+        StyleBtnDanger(btnCancelarVenta)
+        StyleBtnSecondary(btnCerrar)
+        StyleBtnSecondary(btnDescargarPdf)
+        ApplyDarkTheme(dgvLineas)
+
         lblTitle.Text = $"Venta #{ventaData.Id}"
         lblVendedorVal.Text = ventaData.Vendedor
         lblFechaVal.Text = ventaData.Fecha
         lblEstadoVal.Text = If(ventaData.Cancelada, "CANCELADA", ventaData.EstadoPago)
-        lblEstadoVal.ForeColor = If(ventaData.Cancelada, Color.Red, Color.FromArgb(39, 174, 96))
+
+        ' Color estado
+        If ventaData.Cancelada Then
+            lblEstadoVal.ForeColor = Rose
+        Else
+            Select Case ventaData.EstadoPago
+                Case "PAGADO"
+                    lblEstadoVal.ForeColor = Emerald
+                Case "PARCIAL"
+                    lblEstadoVal.ForeColor = Amber
+                Case "PENDIENTE"
+                    lblEstadoVal.ForeColor = Rose
+                Case Else
+                    lblEstadoVal.ForeColor = TextSecondary
+            End Select
+        End If
+
         lblTotalVal.Text = $"{ventaData.Total:N2} €"
         lblPagadoVal.Text = $"{ventaData.MontoPagado:N2} €"
         lblSaldoVal.Text = $"{ventaData.Saldo:N2} €"

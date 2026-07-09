@@ -8,6 +8,9 @@ Public Class PagoForm
         Me.saldoPendiente = saldo
         Me.lblSaldoVal.Text = $"{saldo:N2} €"
         Me.txtMonto.Text = saldo.ToString("F2")
+        StyleBtnSuccess(btnRegistrar)
+        StyleBtnSecondary(btnCancelar)
+        StyleInput(txtMonto)
     End Sub
 
     Private Async Sub btnRegistrar_Click(sender As Object, e As EventArgs) Handles btnRegistrar.Click

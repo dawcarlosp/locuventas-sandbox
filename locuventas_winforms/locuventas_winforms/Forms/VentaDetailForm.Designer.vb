@@ -46,10 +46,11 @@ Partial Class VentaDetailForm
         'lblTitle
         '
         Me.lblTitle.AutoSize = True
-        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold)
+        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Bold)
+        Me.lblTitle.ForeColor = TextWhite
         Me.lblTitle.Location = New System.Drawing.Point(20, 20)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(118, 25)
+        Me.lblTitle.Size = New System.Drawing.Size(134, 28)
         Me.lblTitle.TabIndex = 0
         Me.lblTitle.Text = "Detalle Venta"
         '
@@ -57,6 +58,7 @@ Partial Class VentaDetailForm
         '
         Me.lblVendedorVal.AutoSize = True
         Me.lblVendedorVal.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.lblVendedorVal.ForeColor = TextWhite
         Me.lblVendedorVal.Location = New System.Drawing.Point(120, 60)
         Me.lblVendedorVal.Name = "lblVendedorVal"
         Me.lblVendedorVal.Size = New System.Drawing.Size(63, 19)
@@ -67,6 +69,7 @@ Partial Class VentaDetailForm
         '
         Me.lblVendedor.AutoSize = True
         Me.lblVendedor.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.lblVendedor.ForeColor = TextSecondary
         Me.lblVendedor.Location = New System.Drawing.Point(20, 60)
         Me.lblVendedor.Name = "lblVendedor"
         Me.lblVendedor.Size = New System.Drawing.Size(74, 19)
@@ -77,6 +80,7 @@ Partial Class VentaDetailForm
         '
         Me.lblFechaVal.AutoSize = True
         Me.lblFechaVal.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.lblFechaVal.ForeColor = TextWhite
         Me.lblFechaVal.Location = New System.Drawing.Point(120, 90)
         Me.lblFechaVal.Name = "lblFechaVal"
         Me.lblFechaVal.Size = New System.Drawing.Size(42, 19)
@@ -87,6 +91,7 @@ Partial Class VentaDetailForm
         '
         Me.lblFecha.AutoSize = True
         Me.lblFecha.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.lblFecha.ForeColor = TextSecondary
         Me.lblFecha.Location = New System.Drawing.Point(20, 90)
         Me.lblFecha.Name = "lblFecha"
         Me.lblFecha.Size = New System.Drawing.Size(47, 19)
@@ -96,7 +101,7 @@ Partial Class VentaDetailForm
         'lblEstadoVal
         '
         Me.lblEstadoVal.AutoSize = True
-        Me.lblEstadoVal.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.lblEstadoVal.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
         Me.lblEstadoVal.Location = New System.Drawing.Point(120, 120)
         Me.lblEstadoVal.Name = "lblEstadoVal"
         Me.lblEstadoVal.Size = New System.Drawing.Size(48, 19)
@@ -107,6 +112,7 @@ Partial Class VentaDetailForm
         '
         Me.lblEstado.AutoSize = True
         Me.lblEstado.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.lblEstado.ForeColor = TextSecondary
         Me.lblEstado.Location = New System.Drawing.Point(20, 120)
         Me.lblEstado.Name = "lblEstado"
         Me.lblEstado.Size = New System.Drawing.Size(54, 19)
@@ -116,7 +122,8 @@ Partial Class VentaDetailForm
         'lblTotalVal
         '
         Me.lblTotalVal.AutoSize = True
-        Me.lblTotalVal.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.lblTotalVal.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.lblTotalVal.ForeColor = OrangeLight
         Me.lblTotalVal.Location = New System.Drawing.Point(400, 60)
         Me.lblTotalVal.Name = "lblTotalVal"
         Me.lblTotalVal.Size = New System.Drawing.Size(36, 19)
@@ -127,6 +134,7 @@ Partial Class VentaDetailForm
         '
         Me.lblTotal.AutoSize = True
         Me.lblTotal.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.lblTotal.ForeColor = TextSecondary
         Me.lblTotal.Location = New System.Drawing.Point(340, 60)
         Me.lblTotal.Name = "lblTotal"
         Me.lblTotal.Size = New System.Drawing.Size(42, 19)
@@ -136,7 +144,8 @@ Partial Class VentaDetailForm
         'lblPagadoVal
         '
         Me.lblPagadoVal.AutoSize = True
-        Me.lblPagadoVal.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.lblPagadoVal.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.lblPagadoVal.ForeColor = Emerald
         Me.lblPagadoVal.Location = New System.Drawing.Point(400, 90)
         Me.lblPagadoVal.Name = "lblPagadoVal"
         Me.lblPagadoVal.Size = New System.Drawing.Size(53, 19)
@@ -147,6 +156,7 @@ Partial Class VentaDetailForm
         '
         Me.lblPagado.AutoSize = True
         Me.lblPagado.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.lblPagado.ForeColor = TextSecondary
         Me.lblPagado.Location = New System.Drawing.Point(340, 90)
         Me.lblPagado.Name = "lblPagado"
         Me.lblPagado.Size = New System.Drawing.Size(60, 19)
@@ -156,7 +166,8 @@ Partial Class VentaDetailForm
         'lblSaldoVal
         '
         Me.lblSaldoVal.AutoSize = True
-        Me.lblSaldoVal.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.lblSaldoVal.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.lblSaldoVal.ForeColor = Orange
         Me.lblSaldoVal.Location = New System.Drawing.Point(400, 120)
         Me.lblSaldoVal.Name = "lblSaldoVal"
         Me.lblSaldoVal.Size = New System.Drawing.Size(41, 19)
@@ -167,6 +178,7 @@ Partial Class VentaDetailForm
         '
         Me.lblSaldo.AutoSize = True
         Me.lblSaldo.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.lblSaldo.ForeColor = TextSecondary
         Me.lblSaldo.Location = New System.Drawing.Point(340, 120)
         Me.lblSaldo.Name = "lblSaldo"
         Me.lblSaldo.Size = New System.Drawing.Size(47, 19)
@@ -177,9 +189,11 @@ Partial Class VentaDetailForm
         '
         Me.dgvLineas.AllowUserToAddRows = False
         Me.dgvLineas.AllowUserToDeleteRows = False
-        Me.dgvLineas.BackgroundColor = System.Drawing.Color.White
+        Me.dgvLineas.BackgroundColor = DarkBg2
+        Me.dgvLineas.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvLineas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvLineas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colProducto, Me.colCantidad, Me.colSubtotal, Me.colIva, Me.colTotalLinea})
+        Me.dgvLineas.GridColor = DarkBorder
         Me.dgvLineas.Location = New System.Drawing.Point(20, 160)
         Me.dgvLineas.MultiSelect = False
         Me.dgvLineas.Name = "dgvLineas"
@@ -219,22 +233,28 @@ Partial Class VentaDetailForm
         '
         'btnPago
         '
-        Me.btnPago.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.btnPago.FlatAppearance.BorderSize = 0
+        Me.btnPago.FlatAppearance.MouseDownBackColor = Color.FromArgb(4, 120, 87)
+        Me.btnPago.FlatAppearance.MouseOverBackColor = Color.FromArgb(5, 150, 105)
         Me.btnPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPago.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btnPago.ForeColor = System.Drawing.Color.White
         Me.btnPago.Location = New System.Drawing.Point(20, 380)
         Me.btnPago.Name = "btnPago"
-        Me.btnPago.Size = New System.Drawing.Size(120, 35)
+        Me.btnPago.Size = New System.Drawing.Size(130, 35)
         Me.btnPago.TabIndex = 15
         Me.btnPago.Text = "Registrar Pago"
         Me.btnPago.UseVisualStyleBackColor = False
         '
         'btnCancelarVenta
         '
-        Me.btnCancelarVenta.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(43, Byte), Integer))
+        Me.btnCancelarVenta.FlatAppearance.BorderSize = 0
+        Me.btnCancelarVenta.FlatAppearance.MouseDownBackColor = Color.FromArgb(190, 18, 60)
+        Me.btnCancelarVenta.FlatAppearance.MouseOverBackColor = Color.FromArgb(225, 29, 72)
         Me.btnCancelarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCancelarVenta.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btnCancelarVenta.ForeColor = System.Drawing.Color.White
-        Me.btnCancelarVenta.Location = New System.Drawing.Point(160, 380)
+        Me.btnCancelarVenta.Location = New System.Drawing.Point(170, 380)
         Me.btnCancelarVenta.Name = "btnCancelarVenta"
         Me.btnCancelarVenta.Size = New System.Drawing.Size(120, 35)
         Me.btnCancelarVenta.TabIndex = 16
@@ -243,26 +263,41 @@ Partial Class VentaDetailForm
         '
         'btnCerrar
         '
+        Me.btnCerrar.FlatAppearance.BorderSize = 1
+        Me.btnCerrar.FlatAppearance.BorderColor = DarkBorder
+        Me.btnCerrar.FlatAppearance.MouseDownBackColor = Color.FromArgb(82, 82, 91)
+        Me.btnCerrar.FlatAppearance.MouseOverBackColor = DarkBorder
+        Me.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCerrar.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnCerrar.ForeColor = TextWhite
         Me.btnCerrar.Location = New System.Drawing.Point(500, 380)
         Me.btnCerrar.Name = "btnCerrar"
         Me.btnCerrar.Size = New System.Drawing.Size(80, 35)
         Me.btnCerrar.TabIndex = 17
         Me.btnCerrar.Text = "Cerrar"
-        Me.btnCerrar.UseVisualStyleBackColor = True
+        Me.btnCerrar.UseVisualStyleBackColor = False
         '
         'btnDescargarPdf
         '
-        Me.btnDescargarPdf.Location = New System.Drawing.Point(300, 380)
+        Me.btnDescargarPdf.FlatAppearance.BorderSize = 1
+        Me.btnDescargarPdf.FlatAppearance.BorderColor = DarkBorder
+        Me.btnDescargarPdf.FlatAppearance.MouseDownBackColor = Color.FromArgb(82, 82, 91)
+        Me.btnDescargarPdf.FlatAppearance.MouseOverBackColor = DarkBorder
+        Me.btnDescargarPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDescargarPdf.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.btnDescargarPdf.ForeColor = Purple
+        Me.btnDescargarPdf.Location = New System.Drawing.Point(310, 380)
         Me.btnDescargarPdf.Name = "btnDescargarPdf"
-        Me.btnDescargarPdf.Size = New System.Drawing.Size(180, 35)
+        Me.btnDescargarPdf.Size = New System.Drawing.Size(170, 35)
         Me.btnDescargarPdf.TabIndex = 18
         Me.btnDescargarPdf.Text = "Descargar Ticket PDF"
-        Me.btnDescargarPdf.UseVisualStyleBackColor = True
+        Me.btnDescargarPdf.UseVisualStyleBackColor = False
         '
         'VentaDetailForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = DarkBg
         Me.ClientSize = New System.Drawing.Size(604, 441)
         Me.Controls.Add(Me.btnDescargarPdf)
         Me.Controls.Add(Me.btnCerrar)

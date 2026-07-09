@@ -1,6 +1,12 @@
 Imports System.Text.Json
 
 Public Class LoginForm
+    Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        StyleBtnPrimary(btnLogin)
+        StyleInput(txtEmail)
+        StyleInput(txtPassword)
+    End Sub
+
     Private Async Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         lblError.Text = ""
         btnLogin.Enabled = False

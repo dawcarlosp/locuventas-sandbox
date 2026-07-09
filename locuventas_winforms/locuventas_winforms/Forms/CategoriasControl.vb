@@ -3,6 +3,11 @@ Public Class CategoriasControl
         btnCatNueva.Visible = TokenManager.IsAdmin
         btnCatEditar.Visible = TokenManager.IsAdmin
         btnCatEliminar.Visible = TokenManager.IsAdmin
+        StyleBtnPrimary(btnCatNueva)
+        StyleBtnSecondary(btnCatEditar)
+        StyleBtnDanger(btnCatEliminar)
+        ApplyDarkTheme(dgvCategorias)
+        ApplyDarkTheme(dgvPaises)
         Await LoadCategorias()
         Await LoadPaises()
     End Sub

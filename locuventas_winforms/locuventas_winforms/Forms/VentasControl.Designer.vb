@@ -41,7 +41,7 @@ Partial Class VentasControl
         '
         'pnlToolbar
         '
-        Me.pnlToolbar.BackColor = System.Drawing.Color.White
+        Me.pnlToolbar.BackColor = DarkBg2
         Me.pnlToolbar.Controls.Add(Me.btnNuevaVenta)
         Me.pnlToolbar.Controls.Add(Me.btnPendientes)
         Me.pnlToolbar.Controls.Add(Me.btnTodas)
@@ -54,42 +54,61 @@ Partial Class VentasControl
         'btnNuevaVenta
         '
         Me.btnNuevaVenta.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnNuevaVenta.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(174, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.btnNuevaVenta.FlatAppearance.BorderSize = 0
+        Me.btnNuevaVenta.FlatAppearance.MouseDownBackColor = Color.FromArgb(194, 65, 12)
+        Me.btnNuevaVenta.FlatAppearance.MouseOverBackColor = Color.FromArgb(234, 88, 12)
         Me.btnNuevaVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNuevaVenta.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btnNuevaVenta.ForeColor = System.Drawing.Color.White
-        Me.btnNuevaVenta.Location = New System.Drawing.Point(780, 10)
+        Me.btnNuevaVenta.Location = New System.Drawing.Point(770, 10)
         Me.btnNuevaVenta.Name = "btnNuevaVenta"
-        Me.btnNuevaVenta.Size = New System.Drawing.Size(110, 30)
+        Me.btnNuevaVenta.Size = New System.Drawing.Size(120, 30)
         Me.btnNuevaVenta.TabIndex = 2
-        Me.btnNuevaVenta.Text = "Nueva Venta"
+        Me.btnNuevaVenta.Text = "+ Nueva Venta"
         Me.btnNuevaVenta.UseVisualStyleBackColor = False
         '
         'btnPendientes
         '
+        Me.btnPendientes.FlatAppearance.BorderSize = 1
+        Me.btnPendientes.FlatAppearance.BorderColor = DarkBorder
+        Me.btnPendientes.FlatAppearance.MouseDownBackColor = Color.FromArgb(82, 82, 91)
+        Me.btnPendientes.FlatAppearance.MouseOverBackColor = DarkBorder
+        Me.btnPendientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPendientes.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.btnPendientes.ForeColor = Amber
         Me.btnPendientes.Location = New System.Drawing.Point(100, 10)
         Me.btnPendientes.Name = "btnPendientes"
-        Me.btnPendientes.Size = New System.Drawing.Size(80, 30)
+        Me.btnPendientes.Size = New System.Drawing.Size(85, 30)
         Me.btnPendientes.TabIndex = 1
         Me.btnPendientes.Text = "Pendientes"
-        Me.btnPendientes.UseVisualStyleBackColor = True
+        Me.btnPendientes.UseVisualStyleBackColor = False
         '
         'btnTodas
         '
-        Me.btnTodas.Location = New System.Drawing.Point(10, 10)
+        Me.btnTodas.FlatAppearance.BorderSize = 1
+        Me.btnTodas.FlatAppearance.BorderColor = DarkBorder
+        Me.btnTodas.FlatAppearance.MouseDownBackColor = Color.FromArgb(82, 82, 91)
+        Me.btnTodas.FlatAppearance.MouseOverBackColor = DarkBorder
+        Me.btnTodas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnTodas.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.btnTodas.ForeColor = TextSecondary
+        Me.btnTodas.Location = New System.Drawing.Point(12, 10)
         Me.btnTodas.Name = "btnTodas"
         Me.btnTodas.Size = New System.Drawing.Size(80, 30)
         Me.btnTodas.TabIndex = 0
         Me.btnTodas.Text = "Todas"
-        Me.btnTodas.UseVisualStyleBackColor = True
+        Me.btnTodas.UseVisualStyleBackColor = False
         '
         'dgvVentas
         '
         Me.dgvVentas.AllowUserToAddRows = False
         Me.dgvVentas.AllowUserToDeleteRows = False
-        Me.dgvVentas.BackgroundColor = System.Drawing.Color.White
+        Me.dgvVentas.BackgroundColor = DarkBg2
+        Me.dgvVentas.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvVentas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colVentaId, Me.colFecha, Me.colVendedor, Me.colTotal, Me.colPagado, Me.colSaldo, Me.colEstado, Me.colCancelada})
         Me.dgvVentas.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvVentas.GridColor = DarkBorder
         Me.dgvVentas.Location = New System.Drawing.Point(0, 50)
         Me.dgvVentas.MultiSelect = False
         Me.dgvVentas.Name = "dgvVentas"
@@ -146,7 +165,7 @@ Partial Class VentasControl
         '
         'pnlPaginacion
         '
-        Me.pnlPaginacion.BackColor = System.Drawing.Color.White
+        Me.pnlPaginacion.BackColor = DarkBg2
         Me.pnlPaginacion.Controls.Add(Me.lblPagina)
         Me.pnlPaginacion.Controls.Add(Me.btnSiguiente)
         Me.pnlPaginacion.Controls.Add(Me.btnAnterior)
@@ -159,34 +178,49 @@ Partial Class VentasControl
         'lblPagina
         '
         Me.lblPagina.AutoSize = True
-        Me.lblPagina.Location = New System.Drawing.Point(420, 12)
+        Me.lblPagina.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.lblPagina.ForeColor = TextSecondary
+        Me.lblPagina.Location = New System.Drawing.Point(400, 12)
         Me.lblPagina.Name = "lblPagina"
-        Me.lblPagina.Size = New System.Drawing.Size(60, 13)
+        Me.lblPagina.Size = New System.Drawing.Size(74, 15)
         Me.lblPagina.TabIndex = 2
         Me.lblPagina.Text = "Página 0 de 0"
         '
         'btnSiguiente
         '
-        Me.btnSiguiente.Location = New System.Drawing.Point(520, 7)
+        Me.btnSiguiente.FlatAppearance.BorderSize = 0
+        Me.btnSiguiente.FlatAppearance.MouseDownBackColor = Color.FromArgb(194, 65, 12)
+        Me.btnSiguiente.FlatAppearance.MouseOverBackColor = Color.FromArgb(234, 88, 12)
+        Me.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSiguiente.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.btnSiguiente.ForeColor = System.Drawing.Color.White
+        Me.btnSiguiente.Location = New System.Drawing.Point(500, 7)
         Me.btnSiguiente.Name = "btnSiguiente"
-        Me.btnSiguiente.Size = New System.Drawing.Size(80, 25)
+        Me.btnSiguiente.Size = New System.Drawing.Size(85, 25)
         Me.btnSiguiente.TabIndex = 1
         Me.btnSiguiente.Text = "Siguiente >"
-        Me.btnSiguiente.UseVisualStyleBackColor = True
+        Me.btnSiguiente.UseVisualStyleBackColor = False
         '
         'btnAnterior
         '
+        Me.btnAnterior.FlatAppearance.BorderSize = 0
+        Me.btnAnterior.FlatAppearance.MouseDownBackColor = Color.FromArgb(194, 65, 12)
+        Me.btnAnterior.FlatAppearance.MouseOverBackColor = Color.FromArgb(234, 88, 12)
+        Me.btnAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAnterior.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.btnAnterior.ForeColor = System.Drawing.Color.White
         Me.btnAnterior.Location = New System.Drawing.Point(300, 7)
         Me.btnAnterior.Name = "btnAnterior"
-        Me.btnAnterior.Size = New System.Drawing.Size(80, 25)
+        Me.btnAnterior.Size = New System.Drawing.Size(85, 25)
         Me.btnAnterior.TabIndex = 0
         Me.btnAnterior.Text = "< Anterior"
-        Me.btnAnterior.UseVisualStyleBackColor = True
+        Me.btnAnterior.UseVisualStyleBackColor = False
         '
         'VentasControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = DarkBg
         Me.Controls.Add(Me.dgvVentas)
         Me.Controls.Add(Me.pnlPaginacion)
         Me.Controls.Add(Me.pnlToolbar)

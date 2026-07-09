@@ -5,6 +5,23 @@ Public Class UsuariosControl
     Private currentSearch As String = ""
 
     Private Async Sub UsuariosControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        StyleInput(txtSearch)
+        StyleBtnOrange(btnSiguiente)
+        StyleBtnOrange(btnAnterior)
+        ApplyDarkTheme(dgvUsuarios)
+        ' Style action button columns
+        If dgvUsuarios.Columns("colAccion") IsNot Nothing Then
+            dgvUsuarios.Columns("colAccion").DefaultCellStyle.BackColor = Emerald
+            dgvUsuarios.Columns("colAccion").DefaultCellStyle.ForeColor = Color.White
+            dgvUsuarios.Columns("colAccion").DefaultCellStyle.SelectionBackColor = Emerald
+            dgvUsuarios.Columns("colAccion").DefaultCellStyle.Font = New Font("Segoe UI", 8.0!, FontStyle.Bold)
+        End If
+        If dgvUsuarios.Columns("colEliminar") IsNot Nothing Then
+            dgvUsuarios.Columns("colEliminar").DefaultCellStyle.BackColor = Rose
+            dgvUsuarios.Columns("colEliminar").DefaultCellStyle.ForeColor = Color.White
+            dgvUsuarios.Columns("colEliminar").DefaultCellStyle.SelectionBackColor = Rose
+            dgvUsuarios.Columns("colEliminar").DefaultCellStyle.Font = New Font("Segoe UI", 8.0!, FontStyle.Bold)
+        End If
         Await LoadUsuarios()
     End Sub
 

@@ -37,83 +37,101 @@ Partial Class RegisterForm
         'lblTitle
         '
         Me.lblTitle.AutoSize = True
-        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold)
-        Me.lblTitle.Location = New System.Drawing.Point(20, 20)
+        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.lblTitle.ForeColor = TextWhite
+        Me.lblTitle.Location = New System.Drawing.Point(25, 20)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(172, 25)
+        Me.lblTitle.Size = New System.Drawing.Size(191, 30)
         Me.lblTitle.TabIndex = 0
         Me.lblTitle.Text = "Crear una cuenta"
         '
         'lblNombre
         '
         Me.lblNombre.AutoSize = True
+        Me.lblNombre.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.lblNombre.ForeColor = TextSecondary
         Me.lblNombre.Location = New System.Drawing.Point(25, 65)
         Me.lblNombre.Name = "lblNombre"
-        Me.lblNombre.Size = New System.Drawing.Size(44, 13)
+        Me.lblNombre.Size = New System.Drawing.Size(51, 13)
         Me.lblNombre.TabIndex = 1
         Me.lblNombre.Text = "Nombre"
         '
         'txtNombre
         '
-        Me.txtNombre.Location = New System.Drawing.Point(25, 85)
+        Me.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtNombre.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.txtNombre.Location = New System.Drawing.Point(25, 82)
         Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(250, 22)
+        Me.txtNombre.Size = New System.Drawing.Size(240, 25)
         Me.txtNombre.TabIndex = 2
         '
         'lblEmail
         '
         Me.lblEmail.AutoSize = True
-        Me.lblEmail.Location = New System.Drawing.Point(25, 120)
+        Me.lblEmail.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.lblEmail.ForeColor = TextSecondary
+        Me.lblEmail.Location = New System.Drawing.Point(25, 115)
         Me.lblEmail.Name = "lblEmail"
-        Me.lblEmail.Size = New System.Drawing.Size(32, 13)
+        Me.lblEmail.Size = New System.Drawing.Size(36, 13)
         Me.lblEmail.TabIndex = 3
         Me.lblEmail.Text = "Email"
         '
         'txtEmail
         '
-        Me.txtEmail.Location = New System.Drawing.Point(25, 140)
+        Me.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtEmail.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.txtEmail.Location = New System.Drawing.Point(25, 132)
         Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(250, 22)
+        Me.txtEmail.Size = New System.Drawing.Size(240, 25)
         Me.txtEmail.TabIndex = 4
         '
         'lblPassword
         '
         Me.lblPassword.AutoSize = True
-        Me.lblPassword.Location = New System.Drawing.Point(25, 175)
+        Me.lblPassword.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.lblPassword.ForeColor = TextSecondary
+        Me.lblPassword.Location = New System.Drawing.Point(25, 165)
         Me.lblPassword.Name = "lblPassword"
-        Me.lblPassword.Size = New System.Drawing.Size(53, 13)
+        Me.lblPassword.Size = New System.Drawing.Size(67, 13)
         Me.lblPassword.TabIndex = 5
-        Me.lblPassword.Text = "Password"
+        Me.lblPassword.Text = "Contraseña"
         '
         'txtPassword
         '
-        Me.txtPassword.Location = New System.Drawing.Point(25, 195)
+        Me.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtPassword.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.txtPassword.Location = New System.Drawing.Point(25, 182)
         Me.txtPassword.Name = "txtPassword"
-        Me.txtPassword.Size = New System.Drawing.Size(250, 22)
+        Me.txtPassword.Size = New System.Drawing.Size(240, 25)
         Me.txtPassword.TabIndex = 6
         Me.txtPassword.UseSystemPasswordChar = True
         '
         'lblConfirmPassword
         '
         Me.lblConfirmPassword.AutoSize = True
-        Me.lblConfirmPassword.Location = New System.Drawing.Point(25, 230)
+        Me.lblConfirmPassword.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.lblConfirmPassword.ForeColor = TextSecondary
+        Me.lblConfirmPassword.Location = New System.Drawing.Point(25, 215)
         Me.lblConfirmPassword.Name = "lblConfirmPassword"
-        Me.lblConfirmPassword.Size = New System.Drawing.Size(96, 13)
+        Me.lblConfirmPassword.Size = New System.Drawing.Size(118, 13)
         Me.lblConfirmPassword.TabIndex = 7
-        Me.lblConfirmPassword.Text = "Confirmar password"
+        Me.lblConfirmPassword.Text = "Confirmar contraseña"
         '
         'txtConfirmPassword
         '
-        Me.txtConfirmPassword.Location = New System.Drawing.Point(25, 250)
+        Me.txtConfirmPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtConfirmPassword.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.txtConfirmPassword.Location = New System.Drawing.Point(25, 232)
         Me.txtConfirmPassword.Name = "txtConfirmPassword"
-        Me.txtConfirmPassword.Size = New System.Drawing.Size(250, 22)
+        Me.txtConfirmPassword.Size = New System.Drawing.Size(240, 25)
         Me.txtConfirmPassword.TabIndex = 8
         Me.txtConfirmPassword.UseSystemPasswordChar = True
         '
         'picFoto
         '
+        Me.picFoto.BackColor = DarkBg2
         Me.picFoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.picFoto.Location = New System.Drawing.Point(310, 85)
+        Me.picFoto.Location = New System.Drawing.Point(295, 82)
         Me.picFoto.Name = "picFoto"
         Me.picFoto.Size = New System.Drawing.Size(150, 150)
         Me.picFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -122,48 +140,51 @@ Partial Class RegisterForm
         '
         'btnSubirFoto
         '
-        Me.btnSubirFoto.Location = New System.Drawing.Point(310, 245)
+        Me.btnSubirFoto.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnSubirFoto.Location = New System.Drawing.Point(295, 240)
         Me.btnSubirFoto.Name = "btnSubirFoto"
-        Me.btnSubirFoto.Size = New System.Drawing.Size(150, 25)
+        Me.btnSubirFoto.Size = New System.Drawing.Size(150, 28)
         Me.btnSubirFoto.TabIndex = 10
         Me.btnSubirFoto.Text = "Seleccionar foto..."
         Me.btnSubirFoto.UseVisualStyleBackColor = True
         '
         'btnRegistrar
         '
-        Me.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(174, Byte), Integer), CType(CType(96, Byte), Integer))
-        Me.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRegistrar.ForeColor = System.Drawing.Color.White
-        Me.btnRegistrar.Location = New System.Drawing.Point(25, 300)
+        Me.btnRegistrar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.btnRegistrar.Location = New System.Drawing.Point(25, 290)
         Me.btnRegistrar.Name = "btnRegistrar"
-        Me.btnRegistrar.Size = New System.Drawing.Size(100, 35)
+        Me.btnRegistrar.Size = New System.Drawing.Size(150, 38)
         Me.btnRegistrar.TabIndex = 11
         Me.btnRegistrar.Text = "Registrarse"
         Me.btnRegistrar.UseVisualStyleBackColor = False
         '
         'btnCancelar
         '
-        Me.btnCancelar.Location = New System.Drawing.Point(145, 300)
+        Me.btnCancelar.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.btnCancelar.Location = New System.Drawing.Point(185, 290)
         Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(100, 35)
+        Me.btnCancelar.Size = New System.Drawing.Size(100, 38)
         Me.btnCancelar.TabIndex = 12
         Me.btnCancelar.Text = "Cancelar"
-        Me.btnCancelar.UseVisualStyleBackColor = True
+        Me.btnCancelar.UseVisualStyleBackColor = False
         '
         'lblError
         '
         Me.lblError.AutoSize = True
-        Me.lblError.ForeColor = System.Drawing.Color.Red
-        Me.lblError.Location = New System.Drawing.Point(25, 280)
+        Me.lblError.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.lblError.ForeColor = Rose
+        Me.lblError.Location = New System.Drawing.Point(25, 270)
+        Me.lblError.MaximumSize = New System.Drawing.Size(420, 20)
         Me.lblError.Name = "lblError"
-        Me.lblError.Size = New System.Drawing.Size(0, 13)
+        Me.lblError.Size = New System.Drawing.Size(0, 15)
         Me.lblError.TabIndex = 13
         '
         'RegisterForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(484, 361)
+        Me.BackColor = DarkBg
+        Me.ClientSize = New System.Drawing.Size(474, 351)
         Me.Controls.Add(Me.lblError)
         Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.btnRegistrar)

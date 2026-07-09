@@ -38,90 +38,114 @@ Partial Class ProductoEditForm
         'lblNombre
         '
         Me.lblNombre.AutoSize = True
+        Me.lblNombre.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.lblNombre.ForeColor = TextSecondary
         Me.lblNombre.Location = New System.Drawing.Point(30, 60)
         Me.lblNombre.Name = "lblNombre"
-        Me.lblNombre.Size = New System.Drawing.Size(44, 13)
+        Me.lblNombre.Size = New System.Drawing.Size(51, 13)
         Me.lblNombre.TabIndex = 0
         Me.lblNombre.Text = "Nombre"
         '
         'txtNombre
         '
-        Me.txtNombre.Location = New System.Drawing.Point(30, 80)
+        Me.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtNombre.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.txtNombre.Location = New System.Drawing.Point(30, 78)
         Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(250, 22)
+        Me.txtNombre.Size = New System.Drawing.Size(250, 25)
         Me.txtNombre.TabIndex = 1
         '
         'lblPrecio
         '
         Me.lblPrecio.AutoSize = True
-        Me.lblPrecio.Location = New System.Drawing.Point(30, 120)
+        Me.lblPrecio.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.lblPrecio.ForeColor = TextSecondary
+        Me.lblPrecio.Location = New System.Drawing.Point(30, 115)
         Me.lblPrecio.Name = "lblPrecio"
-        Me.lblPrecio.Size = New System.Drawing.Size(37, 13)
+        Me.lblPrecio.Size = New System.Drawing.Size(41, 13)
         Me.lblPrecio.TabIndex = 2
         Me.lblPrecio.Text = "Precio"
         '
         'txtPrecio
         '
-        Me.txtPrecio.Location = New System.Drawing.Point(30, 140)
+        Me.txtPrecio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtPrecio.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.txtPrecio.Location = New System.Drawing.Point(30, 133)
         Me.txtPrecio.Name = "txtPrecio"
-        Me.txtPrecio.Size = New System.Drawing.Size(120, 22)
+        Me.txtPrecio.Size = New System.Drawing.Size(120, 25)
         Me.txtPrecio.TabIndex = 3
         '
         'lblIva
         '
         Me.lblIva.AutoSize = True
-        Me.lblIva.Location = New System.Drawing.Point(160, 120)
+        Me.lblIva.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.lblIva.ForeColor = TextSecondary
+        Me.lblIva.Location = New System.Drawing.Point(160, 115)
         Me.lblIva.Name = "lblIva"
-        Me.lblIva.Size = New System.Drawing.Size(22, 13)
+        Me.lblIva.Size = New System.Drawing.Size(24, 13)
         Me.lblIva.TabIndex = 4
         Me.lblIva.Text = "IVA"
         '
         'txtIva
         '
-        Me.txtIva.Location = New System.Drawing.Point(160, 140)
+        Me.txtIva.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtIva.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.txtIva.Location = New System.Drawing.Point(160, 133)
         Me.txtIva.Name = "txtIva"
-        Me.txtIva.Size = New System.Drawing.Size(120, 22)
+        Me.txtIva.Size = New System.Drawing.Size(120, 25)
         Me.txtIva.TabIndex = 5
         '
         'lblPais
         '
         Me.lblPais.AutoSize = True
-        Me.lblPais.Location = New System.Drawing.Point(30, 180)
+        Me.lblPais.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.lblPais.ForeColor = TextSecondary
+        Me.lblPais.Location = New System.Drawing.Point(30, 170)
         Me.lblPais.Name = "lblPais"
-        Me.lblPais.Size = New System.Drawing.Size(27, 13)
+        Me.lblPais.Size = New System.Drawing.Size(28, 13)
         Me.lblPais.TabIndex = 6
         Me.lblPais.Text = "País"
         '
         'cmbPais
         '
+        Me.cmbPais.BackColor = DarkBg2
         Me.cmbPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbPais.FormattingEnabled = True
-        Me.cmbPais.Location = New System.Drawing.Point(30, 200)
+        Me.cmbPais.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmbPais.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.cmbPais.ForeColor = TextWhite
+        Me.cmbPais.Location = New System.Drawing.Point(30, 188)
         Me.cmbPais.Name = "cmbPais"
-        Me.cmbPais.Size = New System.Drawing.Size(250, 21)
+        Me.cmbPais.Size = New System.Drawing.Size(250, 23)
         Me.cmbPais.TabIndex = 7
         '
         'lblCategorias
         '
         Me.lblCategorias.AutoSize = True
-        Me.lblCategorias.Location = New System.Drawing.Point(30, 240)
+        Me.lblCategorias.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.lblCategorias.ForeColor = TextSecondary
+        Me.lblCategorias.Location = New System.Drawing.Point(30, 225)
         Me.lblCategorias.Name = "lblCategorias"
-        Me.lblCategorias.Size = New System.Drawing.Size(60, 13)
+        Me.lblCategorias.Size = New System.Drawing.Size(64, 13)
         Me.lblCategorias.TabIndex = 8
         Me.lblCategorias.Text = "Categorías"
         '
         'clbCategorias
         '
+        Me.clbCategorias.BackColor = DarkBg2
+        Me.clbCategorias.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.clbCategorias.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.clbCategorias.ForeColor = TextWhite
         Me.clbCategorias.FormattingEnabled = True
-        Me.clbCategorias.Location = New System.Drawing.Point(30, 260)
+        Me.clbCategorias.Location = New System.Drawing.Point(30, 243)
         Me.clbCategorias.Name = "clbCategorias"
         Me.clbCategorias.Size = New System.Drawing.Size(250, 140)
         Me.clbCategorias.TabIndex = 9
         '
         'picFoto
         '
+        Me.picFoto.BackColor = DarkBg2
         Me.picFoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.picFoto.Location = New System.Drawing.Point(310, 80)
+        Me.picFoto.Location = New System.Drawing.Point(310, 78)
         Me.picFoto.Name = "picFoto"
         Me.picFoto.Size = New System.Drawing.Size(180, 180)
         Me.picFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -130,41 +154,42 @@ Partial Class ProductoEditForm
         '
         'btnSubirFoto
         '
-        Me.btnSubirFoto.Location = New System.Drawing.Point(310, 270)
+        Me.btnSubirFoto.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnSubirFoto.Location = New System.Drawing.Point(310, 265)
         Me.btnSubirFoto.Name = "btnSubirFoto"
-        Me.btnSubirFoto.Size = New System.Drawing.Size(180, 30)
+        Me.btnSubirFoto.Size = New System.Drawing.Size(180, 28)
         Me.btnSubirFoto.TabIndex = 11
         Me.btnSubirFoto.Text = "Seleccionar imagen..."
-        Me.btnSubirFoto.UseVisualStyleBackColor = True
+        Me.btnSubirFoto.UseVisualStyleBackColor = False
         '
         'btnGuardar
         '
-        Me.btnGuardar.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(174, Byte), Integer), CType(CType(96, Byte), Integer))
-        Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGuardar.ForeColor = System.Drawing.Color.White
-        Me.btnGuardar.Location = New System.Drawing.Point(310, 360)
+        Me.btnGuardar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.btnGuardar.Location = New System.Drawing.Point(310, 355)
         Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(80, 40)
+        Me.btnGuardar.Size = New System.Drawing.Size(85, 38)
         Me.btnGuardar.TabIndex = 12
         Me.btnGuardar.Text = "Guardar"
         Me.btnGuardar.UseVisualStyleBackColor = False
         '
         'btnCancelar
         '
-        Me.btnCancelar.Location = New System.Drawing.Point(410, 360)
+        Me.btnCancelar.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.btnCancelar.Location = New System.Drawing.Point(405, 355)
         Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(80, 40)
+        Me.btnCancelar.Size = New System.Drawing.Size(85, 38)
         Me.btnCancelar.TabIndex = 13
         Me.btnCancelar.Text = "Cancelar"
-        Me.btnCancelar.UseVisualStyleBackColor = True
+        Me.btnCancelar.UseVisualStyleBackColor = False
         '
         'lblTitle
         '
         Me.lblTitle.AutoSize = True
-        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold)
-        Me.lblTitle.Location = New System.Drawing.Point(30, 20)
+        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Bold)
+        Me.lblTitle.ForeColor = TextWhite
+        Me.lblTitle.Location = New System.Drawing.Point(28, 20)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(163, 25)
+        Me.lblTitle.Size = New System.Drawing.Size(169, 28)
         Me.lblTitle.TabIndex = 14
         Me.lblTitle.Text = "Nuevo Producto"
         '
@@ -172,6 +197,7 @@ Partial Class ProductoEditForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = DarkBg
         Me.ClientSize = New System.Drawing.Size(524, 421)
         Me.Controls.Add(Me.lblTitle)
         Me.Controls.Add(Me.btnCancelar)

@@ -22,7 +22,6 @@ Partial Class ProductosControl
         Me.cmbCategoria = New System.Windows.Forms.ComboBox()
         Me.cmbPais = New System.Windows.Forms.ComboBox()
         Me.txtSearch = New System.Windows.Forms.TextBox()
-        Me.lblSearch = New System.Windows.Forms.Label()
         Me.dgvProductos = New System.Windows.Forms.DataGridView()
         Me.colId = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colFoto = New System.Windows.Forms.DataGridViewImageColumn()
@@ -42,12 +41,11 @@ Partial Class ProductosControl
         '
         'pnlToolbar
         '
-        Me.pnlToolbar.BackColor = System.Drawing.Color.White
+        Me.pnlToolbar.BackColor = DarkBg2
         Me.pnlToolbar.Controls.Add(Me.btnNuevo)
         Me.pnlToolbar.Controls.Add(Me.cmbCategoria)
         Me.pnlToolbar.Controls.Add(Me.cmbPais)
         Me.pnlToolbar.Controls.Add(Me.txtSearch)
-        Me.pnlToolbar.Controls.Add(Me.lblSearch)
         Me.pnlToolbar.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlToolbar.Location = New System.Drawing.Point(0, 0)
         Me.pnlToolbar.Name = "pnlToolbar"
@@ -57,58 +55,62 @@ Partial Class ProductosControl
         'btnNuevo
         '
         Me.btnNuevo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnNuevo.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(174, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.btnNuevo.FlatAppearance.BorderSize = 0
+        Me.btnNuevo.FlatAppearance.MouseDownBackColor = Color.FromArgb(126, 34, 206)
+        Me.btnNuevo.FlatAppearance.MouseOverBackColor = Color.FromArgb(147, 51, 234)
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btnNuevo.ForeColor = System.Drawing.Color.White
-        Me.btnNuevo.Location = New System.Drawing.Point(790, 10)
+        Me.btnNuevo.Location = New System.Drawing.Point(785, 10)
         Me.btnNuevo.Name = "btnNuevo"
-        Me.btnNuevo.Size = New System.Drawing.Size(100, 30)
+        Me.btnNuevo.Size = New System.Drawing.Size(105, 30)
         Me.btnNuevo.TabIndex = 4
-        Me.btnNuevo.Text = "Nuevo"
+        Me.btnNuevo.Text = "+ Nuevo"
         Me.btnNuevo.UseVisualStyleBackColor = False
         '
         'cmbCategoria
         '
+        Me.cmbCategoria.BackColor = DarkBg
         Me.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbCategoria.FormattingEnabled = True
+        Me.cmbCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmbCategoria.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.cmbCategoria.ForeColor = TextWhite
         Me.cmbCategoria.Location = New System.Drawing.Point(470, 14)
         Me.cmbCategoria.Name = "cmbCategoria"
-        Me.cmbCategoria.Size = New System.Drawing.Size(140, 21)
+        Me.cmbCategoria.Size = New System.Drawing.Size(140, 23)
         Me.cmbCategoria.TabIndex = 3
         '
         'cmbPais
         '
+        Me.cmbPais.BackColor = DarkBg
         Me.cmbPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbPais.FormattingEnabled = True
+        Me.cmbPais.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmbPais.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.cmbPais.ForeColor = TextWhite
         Me.cmbPais.Location = New System.Drawing.Point(320, 14)
         Me.cmbPais.Name = "cmbPais"
-        Me.cmbPais.Size = New System.Drawing.Size(140, 21)
+        Me.cmbPais.Size = New System.Drawing.Size(140, 23)
         Me.cmbPais.TabIndex = 2
         '
         'txtSearch
         '
-        Me.txtSearch.Location = New System.Drawing.Point(55, 14)
+        Me.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtSearch.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtSearch.Location = New System.Drawing.Point(12, 14)
         Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(200, 22)
+        Me.txtSearch.Size = New System.Drawing.Size(295, 23)
         Me.txtSearch.TabIndex = 1
-        '
-        'lblSearch
-        '
-        Me.lblSearch.AutoSize = True
-        Me.lblSearch.Location = New System.Drawing.Point(10, 17)
-        Me.lblSearch.Name = "lblSearch"
-        Me.lblSearch.Size = New System.Drawing.Size(40, 13)
-        Me.lblSearch.TabIndex = 0
-        Me.lblSearch.Text = "Buscar"
         '
         'dgvProductos
         '
         Me.dgvProductos.AllowUserToAddRows = False
         Me.dgvProductos.AllowUserToDeleteRows = False
-        Me.dgvProductos.BackgroundColor = System.Drawing.Color.White
+        Me.dgvProductos.BackgroundColor = DarkBg2
+        Me.dgvProductos.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvProductos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colId, Me.colFoto, Me.colNombre, Me.colPrecio, Me.colIva, Me.colPais, Me.colCategorias})
         Me.dgvProductos.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvProductos.GridColor = DarkBorder
         Me.dgvProductos.Location = New System.Drawing.Point(0, 50)
         Me.dgvProductos.MultiSelect = False
         Me.dgvProductos.Name = "dgvProductos"
@@ -162,7 +164,7 @@ Partial Class ProductosControl
         '
         'pnlPaginacion
         '
-        Me.pnlPaginacion.BackColor = System.Drawing.Color.White
+        Me.pnlPaginacion.BackColor = DarkBg2
         Me.pnlPaginacion.Controls.Add(Me.lblPagina)
         Me.pnlPaginacion.Controls.Add(Me.btnSiguiente)
         Me.pnlPaginacion.Controls.Add(Me.btnAnterior)
@@ -175,34 +177,49 @@ Partial Class ProductosControl
         'lblPagina
         '
         Me.lblPagina.AutoSize = True
-        Me.lblPagina.Location = New System.Drawing.Point(420, 12)
+        Me.lblPagina.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.lblPagina.ForeColor = TextSecondary
+        Me.lblPagina.Location = New System.Drawing.Point(400, 12)
         Me.lblPagina.Name = "lblPagina"
-        Me.lblPagina.Size = New System.Drawing.Size(60, 13)
+        Me.lblPagina.Size = New System.Drawing.Size(74, 15)
         Me.lblPagina.TabIndex = 2
         Me.lblPagina.Text = "Página 0 de 0"
         '
         'btnSiguiente
         '
-        Me.btnSiguiente.Location = New System.Drawing.Point(520, 7)
+        Me.btnSiguiente.FlatAppearance.BorderSize = 0
+        Me.btnSiguiente.FlatAppearance.MouseDownBackColor = Color.FromArgb(194, 65, 12)
+        Me.btnSiguiente.FlatAppearance.MouseOverBackColor = Color.FromArgb(234, 88, 12)
+        Me.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSiguiente.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.btnSiguiente.ForeColor = System.Drawing.Color.White
+        Me.btnSiguiente.Location = New System.Drawing.Point(500, 7)
         Me.btnSiguiente.Name = "btnSiguiente"
-        Me.btnSiguiente.Size = New System.Drawing.Size(80, 25)
+        Me.btnSiguiente.Size = New System.Drawing.Size(85, 25)
         Me.btnSiguiente.TabIndex = 1
         Me.btnSiguiente.Text = "Siguiente >"
-        Me.btnSiguiente.UseVisualStyleBackColor = True
+        Me.btnSiguiente.UseVisualStyleBackColor = False
         '
         'btnAnterior
         '
+        Me.btnAnterior.FlatAppearance.BorderSize = 0
+        Me.btnAnterior.FlatAppearance.MouseDownBackColor = Color.FromArgb(194, 65, 12)
+        Me.btnAnterior.FlatAppearance.MouseOverBackColor = Color.FromArgb(234, 88, 12)
+        Me.btnAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAnterior.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.btnAnterior.ForeColor = System.Drawing.Color.White
         Me.btnAnterior.Location = New System.Drawing.Point(300, 7)
         Me.btnAnterior.Name = "btnAnterior"
-        Me.btnAnterior.Size = New System.Drawing.Size(80, 25)
+        Me.btnAnterior.Size = New System.Drawing.Size(85, 25)
         Me.btnAnterior.TabIndex = 0
         Me.btnAnterior.Text = "< Anterior"
-        Me.btnAnterior.UseVisualStyleBackColor = True
+        Me.btnAnterior.UseVisualStyleBackColor = False
         '
         'ProductosControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = DarkBg
         Me.Controls.Add(Me.dgvProductos)
         Me.Controls.Add(Me.pnlPaginacion)
         Me.Controls.Add(Me.pnlToolbar)
@@ -222,7 +239,6 @@ Partial Class ProductosControl
     Private WithEvents cmbCategoria As ComboBox
     Private WithEvents cmbPais As ComboBox
     Private WithEvents txtSearch As TextBox
-    Private WithEvents lblSearch As Label
     Private WithEvents dgvProductos As DataGridView
     Private WithEvents colId As DataGridViewTextBoxColumn
     Private WithEvents colFoto As DataGridViewImageColumn

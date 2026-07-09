@@ -256,6 +256,16 @@ Public Class ProductoEditForm
         Return True
     End Function
 
+    Private Sub ProductoEditForm_LoadStyle() Handles MyBase.Load
+        StyleBtnPrimary(btnGuardar)
+        StyleBtnSecondary(btnCancelar)
+        StyleBtnSecondary(btnSubirFoto)
+        StyleInput(txtNombre)
+        StyleInput(txtPrecio)
+        StyleInput(txtIva)
+        StyleCombo(cmbPais)
+    End Sub
+
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
         Me.DialogResult = DialogResult.Cancel
         Me.Close()
