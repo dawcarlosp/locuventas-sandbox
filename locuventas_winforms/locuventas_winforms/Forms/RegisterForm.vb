@@ -4,6 +4,16 @@ Public Class RegisterForm
     Private selectedFotoBytes As Byte()
     Private selectedFotoName As String
 
+    Private Sub RegisterForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        StyleBtnPrimary(btnRegistrar)
+        StyleBtnSecondary(btnCancelar)
+        StyleBtnSecondary(btnSubirFoto)
+        StyleInput(txtNombre)
+        StyleInput(txtEmail)
+        StyleInput(txtPassword)
+        StyleInput(txtConfirmPassword)
+    End Sub
+
     Private Async Sub btnRegistrar_Click(sender As Object, e As EventArgs) Handles btnRegistrar.Click
         lblError.Text = ""
 

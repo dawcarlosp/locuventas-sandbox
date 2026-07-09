@@ -41,6 +41,7 @@ Partial Class CategoriasControl
         '
         'tabMain
         '
+        Me.tabMain.Appearance = System.Windows.Forms.TabAppearance.FlatButtons
         Me.tabMain.Controls.Add(Me.tabCategorias)
         Me.tabMain.Controls.Add(Me.tabPaises)
         Me.tabMain.Dock = System.Windows.Forms.DockStyle.Fill
@@ -63,6 +64,7 @@ Partial Class CategoriasControl
         '
         'pnlCatToolbar
         '
+        Me.pnlCatToolbar.BackColor = DarkBg2
         Me.pnlCatToolbar.Controls.Add(Me.btnCatNueva)
         Me.pnlCatToolbar.Controls.Add(Me.btnCatEditar)
         Me.pnlCatToolbar.Controls.Add(Me.btnCatEliminar)
@@ -74,8 +76,11 @@ Partial Class CategoriasControl
         '
         'btnCatNueva
         '
-        Me.btnCatNueva.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(174, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.btnCatNueva.FlatAppearance.BorderSize = 0
+        Me.btnCatNueva.FlatAppearance.MouseDownBackColor = Color.FromArgb(126, 34, 206)
+        Me.btnCatNueva.FlatAppearance.MouseOverBackColor = Color.FromArgb(147, 51, 234)
         Me.btnCatNueva.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCatNueva.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btnCatNueva.ForeColor = System.Drawing.Color.White
         Me.btnCatNueva.Location = New System.Drawing.Point(10, 8)
         Me.btnCatNueva.Name = "btnCatNueva"
@@ -86,31 +91,46 @@ Partial Class CategoriasControl
         '
         'btnCatEditar
         '
+        Me.btnCatEditar.FlatAppearance.BorderSize = 1
+        Me.btnCatEditar.FlatAppearance.BorderColor = DarkBorder
+        Me.btnCatEditar.FlatAppearance.MouseDownBackColor = Color.FromArgb(82, 82, 91)
+        Me.btnCatEditar.FlatAppearance.MouseOverBackColor = DarkBorder
+        Me.btnCatEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCatEditar.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnCatEditar.ForeColor = TextWhite
         Me.btnCatEditar.Location = New System.Drawing.Point(110, 8)
         Me.btnCatEditar.Name = "btnCatEditar"
         Me.btnCatEditar.Size = New System.Drawing.Size(90, 30)
         Me.btnCatEditar.TabIndex = 1
         Me.btnCatEditar.Text = "Editar"
-        Me.btnCatEditar.UseVisualStyleBackColor = True
+        Me.btnCatEditar.UseVisualStyleBackColor = False
         '
         'btnCatEliminar
         '
-        Me.btnCatEliminar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(43, Byte), Integer))
+        Me.btnCatEliminar.BackColor = Rose
+        Me.btnCatEliminar.FlatAppearance.BorderSize = 0
+        Me.btnCatEliminar.FlatAppearance.MouseDownBackColor = Color.FromArgb(190, 18, 60)
+        Me.btnCatEliminar.FlatAppearance.MouseOverBackColor = Color.FromArgb(225, 29, 72)
+        Me.btnCatEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCatEliminar.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.btnCatEliminar.ForeColor = System.Drawing.Color.White
         Me.btnCatEliminar.Location = New System.Drawing.Point(210, 8)
         Me.btnCatEliminar.Name = "btnCatEliminar"
         Me.btnCatEliminar.Size = New System.Drawing.Size(90, 30)
         Me.btnCatEliminar.TabIndex = 2
         Me.btnCatEliminar.Text = "Eliminar"
-        Me.btnCatEliminar.UseVisualStyleBackColor = True
+        Me.btnCatEliminar.UseVisualStyleBackColor = False
         '
         'dgvCategorias
         '
         Me.dgvCategorias.AllowUserToAddRows = False
         Me.dgvCategorias.AllowUserToDeleteRows = False
-        Me.dgvCategorias.BackgroundColor = System.Drawing.Color.White
+        Me.dgvCategorias.BackgroundColor = DarkBg2
+        Me.dgvCategorias.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvCategorias.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colCatId, Me.colCatNombre})
         Me.dgvCategorias.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvCategorias.GridColor = DarkBorder
         Me.dgvCategorias.Location = New System.Drawing.Point(3, 48)
         Me.dgvCategorias.MultiSelect = False
         Me.dgvCategorias.Name = "dgvCategorias"
@@ -146,10 +166,12 @@ Partial Class CategoriasControl
         '
         Me.dgvPaises.AllowUserToAddRows = False
         Me.dgvPaises.AllowUserToDeleteRows = False
-        Me.dgvPaises.BackgroundColor = System.Drawing.Color.White
+        Me.dgvPaises.BackgroundColor = DarkBg2
+        Me.dgvPaises.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvPaises.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvPaises.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colPaisId, Me.colPaisCodigo, Me.colPaisNombre})
         Me.dgvPaises.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvPaises.GridColor = DarkBorder
         Me.dgvPaises.Location = New System.Drawing.Point(3, 3)
         Me.dgvPaises.MultiSelect = False
         Me.dgvPaises.Name = "dgvPaises"

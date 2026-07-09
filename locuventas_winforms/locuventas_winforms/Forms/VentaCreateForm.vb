@@ -5,6 +5,12 @@ Public Class VentaCreateForm
     Private lineas As New List(Of LineaVentaData)()
 
     Private Async Sub VentaCreateForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        StyleBtnOrange(btnCrear)
+        StyleBtnSecondary(btnCancelar)
+        StyleBtnSecondary(btnAgregar)
+        StyleBtnSecondary(btnQuitar)
+        StyleCombo(cmbProducto)
+        ApplyDarkTheme(dgvLineas)
         Await LoadProductos()
     End Sub
 

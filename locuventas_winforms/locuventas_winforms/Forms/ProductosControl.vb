@@ -13,6 +13,13 @@ Public Class ProductosControl
 
     Private Async Sub ProductosControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         btnNuevo.Visible = TokenManager.IsAdmin
+        StyleBtnPrimary(btnNuevo)
+        StyleBtnOrange(btnSiguiente)
+        StyleBtnOrange(btnAnterior)
+        StyleInput(txtSearch)
+        StyleCombo(cmbPais)
+        StyleCombo(cmbCategoria)
+        ApplyDarkTheme(dgvProductos)
         Await LoadPaises()
         Await LoadCategorias()
         Await LoadProductos()

@@ -5,7 +5,42 @@ Public Class VentasControl
     Private showingPendientes As Boolean = False
 
     Private Async Sub VentasControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        StyleBtnOrange(btnNuevaVenta)
+        StyleBtnSecondary(btnTodas)
+        StyleBtnSecondary(btnPendientes)
+        StyleBtnOrange(btnSiguiente)
+        StyleBtnOrange(btnAnterior)
+        ApplyDarkTheme(dgvVentas)
         Await LoadVentas()
+    End Sub
+
+    ' Color estado badges in the DataGridView
+    Private Sub dgvVentas_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dgvVentas.CellFormatting
+        If e.ColumnIndex = dgvVentas.Columns("colEstado").Index AndAlso e.Value IsNot Nothing Then
+            Dim estado = e.Value.ToString()
+            Select Case estado
+                Case "PAGADO"
+                    e.CellStyle.ForeColor = Emerald
+                Case "PARCIAL"
+                    e.CellStyle.ForeColor = Amber
+                Case "PENDIENTE"
+                    e.CellStyle.ForeColor = Rose
+            End Select
+            e.CellStyle.Font = New Font("Segoe UI", 9.0!, FontStyle.Bold)
+        End If
+        ' Color saldo column orange
+        If e.ColumnIndex = dgvVentas.Columns("colSaldo").Index AndAlso e.Value IsNot Nothing Then
+            Dim saldoVal = Convert.ToDecimal(e.Value)
+            If saldoVal > 0 Then
+                e.CellStyle.ForeColor = Orange
+                e.CellStyle.Font = New Font("Segoe UI", 9.0!, FontStyle.Bold)
+            End If
+        End If
+        ' Color total column purple
+        If e.ColumnIndex = dgvVentas.Columns("colTotal").Index AndAlso e.Value IsNot Nothing Then
+            e.CellStyle.ForeColor = OrangeLight
+            e.CellStyle.Font = New Font("Segoe UI", 9.0!, FontStyle.Bold)
+        End If
     End Sub
 
     Private Async Function LoadVentas() As Task
