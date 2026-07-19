@@ -33,8 +33,4 @@
 ## Mejoras pendientes (sin priorizar)
 
 - Backend: migrar de MySQL a PostgreSQL o similar
-- Backend: Dockerizar la aplicación
-- Frontend: añadir lazy loading a rutas pesadas
-- Frontend: tests unitarios y de integración
-- ~~Caché de imágenes de productos~~ → ✅ Resuelto: `Cache-Control: public, max-age=2592000` en ImagenController
 - Paginación virtual para tablas grandes
