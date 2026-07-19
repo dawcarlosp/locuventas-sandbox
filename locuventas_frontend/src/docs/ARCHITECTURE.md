@@ -30,8 +30,8 @@ La estructura está organizada por **dominio de negocio** usando carpetas
 
 ```
 src/
+├── main.tsx                    # Entry point (Vite)
 ├── app/                        # Punto de entrada de la aplicación
-│   ├── main.tsx                # Entry point (Vite)
 │   ├── App.tsx                 # Componente raíz
 │   ├── providers.tsx           # Composición de providers globales
 │   ├── PrivateRoute.tsx        # Guard de rutas protegidas
