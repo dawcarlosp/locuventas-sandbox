@@ -10,8 +10,8 @@
 | Campo | Valor |
 |-------|-------|
 | **Iteración** | 14 |
-| **Rama activa** | `master` (push directo, sin PRs) |
-| **Último commit** | `c8a179b` — feat: migra Gemini de API remota a IA local (LanguageModel API) |
+| **Rama activa** | `develop` (PRs desde ramas de features/docs) |
+| **Último commit** | `fe39069` — Merge pull request #13 from dawcarlosp/feat/winforms-ui-dark-theme |
 | **Remote** | `dawcarlosp/locuventas-sandbox.git` |
 | **Working tree** | `C:\Users\cpere\Documents\locuventas-sandbox` |
 | **Estado del build** | 🟢 Build exitoso |
@@ -102,6 +102,17 @@
 - [x] Remoto cambiado de `repositorioPereira` → `locuventas-sandbox`
 - [x] Worktree movido a `C:\Users\cpere\Documents\locuventas-sandbox`
 
+### WinForms (sesiones posteriores)
+
+- [x] Fase 1 — Foundation (Modelos + ApiClient + Login)
+- [x] Fase 2 — MainForm + Navegación + Dashboard
+- [x] Fase 3 — Productos CRUD
+- [x] Fase 4 — Ventas + Pagos + PDF
+- [x] Fase 5 — Categorías + Países
+- [x] Fase 6 — Admin (Usuarios + roles)
+- [x] Fase 7 — Polish (errores, UX, iconos)
+- [x] Dark theme UI (PR #13)
+
 ---
 
 ## Siguientes tareas
@@ -122,7 +133,7 @@ Ver `TASKS.md` para la cola priorizada.
 - Leer `CLAUDE.md` para convenciones, stack, comandos.
 - Leer `ARCHITECTURE.md` para entender la estructura.
 - Leer `TASKS.md` para saber qué toca ahora.
-- **Trabajar siempre en master, push directo, sin preguntar.**
+- **Trabajar en ramas de features/docs, crear PR contra `develop`.**
 - **Ejecutar `npm run build` antes de cada commit.**
 - **Actualizar SESSION.md, CHANGELOG.md, TASKS.md, KNOWN_ISSUES.md en cada iteración.**
 - Si se queda sin tareas, escanear KNOWN_ISSUES.md, luego el código, luego proponer mejoras.
