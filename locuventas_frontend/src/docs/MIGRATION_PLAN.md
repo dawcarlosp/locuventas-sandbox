@@ -13,7 +13,7 @@
 ✅ Fase 2 — Unificar componentes duplicados
 ✅ Fase 3 — Refactor arquitectura
 ✅ Gestión de categorías (CRUD completo)
-⬜ Fase 4 — Integración Gemini AI
+✅ Fase 4 — Integración Gemini AI (completada con IA local LanguageModel API)
 ```
 
 ---
@@ -96,22 +96,22 @@ src/features/
 
 ---
 
-## Fase 4 — Integración Gemini AI 🔲
+## Fase 4 — Integración Gemini AI ✅
 
 **Prerequisito:** Fases 1-3 completadas.
 
-### Casos de uso identificados
+### Casos de uso implementados
 
 ```
-1. Búsqueda semántica de productos
+1. ✅ Búsqueda semántica de productos — useBusquedaSemantica
    — El vendedor describe el producto con lenguaje natural
    — Gemini devuelve los productos más relevantes
 
-2. Resumen de ventas
+2. ✅ Resumen de ventas — useResumenVentas
    — El admin pide un resumen del día/semana
    — Gemini genera un informe en lenguaje natural
 
-3. Sugerencias de categorización
+3. ✅ Sugerencias de categorización — useSugerirCategorias
    — Al crear un producto, Gemini sugiere categorías basadas en el nombre
 ```
 
@@ -120,23 +120,27 @@ src/features/
 ```
 src/
 └── shared/
-    └── ai/                     # NUEVO en Fase 3
-        ├── gemini.client.ts    # Cliente Gemini (API key, configuración)
-        ├── useGemini.ts        # Hook genérico para llamadas a Gemini
+    └── ai/                     # Cliente IA local (LanguageModel API)
+        ├── index.ts
+        ├── gemini.client.ts    # Cliente: LanguageModel.create() + session.prompt()
+        ├── useGemini.ts        # Hooks useGemini<T> y useGeminiJson<T>
         └── prompts/            # Prompts organizados por caso de uso
             ├── productos.prompts.ts
             └── ventas.prompts.ts
 ```
 
-El cliente de Gemini vive en `shared/` porque puede ser usado por
-múltiples features. Los prompts específicos de cada feature pueden
-vivir dentro del feature correspondiente.
+### Notas de implementación
 
-### Variables de entorno necesarias
+- La IA funciona **100% local en el navegador** usando la `LanguageModel` API (Gemini Nano).
+- No requiere API key remota ni proxy backend.
+- Solo disponible en Chrome con flag `#optimization-guide-on-device-model`.
+- Los hooks `useBusquedaSemantica`, `useSugerirCategorias` y `useResumenVentas` viven en `features/productos/hooks/` y `features/ventas/hooks/` respectivamente.
+
+### Variables de entorno
 
 ```env
 VITE_API_URL=http://localhost:8080
-# Ya no se necesita API key remota — la IA funciona local con LanguageModel API (Gemini Nano).
+# Nota: VITE_GEMINI_API_KEY eliminada — la IA es local, no necesita clave remota.
 ```
 
 ---
