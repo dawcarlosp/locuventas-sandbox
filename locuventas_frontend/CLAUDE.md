@@ -72,22 +72,23 @@ stack, estructura y comandos que NO cambian entre iteraciones.
 
 ```
 src/
-├── app/                        # Punto de entrada
-│   ├── main.tsx
+├── main.tsx                     # Entry point (Vite)
+├── app/                         # Punto de entrada
 │   ├── App.tsx
-│   ├── providers.tsx           # AuthProvider + HeaderProvider
-│   ├── PrivateRoute.tsx        # Guard de rutas protegidas
+│   ├── providers.tsx            # AuthProvider + HeaderProvider
+│   ├── PrivateRoute.tsx         # Guard de rutas protegidas
 │   ├── routes.tsx
-│   └── config/api.ts           # API_BASE_URL
+│   └── config/api.ts            # API_BASE_URL
 ├── components/
-│   ├── common/                 # Componentes reutilizables
-│   │   ├── buttons/            # Button.tsx, MenuButton.tsx
+│   ├── common/                  # Componentes reutilizables
+│   │   ├── buttons/             # Button.tsx, MenuButton.tsx
 │   │   ├── Avatar.tsx
 │   │   ├── BaseModal.tsx
 │   │   ├── BuscadorInput.tsx
 │   │   ├── DataTable.tsx
 │   │   ├── DropdownContainer.tsx
 │   │   ├── Error.tsx
+│   │   ├── ErrorBoundary.tsx
 │   │   ├── FAB.tsx
 │   │   ├── FooterLogin.tsx
 │   │   ├── FormDialog.tsx
@@ -158,6 +159,14 @@ src/
 ├── services/
 │   ├── api.ts                  # apiRequest<T>() — cliente HTTP centralizado
 │   └── venta.service.ts        # descargarTicketPDF
+├── shared/                     # Código compartido entre features
+│   └── ai/                     # Cliente IA local (LanguageModel API)
+│       ├── index.ts
+│       ├── gemini.client.ts
+│       ├── useGemini.ts
+│       └── prompts/
+│           ├── productos.prompts.ts
+│           └── ventas.prompts.ts
 └── utils/
     ├── imageUtils.ts
     └── user.validator.ts
@@ -257,7 +266,6 @@ Protegidas con `<PrivateRoute>` en `app/routes.tsx`.
 
 ```env
 VITE_API_URL=http://localhost:8080
-VITE_GEMINI_API_KEY=...         # Fase 4
 ```
 
 ---
