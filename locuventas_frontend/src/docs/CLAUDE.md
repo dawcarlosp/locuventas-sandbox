@@ -20,38 +20,38 @@ personal y el catálogo.
 
 ```
 src/
-├── app/                    # Punto de entrada: App, providers, routes
-│   ├── main.tsx            # Entry point (Vite)
+├── main.tsx                     # Entry point (Vite)
+├── app/                         # Punto de entrada: App, providers, routes
 │   ├── App.tsx
-│   ├── providers.tsx       # AuthProvider + HeaderProvider
-│   ├── routes.tsx          # Todas las rutas declaradas
+│   ├── providers.tsx            # AuthProvider + HeaderProvider
+│   ├── PrivateRoute.tsx         # Guard de rutas protegidas
+│   ├── routes.tsx               # Todas las rutas declaradas
 │   └── config/
-│       └── api.ts          # API_BASE_URL desde VITE_API_URL
+│       └── api.ts               # API_BASE_URL desde VITE_API_URL
 ├── components/
-│   ├── common/             # Componentes reutilizables genéricos
-│   │   ├── buttons/        # Button.tsx, MenuButton.tsx
-│   │   ├── FooterLogin.tsx
+│   ├── common/                  # Componentes reutilizables genéricos
+│   │   ├── buttons/             # Button.tsx, MenuButton.tsx
 │   │   ├── Avatar.tsx
 │   │   ├── BaseModal.tsx
 │   │   ├── BuscadorInput.tsx
 │   │   ├── DataTable.tsx
 │   │   ├── DropdownContainer.tsx
 │   │   ├── Error.tsx
+│   │   ├── ErrorBoundary.tsx
 │   │   ├── FAB.tsx
+│   │   ├── FooterLogin.tsx
 │   │   ├── FormDialog.tsx
+│   │   ├── ImageUpload.tsx
 │   │   ├── InputFieldset.tsx
 │   │   ├── InputFieldsetValidaciones.tsx
 │   │   ├── LogoNegocio.tsx
 │   │   ├── ModalConfirmacion.tsx
 │   │   ├── Paginacion.tsx
-│   │   ├── PrivateRoute.tsx
 │   │   ├── RecursiveMenu.tsx
 │   │   ├── SelectBase.tsx
 │   │   ├── SelectForm.tsx
 │   │   ├── SelectFilter.tsx
 │   │   ├── Skeleton.tsx
-│   │   └── ImageUpload.tsx
-│   └── FooterLogin.tsx
 ├── constants/
 │   ├── breakpoints.ts
 │   ├── states.ts
@@ -60,37 +60,65 @@ src/
 │   ├── AuthContext.tsx
 │   ├── HeaderContext.tsx
 │   └── useAuth.ts
-├── domain/                 # Tipos compartidos entre features
-│   ├── api.types.ts        # ApiResponse<T>, PageDTO<T>
-│   └── ui.types.ts         # SelectOption, Breakpoint, MenuItem
-├── features/               # Código organizado por dominio de negocio
-│   ├── auth/               # Autenticación y gestión de vendedores
-│   │   ├── components/     # PendientesList, TarjetaVendedor, FormLogin...
-│   │   ├── domain/         # auth.types.ts, vendedor.types.ts
-│   │   ├── hooks/          # useLogin, useRegister, useEditarPerfil
-│   │   └── pages/          # LoginPage, VendedoresPendientesPagina
-│   ├── dev/                # Perfil del desarrollador
-│   │   ├── components/     # SobreMi.tsx
-│   │   └── pages/          # SobreMiPage.tsx
-│   ├── productos/          # Catálogo y gestión de productos
-│   │   ├── components/     # CatalogoProductos, GestionProductos, ...
-│   │   ├── domain/         # producto.types.ts
-│   │   ├── hooks/          # useProductos, useGestionProductos, useFiltrosProducto
-│   │   └── pages/          # GestionProductosPagina.tsx
-│   └── ventas/             # Ventas, carrito y cobros
-│       ├── components/     # CarritoVentas, ContenedorVentas, ModalPago...
-│       ├── domain/         # venta.types.ts
-│       ├── hooks/          # useCarrito, useVentasManager
-│       └── pages/          # Dashboard, VentasPagina, VentasPendientesPagina
-├── hooks/                  # Hooks globales y compartidos
-│   ├── useBuscador.ts      # Buscador con debounce, ref de input
-│   ├── useBreakpoint.ts    # Breakpoint actual según window.innerWidth
-│   ├── useHeaderManager.ts # Estado completo del header + logout + confirmación global
-│   ├── useResponsiveLayout.ts # isSmall, isMedium, isLarge desde useBreakpoint
+├── domain/                      # Tipos compartidos entre features
+│   ├── api.types.ts             # ApiResponse<T>, PageDTO<T>
+│   └── ui.types.ts              # SelectOption, Breakpoint, MenuItem
+├── features/                    # Código organizado por dominio de negocio
+│   ├── auth/                    # Autenticación y gestión de vendedores
+│   │   ├── components/          # PendientesList, TarjetaVendedor, FormLogin...
+│   │   ├── domain/              # auth.types.ts, vendedor.types.ts
+│   │   ├── hooks/               # useLogin, useRegister, useEditarPerfil
+│   │   └── pages/               # LoginPage, VendedoresPendientesPagina
+│   ├── categorias/              # Gestión de categorías CRUD
+│   │   ├── components/          # GestionCategorias.tsx
+│   │   ├── domain/              # categoria.types.ts
+│   │   ├── hooks/               # useGestionCategorias.ts
+│   │   └── pages/               # GestionCategoriasPagina.tsx
+│   ├── dev/                     # Perfil del desarrollador
+│   │   ├── components/          # SobreMi.tsx
+│   │   └── pages/               # SobreMiPage.tsx
+│   ├── productos/               # Catálogo y gestión de productos
+│   │   ├── components/          # CatalogoProductos, GestionProductos, ...
+│   │   ├── domain/              # producto.types.ts
+│   │   ├── hooks/               # useProductos, useGestionProductos, useFiltrosProducto
+│   │   └── pages/               # GestionProductosPagina.tsx
+│   └── ventas/                  # Ventas, carrito y cobros
+│       ├── components/          # CarritoVentas, ContenedorVentas, ModalPago...
+│       ├── domain/              # venta.types.ts
+│       ├── hooks/               # useCarrito, useVentasManager
+│       └── pages/               # Dashboard, VentasPagina, VentasPendientesPagina
+├── hooks/                       # Hooks globales y compartidos
+│   ├── useBuscador.ts           # Buscador con debounce, ref de input
+│   ├── useBreakpoint.ts         # Breakpoint actual según window.innerWidth
+│   ├── useHeaderManager.ts      # Estado completo del header + logout + confirmación global
+│   ├── usePaginatedFetch.ts     # Fetch paginado genérico con AbortController
+│   ├── useResponsiveLayout.ts   # isSmall, isMedium, isLarge desde useBreakpoint
 │   └── useVendedoresPendientes.ts # Fetch y acciones sobre vendedores sin rol
+├── layout/
+│   ├── AppLayout.tsx
+│   ├── Aside.tsx
+│   ├── Footer.tsx
+│   ├── Main.tsx
+│   └── Header/
+│       ├── Header.tsx
+│       ├── NavDesktop.tsx
+│       ├── NavMobile.tsx
+│       ├── components/          # AdminMenu, GestionDropdown, MenuUsuarioDropdown
+│       └── config/              # adminMenuConfig.ts, userMenuConfig.ts
 ├── services/
 │   ├── api.ts
 │   └── venta.service.ts
+├── shared/                      # Código compartido entre features
+│   └── ai/                      # Cliente IA local (LanguageModel API)
+│       ├── index.ts
+│       ├── gemini.client.ts
+│       ├── useGemini.ts
+│       └── prompts/
+│           ├── productos.prompts.ts
+│           └── ventas.prompts.ts
+├── test/
+│   ├── setup.ts
+│   └── test-utils.tsx
 └── utils/
     ├── imageUtils.ts
     └── user.validator.ts

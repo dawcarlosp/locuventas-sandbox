@@ -30,8 +30,8 @@ La estructura está organizada por **dominio de negocio** usando carpetas
 
 ```
 src/
+├── main.tsx                    # Entry point (Vite)
 ├── app/                        # Punto de entrada de la aplicación
-│   ├── main.tsx                # Entry point (Vite)
 │   ├── App.tsx                 # Componente raíz
 │   ├── providers.tsx           # Composición de providers globales
 │   ├── PrivateRoute.tsx        # Guard de rutas protegidas
@@ -48,6 +48,7 @@ src/
 │   │   ├── DataTable.tsx
 │   │   ├── DropdownContainer.tsx
 │   │   ├── Error.tsx
+│   │   ├── ErrorBoundary.tsx
 │   │   ├── FAB.tsx
 │   │   ├── FooterLogin.tsx
 │   │   ├── FormDialog.tsx
@@ -136,6 +137,7 @@ src/
 │   └── venta.service.ts        # descargarTicketPDF
 ├── shared/                     # Código compartido entre features
 │   └── ai/                     # Cliente IA local (LanguageModel API)
+│       ├── index.ts
 │       ├── gemini.client.ts    # generateContent / generateJson
 │       ├── useGemini.ts        # Hooks useGemini<T> / useGeminiJson<T>
 │       └── prompts/

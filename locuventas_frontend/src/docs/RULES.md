@@ -18,8 +18,9 @@
 8. ACTUALIZAR               → CHANGELOG.md, TASKS.md, SESSION.md, KNOWN_ISSUES.md
 9. git add -A               → stage
 10. git commit -m "tipo: msg" → commit claro
-11. git push origin master   → push directo
-12. VOLVER AL PASO 1        → hasta que el usuario diga "para"
+11. git push origin docs/mi-rama → push a rama de features/docs
+12. Crear PR contra develop  → pull request
+13. VOLVER AL PASO 1        → hasta que el usuario diga "para"
 ```
 
 ---
@@ -31,7 +32,7 @@
 | 1 | **No pedir permiso.** No preguntar. Decidir y ejecutar. |
 | 2 | **Cada commit funcional.** Ejecutar `npm run build` antes de commitear. Si falla, arreglarlo. |
 | 3 | **Conventional commits.** `feat:`, `fix:`, `refactor:`, `chore:`, `test:`, `docs:`. |
-| 4 | **Push directo a master.** Sin ramas, sin PRs. |
+| 4 | **Trabajar en ramas de features/docs.** Crear PR contra `develop`. |
 | 5 | **Si algo se rompe, arreglarlo** antes del siguiente commit. |
 | 6 | **Si TASKS.md se vacía**, escanear KNOWN_ISSUES.md. Si también está vacío, escanear el código en busca de mejoras. Si no hay nada, proponer features que aporten valor al negocio. |
 | 7 | **Documentar siempre.** Actualizar SESSION.md, CHANGELOG.md, TASKS.md, KNOWN_ISSUES.md en cada iteración. |
@@ -65,7 +66,7 @@ npm run build    # build de producción (ejecutar antes de cada commit)
 
 # Backend
 cd locuventas_backend
-./mvnw compile   # compilar
+mvnw.cmd compile   # compilar (Windows)
 ```
 
 ---
