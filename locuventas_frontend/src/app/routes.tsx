@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import LoginPage from "@/features/auth/pages/LoginPage";
-import PrivateRoute from "@/app/PrivateRoute";
+import LoginPage from "@features/auth/pages/LoginPage";
+import PrivateRoute from "@app/PrivateRoute";
 
 const Dashboard = lazy(() => import("@features/ventas/pages/Dashboard"));
 const VentasPagina = lazy(() => import("@features/ventas/pages/VentasPagina"));

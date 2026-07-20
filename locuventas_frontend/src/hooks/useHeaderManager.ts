@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@context/useAuth";
 import { useHeader } from "@context/HeaderContext";
-import type { Auth, ConfirmacionGlobal } from "@/features/auth/domain/auth.types";
+import type { Auth, ConfirmacionGlobal } from "@features/auth/domain/auth.types";
 
 export interface UseHeaderManagerReturn {
   auth:                        Auth;

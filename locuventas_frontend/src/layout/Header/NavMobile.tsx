@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import type { UseHeaderManagerReturn } from "@hooks/useHeaderManager";
-import type { Auth } from "@/features/auth/domain/auth.types";
+import type { Auth } from "@features/auth/domain/auth.types";
 import Button from "@buttons/Button";
 import MenuVentas from "@features/ventas/components/MenuVentas";
 import AdminMenu from "@layout/Header/components/AdminMenu";

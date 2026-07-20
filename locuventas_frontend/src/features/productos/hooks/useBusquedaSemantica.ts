@@ -1,8 +1,8 @@
 import { useState, useCallback } from "react";
 import { apiRequest } from "@services/api";
 import { toast } from "react-toastify";
-import { useGeminiJson } from "@/shared/ai/useGemini";
-import { buildBusquedaSemanticaPrompt } from "@/shared/ai/prompts/productos.prompts";
+import { useGeminiJson } from "@shared/ai/useGemini";
+import { buildBusquedaSemanticaPrompt } from "@shared/ai/prompts/productos.prompts";
 import type { Producto } from "../domain/producto.types";
 
 interface UseBusquedaSemanticaReturn {

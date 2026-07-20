@@ -3,7 +3,7 @@ import { apiRequest } from "@services/api";
 import { toast } from "react-toastify";
 import usePaginatedFetch from "@hooks/usePaginatedFetch";
 import type { ApiResponse, PageDTO } from "@domain/api.types";
-import type { UsuarioPendiente } from "@/features/auth/domain/auth.types";
+import type { UsuarioPendiente } from "@features/auth/domain/auth.types";
 
 interface UseVendedoresPendientesOptions {
   page?:   number;

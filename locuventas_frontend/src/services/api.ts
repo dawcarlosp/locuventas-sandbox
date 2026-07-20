@@ -1,5 +1,5 @@
 // src/services/api.ts
-import { API_BASE_URL } from "@/app/config/api";
+import { API_BASE_URL } from "@app/config/api";
 
 // ── Tipos ─────────────────────────────────────────────────────────────────────
 

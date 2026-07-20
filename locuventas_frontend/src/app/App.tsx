@@ -2,12 +2,12 @@ import { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import useBreakpoint from "@/hooks/useBreakpoint";
-import FormVendedorRegister from "@/features/auth/components/Form/FormVendedorRegister";
+import useBreakpoint from "@hooks/useBreakpoint";
+import FormVendedorRegister from "@features/auth/components/Form/FormVendedorRegister";
 import ErrorBoundary from "@components/common/ErrorBoundary";
 import { AppProviders } from "./providers";
 import { AppRoutes } from "./routes";
-import "@/app/App.css";
+import "@app/App.css";
 
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
