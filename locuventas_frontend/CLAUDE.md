@@ -15,14 +15,14 @@ stack, estructura y comandos que NO cambian entre iteraciones.
 
 | Orden | Archivo | Qué contiene |
 |-------|---------|-------------|
-| 1️⃣ | `src/docs/SESSION.md` | Estado actual: iteración, rama, último commit, qué toca ahora |
-| 2️⃣ | `src/docs/TASKS.md` | Cola de tareas: qué hay que hacer, qué está pendiente |
-| 3️⃣ | `src/docs/CHANGELOG.md` | Historial: qué se ha hecho en cada iteración |
-| 4️⃣ | `src/docs/KNOWN_ISSUES.md` | Bugs activos y deuda técnica |
-| 5️⃣ | `src/docs/DECISIONS.md` | Decisiones de arquitectura (ADR) |
-| 6️⃣ | `src/docs/ARCHITECTURE.md` | Arquitectura del sistema |
-| 7️⃣ | `src/docs/PATTERNS.md` | Patrones de diseño aplicados |
-| 8️⃣ | `src/docs/DONT_DO.md` | Errores ya corregidos que no repetir |
+| 1️⃣ | `../apuntes/SESSION.md` | Estado actual: iteración, rama, último commit, qué toca ahora |
+| 2️⃣ | `../apuntes/TASKS.md` | Cola de tareas: qué hay que hacer, qué está pendiente |
+| 3️⃣ | `../apuntes/CHANGELOG.md` | Historial: qué se ha hecho en cada iteración |
+| 4️⃣ | `../apuntes/KNOWN_ISSUES.md` | Bugs activos y deuda técnica |
+| 5️⃣ | `../apuntes/DECISIONS.md` | Decisiones de arquitectura (ADR) |
+| 6️⃣ | `../apuntes/ARCHITECTURE.md` | Arquitectura del sistema |
+| 7️⃣ | `../apuntes/PATTERNS.md` | Patrones de diseño aplicados |
+| 8️⃣ | `../apuntes/DONT_DO.md` | Errores ya corregidos que no repetir |
 
 ### Regla del bucle infinito
 

@@ -1,5 +1,5 @@
 // src/features/productos/hooks/useFiltrosProducto.ts
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { apiRequest } from "@services/api";
 import { toast } from "react-toastify";
 import type { SelectOption } from "@domain/ui.types";
@@ -21,6 +21,7 @@ interface FiltrosProductoReturn {
   paises:     SelectOption[];
   categorias: SelectOption[];
   loading:    boolean;
+  refresh:    () => void;
 }
 
 export default function useFiltrosProducto(): FiltrosProductoReturn {
@@ -28,6 +29,7 @@ export default function useFiltrosProducto(): FiltrosProductoReturn {
   const [paises,     setPaises]     = useState<SelectOption[]>([]);
   const [categorias, setCategorias] = useState<SelectOption[]>([]);
   const [loading,    setLoading]    = useState(true);
+  const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
 
@@ -61,7 +63,12 @@ export default function useFiltrosProducto(): FiltrosProductoReturn {
     };
 
     cargar();
+  }, [refreshKey]);
+
+  const refresh = useCallback(() => {
+    setLoading(true);
+    setRefreshKey((k) => k + 1);
   }, []);
 
-  return { paises, categorias, loading };
+  return { paises, categorias, loading, refresh };
 }

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import type { ConfirmacionGlobal } from "@/features/auth/domain/auth.types";
-import type { UsuarioPendiente } from "@/features/auth/domain/vendedor.types";
+import type { ConfirmacionGlobal } from "@features/auth/domain/auth.types";
+import type { UsuarioPendiente } from "@features/auth/domain/auth.types";
 import useVendedoresPendientes from "@hooks/useVendedoresPendientes";
-import TarjetaVendedor from "@/features/auth/components/TarjetaVendedor";
+import TarjetaVendedor from "@features/auth/components/TarjetaVendedor";
 import Paginacion from "@components/common/Paginacion";
 import BuscadorInput from "@components/common/BuscadorInput";
 import Skeleton from "@components/common/Skeleton";

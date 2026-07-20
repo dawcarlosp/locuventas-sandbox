@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
-import { useGeminiJson } from "@/shared/ai/useGemini";
-import { buildSugerirCategoriasPrompt } from "@/shared/ai/prompts/productos.prompts";
+import { useGeminiJson } from "@shared/ai/useGemini";
+import { buildSugerirCategoriasPrompt } from "@shared/ai/prompts/productos.prompts";
 import { toast } from "react-toastify";
 import type { SelectOption } from "@domain/ui.types";
 

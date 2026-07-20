@@ -24,7 +24,10 @@ export default defineConfig({
       '@assets':     path.resolve(__dirname, 'src/assets'),
       '@hooks':      path.resolve(__dirname, 'src/hooks'),
       '@domain':     path.resolve(__dirname, 'src/domain'), 
-      '@features':     path.resolve(__dirname, 'src/features')
+      '@features':     path.resolve(__dirname, 'src/features'),
+      '@app':          path.resolve(__dirname, 'src/app'),
+      '@shared':       path.resolve(__dirname, 'src/shared'),
+      '@test':         path.resolve(__dirname, 'src/test')
     },
   },
 });

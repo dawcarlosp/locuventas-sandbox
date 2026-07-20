@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
-import { useGemini } from "@/shared/ai/useGemini";
-import { buildResumenVentasPrompt } from "@/shared/ai/prompts/ventas.prompts";
+import { useGemini } from "@shared/ai/useGemini";
+import { buildResumenVentasPrompt } from "@shared/ai/prompts/ventas.prompts";
 import type { Venta } from "../domain/venta.types";
 
 interface UseResumenVentasReturn {

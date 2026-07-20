@@ -44,7 +44,11 @@
       "@constants/*":  ["./src/constants/*"],
       "@utils/*":      ["./src/utils/*"],
       "@domain/*":     ["./src/domain/*"],
-      "@features/*":     ["./src/features/*"]
+      "@features/*":     ["./src/features/*"],
+      "@app/*":          ["./src/app/*"],
+      "@shared/*":       ["./src/shared/*"],
+      "@test/*":         ["./src/test/*"],
+      "@assets/*":       ["./src/assets/*"]
     },
 
     // ── Misc ─────────────────────────────────────────────────────

@@ -1,5 +1,5 @@
-import type { UsuarioPendiente } from "@/features/auth/domain/auth.types";
-import defaultAvatar from "@/assets/default-avatar.png";
+import type { UsuarioPendiente } from "@features/auth/domain/auth.types";
+import defaultAvatar from "@assets/default-avatar.png";
 import Button from "@buttons/Button";
 import { formatDistanceToNow } from "date-fns";
 import { es } from "date-fns/locale";
