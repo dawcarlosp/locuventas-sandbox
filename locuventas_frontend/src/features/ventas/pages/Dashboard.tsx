@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import type { Venta, VentaDetalle } from "../domain/venta.types";
 import type { CarritoItem } from "../hooks/useCarrito";
 import type { Producto } from "@features/productos/domain/producto.types";
@@ -10,8 +10,8 @@ import CarritoVenta from "../components/CarritoVentas";
 import CatalogoProductos from "@features/productos/components/CatalogoProductos";
 import ModalPago from "../components/ModalPago";
 import ModalDetalleVenta from "../components/ModalDetalleVenta";
-import { apiRequest } from "@services/api";
 import { useCarrito } from "../hooks/useCarrito";
+import { usePuntoDeVenta } from "../hooks/usePuntoDeVenta";
 import DrawerCarrito from "../components/DrawerCarrito";
 import useBreakpoint from "@hooks/useBreakpoint";
 import { isBreakpoint, BREAKPOINTS } from "@constants/breakpoints";
@@ -35,6 +35,7 @@ function Dashboard() {
   const { menuOpen } = useHeader();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { total } = useCarrito(carga);
+  const api = usePuntoDeVenta();
 
   const handleSizeChange = (newSize: number) => {
     setSize(newSize);
@@ -68,24 +69,10 @@ function Dashboard() {
     });
   }
 
-  const prepararLineas = () => {
-    return carga.map((item) => {
-      const precio = Number(item.producto.precio);
-      const iva = Number(item.producto.iva || 0);
-      const precioConIva = precio * (1 + iva / 100);
-      return {
-        productoId: item.producto.id,
-        cantidad: item.cantidad,
-        subtotal: +(precioConIva * item.cantidad).toFixed(2),
-      };
-    });
-  };
-
   async function guardarVentaSinCobrar() {
     if (carga.length === 0) { toast.warning("El carrito está vacío"); return; }
-    const lineas = prepararLineas();
     try {
-      const venta = await apiRequest<VentaDetalle>("ventas", { lineas }, { method: "POST" });
+      const venta = await api.guardarVentaSinCobrar(carga);
       setCarga([]);
       setVentaFinalizada(venta);
       toast.success("Venta guardada sin cobrar");
@@ -97,13 +84,9 @@ function Dashboard() {
 
   async function finalizarYCobrar() {
     if (carga.length === 0) { toast.warning("El carrito está vacío"); return; }
-    const lineas = prepararLineas();
     try {
-      const venta = await apiRequest<Venta>("ventas", { lineas }, { method: "POST" });
-      setVentaEnCurso({
-        ...venta,
-        total: lineas.reduce((sum, l) => sum + l.subtotal, 0),
-      });
+      const venta = await api.crearVenta(carga);
+      setVentaEnCurso(venta);
       setModalAbierto(true);
     } catch (err) {
       const errorObj = err as { error?: string };
@@ -115,11 +98,7 @@ function Dashboard() {
     setModalAbierto(false);
     if (!ventaEnCurso) return;
     try {
-      const actualizada = await apiRequest<VentaDetalle>(
-        `ventas/${ventaEnCurso.id}/pago`,
-        { monto: importe },
-        { method: "POST" },
-      );
+      const actualizada = await api.confirmarPago(ventaEnCurso.id, importe);
       setCarga([]);
       setVentaEnCurso(null);
       setVentaFinalizada(actualizada);
