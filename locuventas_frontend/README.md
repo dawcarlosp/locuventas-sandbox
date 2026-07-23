@@ -39,14 +39,19 @@ VITE_API_URL=http://localhost:8080
 
 ```
 src/
-├── app/           # Entry point, providers, rutas
-├── components/    # Componentes UI reutilizables
-├── features/      # Código por dominio (auth, productos, ventas, categorías)
-├── hooks/         # Hooks globales
-├── layout/        # Shell de la app (header, nav, footer)
-├── services/      # Cliente HTTP centralizado
-├── shared/        # Código compartido entre features
-└── utils/         # Utilidades
+├── app/               # Entry point, providers, rutas
+├── assets/            # Recursos estáticos (imágenes, iconos)
+├── components/common/ # Componentes UI reutilizables
+├── constants/         # Constantes globales
+├── context/           # AuthContext + HeaderContext
+├── domain/            # Tipos compartidos (ApiResponse, PageDTO)
+├── features/          # Código por dominio (auth, productos, ventas, categorías, dev)
+├── hooks/             # Hooks globales
+├── layout/            # Shell de la app (header, nav, footer)
+├── services/          # Cliente HTTP centralizado
+├── shared/            # Código compartido entre features (IA local)
+├── test/              # Setup y utilidades de tests
+└── utils/             # Utilidades
 ```
 
 ## IA local (Gemini Nano)
