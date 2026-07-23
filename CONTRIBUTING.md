@@ -8,7 +8,7 @@ Sistema de gestión de ventas para comercios. Vendedores gestionan productos, re
 |-------------|-----------|
 | **Frontend** | React 19 + TypeScript + Vite 6 + Tailwind CSS 4 + React Router 7 |
 | **Backend** | Spring Boot 3.4 + Java 17 + Maven |
-| **WinForms** | VB.NET + .NET 8 |
+| **WinForms** | VB.NET + .NET 10 |
 | **Base de datos** | MySQL |
 
 ## Estructura del proyecto
