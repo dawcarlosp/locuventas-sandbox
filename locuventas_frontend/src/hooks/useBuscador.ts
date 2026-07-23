@@ -10,9 +10,10 @@ interface UseBuscadorOptions {
 interface UseBuscadorReturn {
   query:        string;
   setQuery:     (v: string) => void;
-  inputRef:     RefObject<HTMLInputElement | null>;  // ← añadir | null
+  inputRef:     RefObject<HTMLInputElement | null>;
   handleChange: (v: string) => void;
   handleClear:  () => void;
+  flush:        () => void;
 }
 
 export default function useBuscador({
@@ -31,6 +32,16 @@ export default function useBuscador({
     }
   };
 
+  const flush = (): void => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+    if (onSearch && query.trim()) {
+      onSearch(query);
+    }
+  };
+
   const handleClear = (): void => {
     setQuery("");
     if (onSearch) {
@@ -45,5 +56,5 @@ export default function useBuscador({
     };
   }, []);
 
-  return { query, setQuery, inputRef, handleChange, handleClear };
+  return { query, setQuery, inputRef, handleChange, handleClear, flush };
 }

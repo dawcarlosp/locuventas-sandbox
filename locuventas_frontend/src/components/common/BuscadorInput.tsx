@@ -1,6 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, forwardRef, useImperativeHandle } from "react";
 import { Search, X } from "lucide-react";
 import useBuscador from "@hooks/useBuscador";
+
+export interface BuscadorHandle {
+  value: string;
+  flush: () => void;
+}
 
 interface BuscadorInputProps {
   value?:       string;
@@ -10,17 +15,19 @@ interface BuscadorInputProps {
   className?:   string;
 }
 
-export default function BuscadorInput({
+const BuscadorInput = forwardRef<BuscadorHandle, BuscadorInputProps>(function BuscadorInput({
   value,
   onChange,
   placeholder = "Buscar...",
   debounceMs = 400,
   className = "",
-}: BuscadorInputProps) {
-  const { query, setQuery, inputRef, handleChange, handleClear } = useBuscador({
+}, ref) {
+  const { query, setQuery, inputRef, handleChange, handleClear, flush } = useBuscador({
     debounceMs,
     onSearch: onChange,
   });
+
+  useImperativeHandle(ref, () => ({ value: query, flush }), [query, flush]);
 
   useEffect(() => {
     if (value !== undefined) setQuery(value);
@@ -50,4 +57,6 @@ export default function BuscadorInput({
       )}
     </div>
   );
-}
+});
+
+export default BuscadorInput;

@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import type { Producto } from "../domain/producto.types";
 import type { CarritoItem } from "@features/ventas/hooks/useCarrito";
 import ProductoCard from "./ProductoCard";
 import Skeleton from "@components/common/Skeleton";
 import Paginacion from "@components/common/Paginacion";
 import BuscadorInput from "@components/common/BuscadorInput";
+import type { BuscadorHandle } from "@components/common/BuscadorInput";
 import SelectFilter from "@components/common/SelectFilter";
 import useProductos from "../hooks/useProductos";
 import useFiltrosProducto from "../hooks/useFiltrosProducto";
@@ -36,6 +37,7 @@ export default function CatalogoProductos({
   const [paisId, setPaisId] = useState("");
   const [categoriaId, setCategoriaId] = useState("");
   const [semantico, setSemantico] = useState(false);
+  const buscadorRef = useRef<BuscadorHandle>(null);
 
   const { paises, categorias } = useFiltrosProducto();
 
@@ -70,8 +72,13 @@ export default function CatalogoProductos({
       setSemantico(false);
       limpiarSemantico();
     } else {
+      const valorActual = buscadorRef.current?.value ?? "";
+      buscadorRef.current?.flush();
       setSemantico(true);
       onPageChange(0);
+      if (valorActual.trim()) {
+        buscarSemantico(valorActual);
+      }
     }
   };
 
@@ -93,6 +100,7 @@ export default function CatalogoProductos({
       <div className="flex flex-wrap items-end gap-3">
         <div className="flex-1 min-w-[200px]">
           <BuscadorInput
+            ref={buscadorRef}
             value={search}
             onChange={semantico ? handleSemanticSearch : handleSearch}
             placeholder={semantico ? "Describe el producto..." : "Buscar producto..."}
