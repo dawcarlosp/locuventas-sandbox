@@ -18,12 +18,12 @@ Aplicación web de gestión de ventas para comercios. Construida con React 19 + 
 - Node.js 20+
 - Backend corriendo en `http://localhost:8080`
 
-## Comandos
+## Comandos (frontend)
 
 ```bash
-npm run dev       # servidor de desarrollo
-npm run build     # build de producción
-npm run preview   # previsualizar el build
+npm run dev       # desarrollo
+npm run build     # producción
+npm run preview   # previsualizar build
 npm test          # tests (Vitest)
 ```
 
@@ -66,17 +66,19 @@ conexión externa.
 - Habilitar flag: `chrome://flags/#optimization-guide-on-device-model`
 - Descargar el modelo (Chrome lo gestiona automáticamente al primer uso)
 
-### Funcionalidades que usan IA
+### Funcionalidades
 
-- **Búsqueda semántica** en el catálogo de productos
-- **Sugerencia de categorías** al crear un producto
-- **Resumen de ventas** con lenguaje natural
+- Búsqueda semántica en el catálogo de productos
+- Sugerencia de categorías al crear un producto
+- Resumen de ventas con lenguaje natural
 
 > Si la IA no está disponible, la app sigue funcionando con normalidad —
 > los botones de IA muestran un mensaje de error y se puede operar sin ella.
 
 ## Roles
 
-- **ROLE_ADMIN** → acceso total
-- **ROLE_VENDEDOR** → dashboard, ventas, perfil
-- **Sin rol** → solo login (pendiente de aprobación)
+```
+ROLE_ADMIN    → acceso total
+ROLE_VENDEDOR → dashboard, ventas, perfil
+Sin rol       → solo login (pendiente de aprobación)
+```
