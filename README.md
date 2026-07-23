@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://github.com/dawcarlosp/repositorioPereira.git">
+  <a href="https://github.com/dawcarlosp/locuventas-sandbox.git">
     <img src="https://github.com/dawcarlosp/dawcarlosp/blob/main/assets-tfg/logoLocuventasv2.svg"/>
   </a>
 </div>
@@ -29,11 +29,11 @@ Antes de empezar, asegúrate de tener instalado:
 ---
 
 ```bash
-git clone https://github.com/dawcarlosp/repositorioPereira.git
+git clone https://github.com/dawcarlosp/locuventas-sandbox.git
 ```
 
 ```bash
-cd repositorioPereira
+cd locuventas-sandbox
 ```
 
 ---
