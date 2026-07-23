@@ -4,12 +4,9 @@
   </a>
 </div>
 
-
-
 # 🐳 Guía de instalación de LocuVentas con Docker
 
 ¡Bienvenido/a! Aquí encontrarás los pasos necesarios para levantar **LocuVentas** (backend + frontend + base de datos) **en tu entorno local** usando `docker-compose`. Esta guía no cubre despliegue en producción, solo uso en local para desarrollo o pruebas.
-
 
 ---
 
@@ -26,13 +23,8 @@ Antes de empezar, asegúrate de tener instalado:
 
 ## 📁 Paso 1. Clonar el repositorio y acceder a el
 
----
-
 ```bash
 git clone https://github.com/dawcarlosp/locuventas-sandbox.git
-```
-
-```bash
 cd locuventas-sandbox
 ```
 
@@ -40,27 +32,21 @@ cd locuventas-sandbox
 
 ## 📁 Paso 2. Configurar el entorno
 
----
-
 ```bash
 cp .env.example .env
 ```
 
----
+> Nota: tienes la posibilidad de editar `.env` con tus propios valores (recomendado).
 
-> Nota: tienes la posibilidad de editar ".env" con tus propios valores(recomendado).
-
-
-> Para funcionamiento inmediato y evitar conflictos, se recomienda: 
+> Para funcionamiento inmediato y evitar conflictos, se recomienda:
 
 ```env
 APP_ADMIN_EMAIL
-APP_ADMIN_PASSWORD 
+APP_ADMIN_PASSWORD
 APP_ADMIN_NOMBRE
 ```
----
 
-> 📸La foto ya te la pones una vez estés dentro de la app😉​
+> 📸 La foto la puedes añadir una vez estés dentro de la app.
 
 ---
 
@@ -74,7 +60,6 @@ docker compose --env-file .env up -d
 ```bash
 docker-compose --env-file .env up -d
 ```
----
 
 ### Esto hará lo siguiente
 
@@ -84,7 +69,7 @@ docker-compose --env-file .env up -d
 - 🎨 Levantar el frontend desde [dawcarlosp/locuventas-frontend:1.0](https://hub.docker.com/repository/docker/dawcarlosp/locuventas-frontend/tags/1.0/sha256-242ea3b9c02d3a5b32e36cb5253648581dac0b7bc5452f1c74b16add29ccf0b1)
 - 📁 Mapear los volúmenes de imágenes (uploads/)
 
---- 
+---
 
 ### Verificar
 
@@ -96,11 +81,11 @@ docker-compose --env-file .env up -d
 http://localhost:8080/
 ```
 
---- 
+> Recuerda que si registras una nueva cuenta, tienes que aprobarla a través del administrador.
 
-> Recuerda, que si registras una nueva cuenta, tienes que aprobarla a través del administrador
+---
 
-###  Detener y limpiar
+### Detener y limpiar
 
 - Para los servicios:
 
@@ -113,10 +98,9 @@ docker compose down
 ```bash
 docker compose down -v
 ```
+
 ---
 
-##### Proyecto educativo para DAW – IES Juan Bosco
-
---- 
+Proyecto educativo para DAW – IES Juan Bosco
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/dawcarlosp/locuventas-sandbox)
